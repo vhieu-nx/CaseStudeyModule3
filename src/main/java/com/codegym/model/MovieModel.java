@@ -1,6 +1,6 @@
 package com.codegym.model;
 
-public class MovieModel {
+public class MovieModel extends AbtractModel<MovieModel> {
     private int movie_id;
     private String title;
     private String content;
