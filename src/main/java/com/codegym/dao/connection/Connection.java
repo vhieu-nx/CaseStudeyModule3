@@ -14,7 +14,7 @@ public class Connection {
             Class.forName("com.mysql.jdbc.Driver");
 
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/product_manager",
+                    "jdbc:mysql://localhost:3306/casestudymodule3",
                     "root",
                     "Aa13071997"
             );
