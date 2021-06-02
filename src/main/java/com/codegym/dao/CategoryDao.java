@@ -7,7 +7,7 @@ import java.util.List;
 public interface CategoryDao {
 
 //    thêm
-    void insert(CategoryModel categoryModel);
+    void save(CategoryModel categoryModel);
 
 //sửa
     void update(CategoryModel categoryModel);

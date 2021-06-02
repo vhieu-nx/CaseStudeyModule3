@@ -2,14 +2,16 @@ package com.codegym.dao.impl;
 
 import com.codegym.dao.CategoryDao;
 import com.codegym.model.CategoryModel;
+import com.codegym.service.CategoryService;
+import com.codegym.service.impl.CategoryServiceImpl;
 
 import java.util.List;
 
-public class CategoryDaoImpl extends AbtractDAO implements CategoryDao {
+public class CategoryImpl implements CategoryDao {
 
     @Override
-    public void insert(CategoryModel categoryModel) {
-//        String sql = "insert into category(name,moviemodel) value( ? )";
+    public void save(CategoryModel categoryModel) {
+
     }
 
     @Override
