@@ -1,10 +1,13 @@
 package com.codegym.model;
 
-public class MovieModel extends AbtractModel<MovieModel> {
+import java.util.List;
+
+public class MovieModel {
     private int movie_id;
     private String title;
     private String content;
     private String description;
+//    List<>
     private String image_movie;
     private String youtubeTrainer;
     private String videoMovie;
