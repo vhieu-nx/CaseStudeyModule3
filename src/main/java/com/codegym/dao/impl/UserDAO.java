@@ -94,4 +94,23 @@ public class UserDAO implements IUserDAO {
     public UserModel findByName(String name) {
         return null;
     }
+
+    @Override
+    public UserModel findUserName(String email,String password) {
+        UserModel userModel = null;
+        String sql = "select * from user where email = ? && password =?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,email);
+            preparedStatement.setString(2,password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String name = resultSet.getString("username");
+                userModel = new UserModel(name);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return userModel;
+    }
 }

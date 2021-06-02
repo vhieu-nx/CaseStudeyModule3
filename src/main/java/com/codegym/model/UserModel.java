@@ -13,6 +13,10 @@ public class UserModel {
         this.role = role;
     }
 
+    public UserModel(String name) {
+        this.name = name;
+    }
+
     public UserModel() {
     }
 
