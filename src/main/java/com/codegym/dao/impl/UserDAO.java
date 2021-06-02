@@ -6,6 +6,7 @@ import com.codegym.model.UserModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -63,13 +64,31 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public UserModel findById(int id) {
-        return null;
+        UserModel userModel = null;
+        String sql ="select * from user where user_id= ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,id);
+            ResultSet set = preparedStatement.executeQuery();
+            while (set.next()){
+                String name = set.getString("name");
+                String email = set.getString("email");
+                String password = set.getString("password");
+                String role = set.getString("role");
+                userModel = new UserModel(name,email,password,role);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return userModel;
     }
 
     @Override
     public List<UserModel> findListById(int id) {
         return null;
     }
+
 
     @Override
     public UserModel findByName(String name) {
