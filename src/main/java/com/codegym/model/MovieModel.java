@@ -12,6 +12,25 @@ public class MovieModel {
     public MovieModel() {
     }
 
+    public MovieModel(int movie_id, String title, String content, String description, String image_movie, String youtubeTrainer, String videoMovie) {
+        this.movie_id = movie_id;
+        this.title = title;
+        this.content = content;
+        this.description = description;
+        this.image_movie = image_movie;
+        this.youtubeTrainer = youtubeTrainer;
+        this.videoMovie = videoMovie;
+    }
+
+    public MovieModel(String title, String content, String description, String image_movie, String youtubeTrainer, String videoMovie) {
+        this.title = title;
+        this.content = content;
+        this.description = description;
+        this.image_movie = image_movie;
+        this.youtubeTrainer = youtubeTrainer;
+        this.videoMovie = videoMovie;
+    }
+
     public int getMovie_id() {
         return movie_id;
     }
