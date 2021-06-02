@@ -20,9 +20,9 @@ public class ConnectionJDBC {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 connection = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/student_manager",
-                        "sangnguyen",
-                        "677264"
+                        "jdbc:mysql://localhost:3306/casestudymodule3",
+                        "root",
+                        "123456"
                 );
                 System.out.println("yes");
             } catch (ClassNotFoundException e) {

@@ -14,7 +14,6 @@ public interface IMovieService {
 //    List<MovieModel> findAll(Pageble pageble);
 //    int getTotalItem();
     MovieModel findOne(String id);
-
     MovieModel findOneByname(String name);
 
 }

@@ -3,12 +3,16 @@ package com.codegym.service.impl;
 import com.codegym.model.MovieModel;
 import com.codegym.service.IMovieService;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class MovieService implements IMovieService {
+    public static Connection getConnection(){
+        return null;
+    }
     @Override
     public List<MovieModel> findAll() {
-        return null;
+        return  null;
     }
 
     @Override
