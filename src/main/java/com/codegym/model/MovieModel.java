@@ -1,9 +1,5 @@
 package com.codegym.model;
 
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
->>>>>>> 114cfe3806c40fd37bbc156d4a049d7d6abbb037
 import java.util.List;
 
 public class MovieModel {
@@ -11,20 +7,13 @@ public class MovieModel {
     private String title;
     private String content;
     private String description;
-<<<<<<< HEAD
-//    List<>
-=======
     List<CategoryModel> categoryModels;
->>>>>>> 114cfe3806c40fd37bbc156d4a049d7d6abbb037
     private String image_movie;
     private String youtubeTrainer;
     private String videoMovie;
 
     public MovieModel() {
     }
-
-<<<<<<< HEAD
-=======
     public List<CategoryModel> getCategoryModels() {
         return categoryModels;
     }
@@ -33,7 +22,6 @@ public class MovieModel {
         this.categoryModels = categoryModels;
     }
 
->>>>>>> 114cfe3806c40fd37bbc156d4a049d7d6abbb037
     public MovieModel(int movie_id, String title, String content, String description, String image_movie, String youtubeTrainer, String videoMovie) {
         this.movie_id = movie_id;
         this.title = title;

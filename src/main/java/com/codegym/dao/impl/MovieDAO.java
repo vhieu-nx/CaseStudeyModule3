@@ -26,7 +26,7 @@ public class MovieDAO implements IMovieDAO {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM ")
+            preparedStatement = connection.prepareStatement("SELECT * FROM ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
