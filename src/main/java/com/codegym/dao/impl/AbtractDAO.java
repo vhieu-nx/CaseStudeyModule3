@@ -28,7 +28,7 @@ public class AbtractDAO<T> implements GenericDAO<T> {
     }
 
     @Override
-    public <T1> List<T1> query(String sql, RowMapper<T1> rowMapper, Object... parameters) {
+    public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
         return null;
     }
 
