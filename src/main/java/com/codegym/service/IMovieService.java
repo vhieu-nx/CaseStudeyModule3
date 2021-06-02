@@ -1,4 +1,4 @@
 package com.codegym.service;
 
-public class IMovieService {
+public interface IMovieService {
 }
