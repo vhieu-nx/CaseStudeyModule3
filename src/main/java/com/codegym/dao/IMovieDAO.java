@@ -1,4 +1,4 @@
 package com.codegym.dao;
 
-public class IMovieDAO {
+public interface IMovieDAO {
 }
