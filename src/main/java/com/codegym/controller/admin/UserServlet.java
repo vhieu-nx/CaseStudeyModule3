@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher(" wedmovie/user.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
