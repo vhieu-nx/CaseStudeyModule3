@@ -4,7 +4,7 @@ import com.codegym.model.MovieModel;
 import com.codegym.service.IMovieService;
 import com.codegym.service.impl.MovieService;
 
-import javax.inject.Inject;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

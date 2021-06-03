@@ -18,6 +18,7 @@
 <a href="/UserServlet?action=update">Sửa tài khoản</a>
 <br>
 <a href="/UserServlet?action=remove">Xoá tài khoản</a>
+<a href="/movie?action=create">Xoá tài khoản</a>
 </body>
 </html>
 

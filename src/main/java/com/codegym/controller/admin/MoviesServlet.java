@@ -13,17 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HomeServlet", urlPatterns = "/movie")
+@WebServlet(name = "MoviesServlet", urlPatterns = "/MovieServlet")
 public class MoviesServlet extends HttpServlet {
     private static IMovieService movieService = new MovieService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        if (action != null) {
+        if (action == null) {
             action = "";
-        }
-        switch (action) {
+        }switch (action) {
             case "create":
                 showFormCreate(req, resp);
                 break;
@@ -43,7 +42,6 @@ public class MoviesServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void showAll(HttpServletRequest req, HttpServletResponse resp) {
@@ -78,13 +76,15 @@ public class MoviesServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        if (action != null) {
+        if (action == null) {
             action = "";
         }
         switch (action) {
             case "create":
                 addNewMovie(req, resp);
                 break;
+            default:
+                showAll(req,resp);
         }
     }
 }
