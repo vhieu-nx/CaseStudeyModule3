@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CategoryService {
 
-    List<CategoryModel> showAll();
+    List<CategoryModel> findAll();
 
     boolean update(HttpServletRequest request);
 

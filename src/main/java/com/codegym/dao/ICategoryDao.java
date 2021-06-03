@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface ICategoryDao {
-    List<CategoryModel> showAll();
-    void update(int categoryId,CategoryModel categoryModel) throws SQLException;
+    List<CategoryModel> findAll();
+    void update(int categoryId,CategoryModel categoryModel);
     void delete(int categoryId) throws SQLException;
     void save(CategoryModel categoryModel) throws SQLException;
 }

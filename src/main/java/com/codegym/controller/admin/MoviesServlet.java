@@ -1,5 +1,7 @@
 package com.codegym.controller.admin;
 
+import com.codegym.dao.impl.MovieDAO;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +12,6 @@ import java.io.IOException;
 public class MoviesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 
     }
 
