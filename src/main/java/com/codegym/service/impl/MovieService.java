@@ -12,6 +12,9 @@ public class MovieService implements IMovieService {
     private static final String SELECT_ALL_USER = "SELECT *FROM movies";
     private static final String INSERT_USER_SQL = "Select move_id,title,content,description,image_movie,youtubeTrainer,videoMovie value (?,?,?,?,?,?)";
     private static final String INSERT_NEW_MOVIES_CATEGORY = "insert into categorymovie (id_category, move_id) VALUE (?, ?)";
+    private static final String UPDATE_MOVIE_FROM_MOVIE ="UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where movie_id =?";
+    private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,movie_id) value (?,?)";
+    ;
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
@@ -100,6 +103,24 @@ public class MovieService implements IMovieService {
 
     @Override
     public void update(MovieModel movieModel) {
-
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_MOVIE_FROM_MOVIE);
+            preparedStatement.setString(1,movieModel.getTitle());
+            preparedStatement.setString(2,movieModel.getContent());
+            preparedStatement.setString(3,movieModel.getDescription());
+            preparedStatement.setString(4,movieModel.getImage_movie());
+            preparedStatement.setString(5,movieModel.getYoutubeTrainer());
+            preparedStatement.setString(6,movieModel.getVideoMovie());
+            preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE);
+            for (int i = 0; i <movieModel.getCategoryModels().size() ; i++) {
+                preparedStatement1.setInt(1,movieModel.getMovie_id());
+                preparedStatement1.setInt(2,movieModel.getCategoryModels().get(i).getCategory_id());
+                preparedStatement1.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
