@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Mr.Nguyen
-  Date: 6/3/2021
-  Time: 1:31 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -12,6 +6,7 @@
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
+<<<<<<< HEAD
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
@@ -1347,6 +1342,16 @@
     </body>
 
 </html>
+=======
+    <title>Title</title>
+</head>
+<body>
+<%--<a href="/UserServlet?action=create">Tao tài khoản</a>--%>
+<%--<br>--%>
+<%--<a href="/UserServlet?action=update">Sửa tài khoản</a>--%>
+<%--<br>--%>
+<%--<a href="/UserServlet?action=remove">Xoá tài khoản</a>--%>
+>>>>>>> f089430e58cee8ddce6ddf480928363cb0682ca2
 <a href="/UserServlet?action=create">Tao tài khoản</a>
 <br>
 <a href="/UserServlet?action=update">Sửa tài khoản</a>

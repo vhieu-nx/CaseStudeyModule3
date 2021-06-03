@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+<div>
         <table border="1" cellpadding="5">
             <thead>
             <tr>
@@ -36,5 +37,6 @@
             </c:forEach>
             </tbody>
         </table>
+</div>
 </body>
 </html>
