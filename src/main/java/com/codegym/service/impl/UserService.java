@@ -17,6 +17,22 @@ public class UserService implements IUserService {
 
     UserDAO userDAO = new UserDAO();
 
+
+    @Override
+    public void showAllUserClient(HttpServletRequest request, HttpServletResponse response) {
+        String jsp ="wedmovie/adminuser/listuserclient.jsp";
+        RequestDispatcher requestDispatcher= request.getRequestDispatcher(jsp);
+        List<UserModel> userModels = userDAO.showAll();
+        request.setAttribute("user",userModels);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void createFormUser(HttpServletRequest request, HttpServletResponse response) {
         String jsp = "wedmovie/createuser.jsp";
@@ -41,7 +57,7 @@ public class UserService implements IUserService {
 
     @Override
     public void updateFormB1User(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "wedmovie/update/update1.jsp";
+        String jsp = "wedmovie/updateuser/update1.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request,response);
@@ -54,7 +70,7 @@ public class UserService implements IUserService {
 
     @Override
     public void updateFormB2User(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "wedmovie/update/update2.jsp";
+        String jsp = "wedmovie/updateuser/update2.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request,response);

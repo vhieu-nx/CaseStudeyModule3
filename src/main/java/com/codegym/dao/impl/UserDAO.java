@@ -8,13 +8,30 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO implements IUserDAO {
     Connection connection = ConnectionJDBC.getConnection();
     @Override
     public List<UserModel> showAll() {
-        return null;
+        List<UserModel> list = new ArrayList<>();
+        String sql = "select * from user where role = 'CLIENT'";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String name = resultSet.getString("username");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                UserModel userModel= new UserModel(name,email, password);
+                list.add(userModel);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return list;
     }
 
     @Override
@@ -35,20 +52,6 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void update(int id, UserModel userModel) {
-//        String sql = "update user set username = ?,email = ?,password = ?,role = ? where user_id = ?";
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setString(1,userModel.getName());
-//            preparedStatement.setString(2,userModel.getEmail());
-//            preparedStatement.setString(3,userModel.getPassword());
-//            preparedStatement.setString(4,"CLIENT");
-//            preparedStatement.setInt(5,id);
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
-
-
     }
 
 

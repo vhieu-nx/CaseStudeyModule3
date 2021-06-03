@@ -74,7 +74,7 @@
                                         <li>
                                             <a href="#" class="notification-item">
                                                 <div class="img-col">
-                                                    <div class="img" style="background-image: url('assets/faces/5.jpg')"></div>
+                                                    <div class="img" style="background-image: url('assets/Sfaces/5.jpg')"></div>
                                                 </div>
                                                 <div class="body-col">
                                                     <p>

@@ -10,5 +10,4 @@ public interface IGeneralDao<T> {
     void delete(String id);
     void update(T t);
 
-
 }
