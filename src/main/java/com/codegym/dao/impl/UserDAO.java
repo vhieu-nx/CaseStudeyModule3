@@ -19,13 +19,14 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void save(UserModel userModel) {
-        String sql = "insert into user(username, email, password, role) value ('?','?','?','?')";
+        String sql = "insert into user(username, email, password, role) value (?,?,?,?)";
+//        String sql1 = "insert into user(username, email, password, role) value ('sang','sang@gmail.com','123456789','CLIENT');"
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,userModel.getName());
             preparedStatement.setString(2,userModel.getEmail());
             preparedStatement.setString(3,userModel.getPassword());
-            preparedStatement.setString(4,userModel.getRole());
+            preparedStatement.setString(4,"CLIENT");
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -34,19 +35,37 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void update(int id, UserModel userModel) {
-        String sql = "update user set username = ?,email = ?,password = ?,role = ? where user_id = ?";
+//        String sql = "update user set username = ?,email = ?,password = ?,role = ? where user_id = ?";
+//        try {
+//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//            preparedStatement.setString(1,userModel.getName());
+//            preparedStatement.setString(2,userModel.getEmail());
+//            preparedStatement.setString(3,userModel.getPassword());
+//            preparedStatement.setString(4,"CLIENT");
+//            preparedStatement.setInt(5,id);
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+
+
+    }
+
+
+    @Override
+    public void updateUser(String email, UserModel userModel) {
+        String sql = "update user set username = ?,email = ?,password = ?,role = ? where email = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,userModel.getName());
-            preparedStatement.setString(2,userModel.getEmail());
+            preparedStatement.setString(2,email);
             preparedStatement.setString(3,userModel.getPassword());
-            preparedStatement.setString(4,userModel.getRole());
-            preparedStatement.setInt(5,id);
+            preparedStatement.setString(4,"CLIENT");
+            preparedStatement.setString(5,email);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
 
     }
 
@@ -106,11 +125,35 @@ public class UserDAO implements IUserDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 String name = resultSet.getString("username");
-                userModel = new UserModel(name);
+                String role = resultSet.getString("role");
+                userModel = new UserModel(name,email,password,role);
+
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return userModel;
     }
+
+    @Override
+    public UserModel findByEmail(String email) {
+        UserModel userModel = null;
+        String sql = "select * from user where email = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String name = resultSet.getString("username");
+                String password = resultSet.getString("username");
+                String role = resultSet.getString("role");
+                userModel = new UserModel(name,email,password,role);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return userModel;
+    }
+
+
 }

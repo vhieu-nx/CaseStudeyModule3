@@ -4,5 +4,9 @@ import com.codegym.model.UserModel;
 
 public interface IUserDAO extends InterfaceDAO<UserModel>{
     UserModel findUserName(String email,String password);
+    UserModel findByEmail(String email);
+    void updateUser(String email, UserModel userModel);
+
+
 
 }
