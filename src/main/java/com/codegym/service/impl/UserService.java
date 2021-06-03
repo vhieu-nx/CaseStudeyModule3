@@ -3,6 +3,7 @@ package com.codegym.service.impl;
 
 import com.codegym.dao.impl.UserDAO;
 import com.codegym.model.UserModel;
+import com.codegym.service.IUserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.*;
@@ -12,10 +13,28 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.List;
 
-public class UserService {
+public class UserService implements IUserService {
+
     UserDAO userDAO = new UserDAO();
-//    Form them moi user
-    public void createFormUser(HttpServletRequest request, HttpServletResponse response){
+
+
+    @Override
+    public void showAllUserClient(HttpServletRequest request, HttpServletResponse response) {
+        String jsp ="wedmovie/adminuser/listuserclient.jsp";
+        RequestDispatcher requestDispatcher= request.getRequestDispatcher(jsp);
+        List<UserModel> userModels = userDAO.showAll();
+        request.setAttribute("user",userModels);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void createFormUser(HttpServletRequest request, HttpServletResponse response) {
         String jsp = "wedmovie/createuser.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
@@ -27,10 +46,8 @@ public class UserService {
         }
     }
 
-
-
-//    Them moi User
-    public void createUser(HttpServletRequest request, HttpServletResponse response){
+    @Override
+    public void createUser(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -38,8 +55,9 @@ public class UserService {
         userDAO.save(userModel);
     }
 
-    public void updateFormB1User(HttpServletRequest request, HttpServletResponse response){
-        String jsp = "wedmovie/update/update1.jsp";
+    @Override
+    public void updateFormB1User(HttpServletRequest request, HttpServletResponse response) {
+        String jsp = "wedmovie/updateuser/update1.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request,response);
@@ -50,8 +68,9 @@ public class UserService {
         }
     }
 
-    public void updateFormB2User(HttpServletRequest request, HttpServletResponse response){
-        String jsp = "wedmovie/update/update2.jsp";
+    @Override
+    public void updateFormB2User(HttpServletRequest request, HttpServletResponse response) {
+        String jsp = "wedmovie/updateuser/update2.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request,response);
@@ -62,7 +81,8 @@ public class UserService {
         }
     }
 
-    public void updateB1User(HttpServletRequest request, HttpServletResponse response){
+    @Override
+    public void updateB1User(HttpServletRequest request, HttpServletResponse response) {
         String email;
         UserModel userModel = new UserModel();
         try {
@@ -86,9 +106,10 @@ public class UserService {
             e.printStackTrace();
         }
 
-
     }
-    public void updateB2User(HttpServletRequest request, HttpServletResponse response){
+
+    @Override
+    public void updateB2User(HttpServletRequest request, HttpServletResponse response) {
         String email = request.getParameter("email");
         UserModel userModel = userDAO.findByEmail(email);
         if (userModel!= null){
@@ -100,10 +121,7 @@ public class UserService {
 //            làm sau
 //            ......
 //            .......
-
         }
-
-
 
     }
 

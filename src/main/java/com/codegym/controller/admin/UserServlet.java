@@ -1,5 +1,6 @@
 package com.codegym.controller.admin;
 
+import com.codegym.service.IUserService;
 import com.codegym.service.impl.UserService;
 
 import javax.servlet.*;
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet(name = "UserServlet", value = "/UserServlet")
 public class UserServlet extends HttpServlet {
-    UserService userService = new UserService();
+    IUserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
