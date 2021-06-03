@@ -12,10 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-<form class="form-inline my-2 my-lg-0" method="get" action="MovieServlet?action=search">
-    <input class="form-control mr-sm-2" type="search" name="txtSearchValue" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">Search</button>
-</form>
 <div>
     <c:set var="listMovie" value="${requestScope.listUser}"/>
     <c:if test="${not empty listMovie}">
