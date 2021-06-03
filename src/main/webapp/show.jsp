@@ -12,13 +12,10 @@
     <title>Title</title>
 </head>
 <body>
-<form class="form-inline my-2 my-lg-0" method="get" action="movie?action=search">
+<form class="form-inline my-2 my-lg-0" method="get" action="MovieServlet?action=search">
     <input class="form-control mr-sm-2" type="search" name="txtSearchValue" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">Search</button>
 </form>
-<c:redirect url="movie">
-
-</c:redirect>
 <div>
     <c:set var="listMovie" value="${requestScope.listUser}"/>
     <c:if test="${not empty listMovie}">
@@ -55,7 +52,7 @@
                     <td>${movie.image_movie}</td>
                     <td>${movie.youtubeTrainer}</td>
                     <td>${movie.videoMovie}</td>
-                    <c:url var="delete" value="movie">
+                    <c:url var="delete" value="/MovieServlet">
                         <c:param name="action" value="delete"/>
                         <c:param name="txtUser" value="${movie.getUsername()}"/>
                         <c:param name="txtSearchValue" value="${param.txtSearchValue}"/>

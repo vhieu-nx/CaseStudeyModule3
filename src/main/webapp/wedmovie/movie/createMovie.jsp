@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="movie" method="post">
+<form action="MovieServlet" method="post">
     Title <input type="text" name="title" value=""><br/>
     Content <input type="password" name="content" value=""><br/>
     Description <input type="text" name="description" value=""><br/>
