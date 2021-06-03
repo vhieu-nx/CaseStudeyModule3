@@ -14,10 +14,9 @@ public interface IMovieService {
 //    List<MovieModel> findAll(Pageble pageble);
     int getTotalItem();
     MovieModel findOne(String id);
-//<<<<<<< HEAD
-//
-//=======
-//>>>>>>> 114cfe3806c40fd37bbc156d4a049d7d6abbb037
     MovieModel findOneByname(String name);
 
+////=======
+//public interface IMovieService extends IGeneralDao<MovieModel> {
+////>>>>>>> a353a8de8711ac9b2356acbc96d1326e9d2bdb39
 }
