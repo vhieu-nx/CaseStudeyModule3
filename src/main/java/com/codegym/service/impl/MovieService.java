@@ -16,9 +16,55 @@ public class MovieService implements IMovieService {
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
     }
+
     @Override
-    public List<MovieModel> findAll() {
-       List<MovieModel> movies = new ArrayList<>();
+    public void insert(MovieModel movieModel,int[] categories) {
+        int movie_id = 0;
+        Connection connection = getConnection();
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_SQL, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, movieModel.getTitle());
+            preparedStatement.setString(2, movieModel.getContent());
+            preparedStatement.setString(3, movieModel.getDescription());
+            preparedStatement.setString(4, movieModel.getImage_movie());
+            preparedStatement.setString(5, movieModel.getYoutubeTrainer());
+            preparedStatement.setString(6, movieModel.getVideoMovie());
+            preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            while (resultSet.next()){
+                movie_id = resultSet.getInt(1);
+            }
+            PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_NEW_MOVIES_CATEGORY);
+            for (int id_category : categories){
+                preparedStatement1.setInt(1,id_category);
+                preparedStatement1.setInt(2,movie_id);
+                preparedStatement1.executeUpdate();
+            }
+            connection.commit();
+        } catch (SQLException throwables) {
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public MovieModel selectUserByID(String id) {
+        return null;
+    }
+
+    @Override
+    public List<MovieModel> selectUserByName(String inputSearch) {
+        return null;
+    }
+
+    @Override
+    public List<MovieModel> selectAll() {
+        List<MovieModel> movies = new ArrayList<>();
         Connection connection = getConnection();
         try {
             connection.setAutoCommit(false);
@@ -48,56 +94,12 @@ public class MovieService implements IMovieService {
     }
 
     @Override
-    public void save(MovieModel addMovie,int[] categories) {
-        int movie_id = 0;
-        Connection connection = getConnection();
-        try {
-            connection.setAutoCommit(false);
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_SQL, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, addMovie.getTitle());
-            preparedStatement.setString(2, addMovie.getContent());
-            preparedStatement.setString(3, addMovie.getDescription());
-            preparedStatement.setString(4, addMovie.getImage_movie());
-            preparedStatement.setString(5, addMovie.getYoutubeTrainer());
-            preparedStatement.setString(6, addMovie.getVideoMovie());
-            preparedStatement.executeUpdate();
-            ResultSet resultSet = preparedStatement.getGeneratedKeys();
-            while (resultSet.next()){
-                movie_id = resultSet.getInt(1);
-            }
-            PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_NEW_MOVIES_CATEGORY);
-            for (int id_category : categories){
-                preparedStatement1.setInt(1,id_category);
-                preparedStatement1.setInt(2,movie_id);
-                preparedStatement1.executeUpdate();
-            }
-            connection.commit();
-        } catch (SQLException throwables) {
-            try {
-                connection.rollback();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            throwables.printStackTrace();
-        }
-    }
-    @Override
-    public MovieModel update(MovieModel updateProduct) {
-        return null;
-    }
-
-    @Override
-    public void delete(String[] ids) {
+    public void delete(String id) {
 
     }
 
     @Override
-    public MovieModel findOne(String id) {
-        return null;
-    }
+    public void update(MovieModel movieModel) {
 
-    @Override
-    public MovieModel findOneByname(String name) {
-        return null;
     }
 }
