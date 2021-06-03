@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "UserServlet", value = "")
+@WebServlet(name = "UserServlet", value = "/UserServlet")
 public class UserServlet extends HttpServlet {
     UserService userService = new UserService();
 
@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(" wedmovie/user.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
