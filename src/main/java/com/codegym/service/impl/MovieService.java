@@ -16,13 +16,13 @@ public class MovieService implements IMovieService {
 
     @Override
     public List<MovieModel> findAll() {
-        return null;
+        return null;}
     private static final String SELECT_ALL_USER = "SELECT *FROM movies";
     private static final String INSERT_USER_SQL = "Select move_id,title,content,description,image_movie,youtubeTrainer,videoMovie value (?,?,?,?,?,?)";
     private static final String INSERT_NEW_MOVIES_CATEGORY = "insert into categorymovie (id_category, move_id) VALUE (?, ?)";
     private static final String UPDATE_MOVIE_FROM_MOVIE ="UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where movie_id =?";
     private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,movie_id) value (?,?)";
-    ;
+
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
