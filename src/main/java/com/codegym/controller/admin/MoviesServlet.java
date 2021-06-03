@@ -77,6 +77,14 @@ public class MoviesServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String action = req.getParameter("action");
+        if (action != null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                addNewMovie(req, resp);
+                break;
+        }
     }
 }
