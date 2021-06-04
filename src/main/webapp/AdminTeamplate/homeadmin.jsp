@@ -1,4 +1,11 @@
-<!doctype html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 9:02 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="en">
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -137,18 +144,18 @@
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
                                 <li class="active">
-                                    <a href="index-2.html">
+                                    <a href="#">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
-                                    <a href="items-list.html">
+                                    <a href="items-list.jsp">
                                         <i class="fa fa-th-large"></i> Items List
                                     </a>
                                 </li>
                                 
                                 
                                 <li>
-                                    <a href="forms.html">
+                                    <a href="forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>
                                 </li>
                                 
@@ -159,25 +166,25 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="login.html"> Login </a>
+                                            <a href="login.jsp"> Login </a>
                                         </li>
                                         <li>
-                                            <a href="signup.html"> Sign Up </a>
+                                            <a href="signup.jsp"> Sign Up </a>
                                         </li>
                                         <li>
-                                            <a href="reset.html"> Reset </a>
+                                            <a href="reset.jsp"> Reset </a>
                                         </li>
                                         <li>
-                                            <a href="error-404.html"> Error 404 App </a>
+                                            <a href="error-404.jsp"> Error 404 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-404-alt.html"> Error 404 Global </a>
+                                            <a href="error-404-alt.jsp"> Error 404 Global </a>
                                         </li>
                                         <li>
-                                            <a href="error-500.html"> Error 500 App </a>
+                                            <a href="error-500.jsp"> Error 500 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-500-alt.html"> Error 500 Global </a>
+                                            <a href="error-500-alt.jsp"> Error 500 Global </a>
                                         </li>
                                     </ul>
                                 </li>

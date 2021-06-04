@@ -1,7 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="zxx">
-	
-<head>
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 8:51 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,18 +62,10 @@
 						<div class="responsive-menu"></div>
 					    <div class="mainmenu">
                             <ul id="primary-menu">
-                                <li><a class="active" href="index-2.html">Home</a></li>
-                                <li><a href="movies.html">Movies</a></li>
-                                <li><a href="celebrities.html">CelebritiesList</a></li>
-                                <li><a href="top-movies.html">Top Movies</a></li>
-                                <li><a href="blog.html">News</a></li>
-								<li><a class="active" href="#">Pages <i class="icofont icofont-simple-down"></i></a>
-									<ul>
-										<li><a href="blog-details.html">Blog Details</a></li>
-										<li><a class="active" href="movie-details.html">Movie Details</a></li>
-									</ul>
-								</li>
-                                <li><a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i> Tickets</a></li>
+                                <li><a href="index-2.jsp">Home</a></li>
+                                <li><a class="active" href="movies.jsp">Movies</a></li>
+                                <li><a href="top-movies.jsp">Top Movies</a></li>
+
                             </ul>
 					    </div>
 					</div>
@@ -339,185 +337,288 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="breadcrumb-area-content">
-							<h1>Movie Detalied Page</h1>
+							<h1>Movies Page</h1>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section><!-- breadcrumb area end -->
-		<!-- transformers area start -->
-		<section class="transformers-area">
+		<!-- portfolio section start -->
+		<section class="portfolio-area pt-60">
 			<div class="container">
-				<div class="transformers-box">
-					<div class="row flexbox-center">
-						<div class="col-lg-5 text-lg-left text-center">
-							<div class="transformers-content">
-								<img src="assets/img/slide2.png" alt="about" />
-							</div>
+				<div class="row flexbox-center">
+					<div class="col-lg-6 text-center text-lg-left">
+					    <div class="section-title">
+							<h1><i class="icofont icofont-movie"></i> Spotlight This Month</h1>
 						</div>
-						<div class="col-lg-7">
-							<div class="transformers-content">
-								<h2>The Transformers</h2>
-								<p>3D | Animation | Action | Sci-Fi</p>
-								<ul>
-									<li>
-										<div class="transformers-left">
-											Movie:
-										</div>
-										<div class="transformers-right">
-											<a href="#">Sci-Fic</a>
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Writer:
-										</div>
-										<div class="transformers-right">
-											Stephen McFeely, Christopher Markus
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Director:
-										</div>
-										<div class="transformers-right">
-											Joe Johnston
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Time: 
-										</div>
-										<div class="transformers-right">
-											190m
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Release:
-										</div>
-										<div class="transformers-right">
-											2018-07-22
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Language:
-										</div>
-										<div class="transformers-right">
-											English, Russian
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Cinema:
-										</div>
-										<div class="transformers-right">
-											HB Movies  |  HW Town <a href="#" class="theme-btn">Movies House</a>Grand Seats  |  HB Max
-											<div class="transformers-bottom">
-												<p>May 19, 2018 <span>15h47</span></p>
-												<p>May 19, 2018 <span>15h47</span></p>
-												<p>May 19, 2018 <span>15h47</span></p>
-											</div>
-											
-										</div>
-									</li>
-									<li>
-										<div class="transformers-left">
-											Share:
-										</div>
-										<div class="transformers-right">
-											<a href="#"><i class="icofont icofont-social-facebook"></i></a>
-											<a href="#"><i class="icofont icofont-social-twitter"></i></a>
-											<a href="#"><i class="icofont icofont-social-google-plus"></i></a>
-											<a href="#"><i class="icofont icofont-youtube-play"></i></a>
-										</div>
-									</li>
-								</ul>
+					</div>
+					<div class="col-lg-6 text-center text-lg-right">
+					    <div class="portfolio-menu">
+							<ul>
+								<li data-filter="*" class="active">Latest</li>
+								<li data-filter=".soon">Comming Soon</li>
+								<li data-filter=".top">Top Rated</li>
+								<li data-filter=".released">Recently Released</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<hr />
+				<div class="row portfolio-item">
+					<div class="col-lg-3 col-md-4 col-sm-6 soon released">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio1.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>Boyz II Men</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
 							</div>
 						</div>
 					</div>
-					<a href="#" class="theme-btn"><i class="icofont icofont-ticket"></i> BUY TICKET</a>
+					<div class="col-lg-3 col-md-4 col-sm-6 top">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio2.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>Tale of Revemge</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 soon">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio3.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>The Lost City of Z</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 top released">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio4.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>Beast Beauty</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 released">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio5.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>In The Fade</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 soon top">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio6.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>Last Hero</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 soon">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio3.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>The Lost City of Z</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 top released">
+						<div class="single-portfolio">
+							<div class="single-portfolio-img">
+								<img src="assets/img/portfolio/portfolio4.png" alt="portfolio" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="portfolio-content">
+								<h2>Beast Beauty</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters</h4>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</section><!-- transformers area end -->
-		<!-- details area start -->
-		<section class="details-area">
+		</section><!-- portfolio section end -->
+		<!-- video section start -->
+		<section class="video ptb-90">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-9">
-						<div class="details-content">
-							<div class="details-overview">
-								<h2>Overview</h2>
-								<p>Humans are at war with the Transformers, and Optimus Prime is gone. The key to saving the future lies buried in the secrets of the past and the hidden history of Transformers on Earth. Now it's up to the unlikely alliance of inventor Cade Yeager, Bumblebee, a n English lord and an Oxford professor to save the world. Transformers: The Last Knight has a deeper mythos and bigger spectacle than its predecessors, yet still ends up being mostly hollow and cacophonous. The first "Transformers" movie that could actually be characterized as badass. Which isn't a bad thing. It may, in fact, be better.</p>
-							</div>
-							<div class="details-reply">
-								<h2>Leave a Reply</h2>
-								<form action="#">
-									<div class="row">
-										<div class="col-lg-4">
-											<div class="select-container">
-												<input type="text" placeholder="Name"/>
-												<i class="icofont icofont-ui-user"></i>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="select-container">
-												<input type="text" placeholder="Email"/>
-												<i class="icofont icofont-envelope"></i>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="select-container">
-												<input type="text" placeholder="Phone"/>
-												<i class="icofont icofont-phone"></i>
-											</div>
-										</div>
-										<div class="col-lg-12">
-											<div class="textarea-container">
-												<textarea placeholder="Type Here Message"></textarea>
-												<button><i class="icofont icofont-send-mail"></i></button>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-							<div class="details-comment">
-								<a class="theme-btn theme-btn2" href="#">Post Comment</a>
-								<p>You may use these HTML tags and attributes: You may use these HTML tags and attributes: You may use these HTML tags and attributes: </p>
-							</div>
-							<div class="details-thumb">
-								<div class="details-thumb-prev">
-									<div class="thumb-icon">
-										<i class="icofont icofont-simple-left"></i>
-									</div>
-									<div class="thumb-text">
-										<h4>Previous Post</h4>
-										<p>Standard Post With Gallery</p>
-									</div>
-								</div>
-								<div class="details-thumb-next">
-									<div class="thumb-text">
-										<h4>Next Post</h4>
-										<p>Standard Post With Preview Image</p>
-									</div>
-									<div class="thumb-icon">
-										<i class="icofont icofont-simple-right"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 text-center text-lg-left">
-					    <div class="portfolio-sidebar">
-							<img src="assets/img/sidebar/sidebar1.png" alt="sidebar" />
-							<img src="assets/img/sidebar/sidebar2.png" alt="sidebar" />
-							<img src="assets/img/sidebar/sidebar4.png" alt="sidebar" />
+					<div class="col-lg-12">
+					    <div class="section-title pb-20">
+							<h1><i class="icofont icofont-film"></i> Trailers & Videos</h1>
 						</div>
 					</div>
 				</div>
+				<hr />
+				<div class="row">
+                    <div class="col-md-12">
+						<div class="video-slider mt-20">
+							<div class="video-area">
+								<img src="assets/img/video/video2.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video3.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video4.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video5.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video2.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video3.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video4.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+							<div class="video-area">
+								<img src="assets/img/video/video5.png" alt="video" />
+								<a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+									<i class="icofont icofont-ui-play"></i>
+								</a>
+							</div>
+						</div>
+                    </div>
+				</div>
 			</div>
-		</section><!-- details area end -->
+		</section><!-- video section end -->
 		<!-- footer section start -->
 		<footer class="footer">
 			<div class="container">

@@ -1,7 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="zxx">
-	
-<head>
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 8:49 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,10 +62,9 @@
 						<div class="responsive-menu"></div>
 					    <div class="mainmenu">
                             <ul id="primary-menu">
-                                <li><a class="active" href="index-2.html">Home</a></li>
-                                <li><a href="movies.html">Movies</a></li>
-                                <li><a href="#">CelebritiesList</a></li>
-                                <li><a href="top-movies.html">Top Movies</a></li>
+                                <li><a class="active" href="index-2.jsp">Home</a></li>
+                                <li><a href="movies.jsp">Movies</a></li>
+                                <li><a href="top-movies.jsp">Top Movies</a></li>
                             
 							
                                 
