@@ -396,7 +396,7 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="Xóa phim">
+                                                        <a class="remove" href="MovieServlet?action=delete&id=${movies.movie_id}" title="Xóa phim">
                                                             <i class="fa fa-trash-o "></i>
                                                         </a>
                                                     </li>
@@ -406,7 +406,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="delete" href="MovieServlet?action=create" title="Sửa phim">
+                                                        <a class="delete" href="MovieServlet?action=edit" title="Sửa phim">
                                                            <i class="fas fa-edit"></i>
                                                         </a>
                                                     </li>

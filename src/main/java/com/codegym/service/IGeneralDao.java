@@ -7,7 +7,7 @@ public interface IGeneralDao<T> {
     T selectUserByID(int id);
     List<T> selectUserByName(String inputSearch);
     List<T> selectAll();
-    void delete(String id);
+    void delete(int id);
     void update(T t);
 
 }

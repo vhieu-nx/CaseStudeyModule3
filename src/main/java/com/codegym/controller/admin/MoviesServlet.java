@@ -33,9 +33,22 @@ public class MoviesServlet extends HttpServlet {
                 break;
             case "edit":
                 showFormEdit(req,resp);
+            case "delete":
+                deleteMovie(req,resp);
+                break;
             default:
                 showAll(req, resp);
                 break;
+        }
+    }
+
+    private void deleteMovie(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        movieService.delete(id);
+        try {
+            resp.sendRedirect(req.getContextPath() + "/MovieServlet");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -119,8 +132,15 @@ public class MoviesServlet extends HttpServlet {
             case "create":
                 addNewMovie(req, resp);
                 break;
+            case "edit":
+                updateMovie(req,resp);
+                break;
             default:
                 showAll(req, resp);
         }
+    }
+
+    private void updateMovie(HttpServletRequest req, HttpServletResponse resp) {
+
     }
 }

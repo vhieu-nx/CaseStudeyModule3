@@ -17,7 +17,8 @@ public class MovieService implements IMovieService {
     private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,movie_id) value (?,?)";
     private static final String SELECT_MOVIE_ID ="SELECT  * FROM movies where move_id = ?" ;
     private static final String SELECT_CATEGORIES_BY_MOVIEID ="" ;
-    private static final String DELETE_MOVIE_FROM_CATEGORYMOIVE = "DELETE FROM id_category where movie_id = ?";
+    private static final String DELETE_MOVIE_FROM_CATEGORYMOIVE = "DELETE FROM categorymovie where move_id = ?";
+    private static final String DELETE_MOVIE_FROM_MOVIE ="DELETE FROM movies where move_id=?" ;
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
@@ -118,7 +119,20 @@ public class MovieService implements IMovieService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(int id) {
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement1 = null;
+        try {
+            preparedStatement =  connection.prepareStatement(DELETE_MOVIE_FROM_CATEGORYMOIVE);
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+            preparedStatement1 = connection.prepareStatement(DELETE_MOVIE_FROM_MOVIE);
+            preparedStatement1.setInt(1,id);
+            preparedStatement1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
