@@ -22,8 +22,8 @@ public class ConnectionJDBC {
                 connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/casestudymodule3",
 
-                        "sangnguyen",
-                        "677264"
+                        "root",
+                        "123456"
                 );
                 System.out.println("yes");
             } catch (ClassNotFoundException e) {
