@@ -14,7 +14,6 @@ public class MovieService implements IMovieService {
     @Override
     public List<MovieModel> findAll() {
         return null;
-//>>>>>>>114 cfe3806c40fd37bbc156d4a049d7d6abbb037
     }
 
     @Override

@@ -1,19 +1,13 @@
 package com.codegym.controller.admin;
-
-import com.codegym.dao.impl.CategoryDAO;
-import com.codegym.model.CategoryModel;
 import com.codegym.service.CategoryService;
 import com.codegym.service.impl.CategoryServiceImpl;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+
 
 @WebServlet(name = "CategoriesServlet", value = "/admin-categories")
 public class CategoriesServlet extends HttpServlet {
@@ -26,17 +20,18 @@ public class CategoriesServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-
         switch (action) {
-//            case "create":
-//                req.getRequestDispatcher("/category/create.jsp").forward(req, resp);
-//                break;
+            case "create":
+                categoryService.save(req, resp);
+                req.getRequestDispatcher("/category/create.jsp").forward(req, resp);
+                break;
             case "delete":
                 categoryService.delete(req);
                 resp.sendRedirect("/admin-categories");
                 break;
             case "update":
                 categoryService.update(req);
+                req.getRequestDispatcher("/category/update.jsp");
                 break;
             default:
                 findALL(req, resp, categoryService, "/category/list.jsp");
@@ -49,6 +44,28 @@ public class CategoriesServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                categoryService.save(req, resp);
+                findALL(req, resp, categoryService, "/category/list.jsp");
+
+                break;
+            case "delete":
+                categoryService.delete(req);
+                findALL(req, resp, categoryService, "/category/list.jsp");
+
+                break;
+            case "update":
+                categoryService.update(req);
+                findALL(req, resp, categoryService, "/category/list.jsp");
+                break;
+            default:
+                findALL(req, resp, categoryService, "/category/list.jsp");
+        }
     }
 }
