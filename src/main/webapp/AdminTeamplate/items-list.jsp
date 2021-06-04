@@ -401,7 +401,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="MovieServlet?action=create" title="Thêm bài viết">
+<%--                                                        MovieServlet?action=edit&id=${movies.movie_id}--%>
+                                                        <a  href="MovieServlet?action=create" title="ADDNEW Movie">
                                                             <i class="fas fa-plus-circle"></i>
                                                         </a>
                                                     </li>
