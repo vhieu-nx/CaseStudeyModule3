@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Mr.Nguyen
   Date: 6/4/2021
-  Time: 9:02 AM
+  Time: 3:52 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,7 +16,7 @@
     <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.html">
+    <link rel="apple-touch-icon" href="apple-touch-icon.jsp">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="css/vendor.css">
     <!-- Theme initialization -->
@@ -441,7 +441,7 @@
                         <label class="col-sm-2 form-control-label text-xs-right"> Category: </label>
                         <div class="col-sm-10">
                             <select class="c-select form-control boxed" name="categories" multiple>
-<%--                                <option selected>Select Category</option>--%>
+                                <%--                                <option selected>Select Category</option>--%>
                                 <c:forEach items="${categories}" var="category" >
                                     <option value="${category.category_id}">${category.name}</option>
                                 </c:forEach>
@@ -667,3 +667,4 @@
 </body>
 
 </html>
+

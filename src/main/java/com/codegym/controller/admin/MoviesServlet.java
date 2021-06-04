@@ -1,7 +1,10 @@
 package com.codegym.controller.admin;
 
+import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
+import com.codegym.service.CategoryService;
 import com.codegym.service.IMovieService;
+import com.codegym.service.impl.CategoryServiceImpl;
 import com.codegym.service.impl.MovieService;
 
 import javax.servlet.RequestDispatcher;
@@ -16,15 +19,22 @@ import java.util.List;
 @WebServlet(name = "MoviesServlet", urlPatterns = "/MovieServlet")
 public class MoviesServlet extends HttpServlet {
     private static IMovieService movieService = new MovieService();
+    private static CategoryService categoryService = new CategoryServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
-        }switch (action) {
+        }
+        switch (action) {
             case "create":
                 showFormCreate(req, resp);
+                break;
+            case "edit":
+                showFormEdit(req,resp);
+            case "delete":
+                deleteMovie(req,resp);
                 break;
             default:
                 showAll(req, resp);
@@ -32,11 +42,40 @@ public class MoviesServlet extends HttpServlet {
         }
     }
 
-    private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) {
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("movie/createMovie");
-//            req.setAttribute("categories",);
+    private void deleteMovie(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        movieService.delete(id);
+        try {
+            resp.sendRedirect(req.getContextPath() + "/MovieServlet");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showFormEdit(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        MovieModel movieModel = new MovieModel();
+        List<CategoryModel> categoryModels = categoryService.findAll();
+        req.setAttribute("movie",movieModel);
+        req.setAttribute("categories",categoryModels);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/EditFormMovie.jsp");
         try {
             requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) {
+        List<CategoryModel> categoryModels = categoryService.findAll();
+        req.setAttribute("categories", categoryModels);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/item-editor.jsp");
+        try {
+            requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -47,7 +86,33 @@ public class MoviesServlet extends HttpServlet {
     private void showAll(HttpServletRequest req, HttpServletResponse resp) {
         List<MovieModel> movieModels = movieService.selectAll();
         req.setAttribute("listMovie", movieModels);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("show.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/items-list.jsp");
+        try {
+            requestDispatcher.forward(req, resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addNewMovie(HttpServletRequest req, HttpServletResponse resp) {
+
+
+        String title = req.getParameter("title");
+        String content = req.getParameter("content");
+        String description = req.getParameter("description");
+        String image = req.getParameter("image");
+        String trainer = req.getParameter("trainer");
+        String movie = req.getParameter("movie");
+        String[] categoriesSr = req.getParameterValues("categories");
+        int[] categories = new int[categoriesSr.length];
+        for (int i = 0; i < categoriesSr.length; i++) {
+            categories[i] = Integer.parseInt(categoriesSr[i]);
+        }
+        MovieModel movieModel = new MovieModel(title, content, description, image, trainer, movie);
+        movieService.insert(movieModel, categories);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/items-list.jsp");
         try {
             requestDispatcher.forward(req,resp);
         } catch (ServletException e) {
@@ -57,22 +122,6 @@ public class MoviesServlet extends HttpServlet {
         }
     }
 
-    private void addNewMovie(HttpServletRequest req, HttpServletResponse resp) {
-        String title = req.getParameter("title");
-        String content = req.getParameter("content");
-        String description = req.getParameter("description");
-        String image = req.getParameter("image");
-        String trainer = req.getParameter("trainer");
-        String  movie = req.getParameter("movie");
-        String[] categoriesSr = req.getParameterValues("categories");
-        int[] categories = new int[categoriesSr.length];
-        for (int i = 0; i < categoriesSr.length ; i++) {
-            categories[i] = Integer.parseInt(categoriesSr[i]);
-        }
-        MovieModel movieModel = new MovieModel(title,content,description,image,trainer,movie);
-        movieService.insert(movieModel,categories);
-
-    }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -83,8 +132,15 @@ public class MoviesServlet extends HttpServlet {
             case "create":
                 addNewMovie(req, resp);
                 break;
+            case "edit":
+                updateMovie(req,resp);
+                break;
             default:
-                showAll(req,resp);
+                showAll(req, resp);
         }
+    }
+
+    private void updateMovie(HttpServletRequest req, HttpServletResponse resp) {
+
     }
 }

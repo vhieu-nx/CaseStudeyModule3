@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html class="no-js" lang="en">
-    
+
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
         <meta charset="utf-8">
@@ -143,17 +143,17 @@
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/items-list.jsp">
+                                    <a href="/MovieServlet">
                                         <i class="fa fa-th-large"></i> Items List
                                     </a>
                                 </li>
-                                
-                                
+
+
                                 <li>
                                     <a href="AdminTeamplate/forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>
                                 </li>
-                                
+
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-file-text-o"></i> Pages
@@ -1339,6 +1339,7 @@
     </body>
 
 </html>
+
 
 <!-- <%--    <title>Title</title>--%>
 <%--</head>--%>

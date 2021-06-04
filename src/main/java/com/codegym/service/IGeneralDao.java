@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface IGeneralDao<T> {
     void insert(T t,int[] categories);
-    T selectUserByID(String id);
+    T selectUserByID(int id);
     List<T> selectUserByName(String inputSearch);
     List<T> selectAll();
-    void delete(String id);
+    void delete(int id);
     void update(T t);
 
 }
