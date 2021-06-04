@@ -6,15 +6,15 @@
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-<<<<<<< HEAD
+
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.html">
+        <link rel="apple-touch-icon" href="AdminTeamplate/apple-touch-icon.html">
         <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" href="css/vendor.css">
+        <link rel="stylesheet" href="AdminTeamplate/css/vendor.css">
         <!-- Theme initialization -->
         <script>
             var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
@@ -22,11 +22,11 @@
             var themeName = themeSettings.themeName || '';
             if (themeName)
             {
-                document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
+                document.write('<link rel="stylesheet" id="theme-style" href="AdminTeamplate/css/app' + themeName + '.css">');
             }
             else
             {
-                document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
+                document.write('<link rel="stylesheet" id="theme-style" href="AdminTeamplate/css/app.css">');
             }
         </script>
     </head>
@@ -119,7 +119,7 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-gear icon"></i> Settings </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html">
+                                    <a class="dropdown-item" href="AdminTeamplate/login.html">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                 </div>
                             </li>
@@ -145,14 +145,14 @@
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
-                                    <a href="items-list.html">
+                                    <a href="AdminTeamplate/items-list.html">
                                         <i class="fa fa-th-large"></i> Items List
                                     </a>
                                 </li>
                                 
                                 
                                 <li>
-                                    <a href="forms.html">
+                                    <a href="AdminTeamplate/forms.html">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>
                                 </li>
                                 
@@ -163,25 +163,25 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="login.html"> Login </a>
+                                            <a href="AdminTeamplate/login.html"> Login </a>
                                         </li>
                                         <li>
-                                            <a href="signup.html"> Sign Up </a>
+                                            <a href="AdminTeamplate/signup.html"> Sign Up </a>
                                         </li>
                                         <li>
-                                            <a href="reset.html"> Reset </a>
+                                            <a href="AdminTeamplate/reset.html"> Reset </a>
                                         </li>
                                         <li>
-                                            <a href="error-404.html"> Error 404 App </a>
+                                            <a href="AdminTeamplate/error-404.html"> Error 404 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-404-alt.html"> Error 404 Global </a>
+                                            <a href="AdminTeamplate/error-404-alt.html"> Error 404 Global </a>
                                         </li>
                                         <li>
-                                            <a href="error-500.html"> Error 500 App </a>
+                                            <a href="AdminTeamplate/error-500.html"> Error 500 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-500-alt.html"> Error 500 Global </a>
+                                            <a href="AdminTeamplate/error-500-alt.html"> Error 500 Global </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -415,7 +415,7 @@
                                     <div class="card-header bordered">
                                         <div class="header-block">
                                             <h3 class="title"> Items </h3>
-                                            <a href="item-editor.html" class="btn btn-primary btn-sm"> Add new </a>
+                                            <a href="AdminTeamplate/item-editor.html" class="btn btn-primary btn-sm"> Add new </a>
                                         </div>
                                         <div class="header-block pull-right">
                                             <label class="search">
@@ -714,7 +714,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -755,7 +755,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -796,7 +796,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -837,7 +837,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -878,7 +878,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -919,7 +919,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -960,7 +960,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -1001,7 +1001,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -1042,7 +1042,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -1083,7 +1083,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -1124,7 +1124,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -1206,7 +1206,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li>
-                                                                            <a class="edit" href="item-editor.html">
+                                                                            <a class="edit" href="AdminTeamplate/item-editor.html">
                                                                                 <i class="fa fa-pencil"></i>
                                                                             </a>
                                                                         </li>
@@ -1275,6 +1275,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -1337,24 +1338,23 @@
             ga('create', 'UA-80463319-4', 'auto');
             ga('send', 'pageview');
         </script>
-        <script src="js/vendor.js"></script>
-        <script src="js/app.js"></script>
+        <script src="AdminTeamplate/js/vendor.js"></script>
+        <script src="AdminTeamplate/js/app.js"></script>
     </body>
-
 </html>
-=======
-    <title>Title</title>
-</head>
-<body>
+
+<%--    <title>Title</title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--&lt;%&ndash;<a href="/UserServlet?action=create">Tao tài khoản</a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<a href="/UserServlet?action=update">Sửa tài khoản</a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<br>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<a href="/UserServlet?action=remove">Xoá tài khoản</a>&ndash;%&gt;--%>
+
 <%--<a href="/UserServlet?action=create">Tao tài khoản</a>--%>
 <%--<br>--%>
 <%--<a href="/UserServlet?action=update">Sửa tài khoản</a>--%>
 <%--<br>--%>
 <%--<a href="/UserServlet?action=remove">Xoá tài khoản</a>--%>
->>>>>>> f089430e58cee8ddce6ddf480928363cb0682ca2
-<a href="/UserServlet?action=create">Tao tài khoản</a>
-<br>
-<a href="/UserServlet?action=update">Sửa tài khoản</a>
-<br>
-<a href="/UserServlet?action=remove">Xoá tài khoản</a>
-<a href="/movie?action=create">Xoá tài khoản</a>
+<%--<a href="/movie?action=create">Xoá tài khoản</a>--%>
