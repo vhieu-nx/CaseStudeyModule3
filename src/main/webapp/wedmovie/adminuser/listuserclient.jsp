@@ -20,12 +20,14 @@
             <th>Name</th>
             <th>Email</th>
             <th>password</th>
+            <th>Action</th>
         </tr>
         <a:forEach items="${user}" var="user">
             <tr>
                 <td>${user.name}</td>
                 <td>${user.email}</td>
                 <td>${user.password}</td>
+                <td><input type="submit" value="delete" ></td>
             </tr>
         </a:forEach>
 

@@ -124,5 +124,19 @@ public class UserService implements IUserService {
         }
 
     }
+    public void removeUser(HttpServletRequest request, HttpServletResponse response) {
+        String jsp ="wedmovie/adminuser/listuserclient.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        int id = Integer.parseInt(request.getParameter("id"));
+        userDAO.delete(id);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

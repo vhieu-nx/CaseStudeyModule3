@@ -158,5 +158,4 @@ public class UserDAO implements IUserDAO {
         return userModel;
     }
 
-
 }
