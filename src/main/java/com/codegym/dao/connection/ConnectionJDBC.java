@@ -21,6 +21,7 @@ public class ConnectionJDBC {
                 Class.forName("com.mysql.jdbc.Driver");
                 connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/casestudymodule3",
+
                         "sangnguyen",
                         "677264"
                 );

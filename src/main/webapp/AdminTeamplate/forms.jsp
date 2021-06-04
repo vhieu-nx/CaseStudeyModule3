@@ -15,7 +15,7 @@
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.html">
+        <link rel="apple-touch-icon" href="apple-touch-icon.jsp">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="css/vendor.css">
         <!-- Theme initialization -->
@@ -136,7 +136,7 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-gear icon"></i> Settings </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html">
+                                    <a class="dropdown-item" href="login.jsp">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                 </div>
                             </li>
@@ -158,7 +158,7 @@
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
                                 <li>
-                                    <a href="index-2.html">
+                                    <a href="index-2.jsp">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
@@ -168,7 +168,7 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="items-list.html"> Items List </a>
+                                            <a href="items-list.jsp"> Items List </a>
                                         </li>
                                         
                                     </ul>
@@ -176,7 +176,7 @@
                                
                                 
                                 <li class="active">
-                                    <a href="forms.html">
+                                    <a href="forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>
                                 </li>
                     
@@ -187,25 +187,25 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="login.html"> Login </a>
+                                            <a href="login.jsp"> Login </a>
                                         </li>
                                         <li>
-                                            <a href="signup.html"> Sign Up </a>
+                                            <a href="signup.jsp"> Sign Up </a>
                                         </li>
                                         <li>
-                                            <a href="reset.html"> Reset </a>
+                                            <a href="reset.jsp"> Reset </a>
                                         </li>
                                         <li>
-                                            <a href="error-404.html"> Error 404 App </a>
+                                            <a href="error-404.jsp"> Error 404 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-404-alt.html"> Error 404 Global </a>
+                                            <a href="error-404-alt.jsp"> Error 404 Global </a>
                                         </li>
                                         <li>
-                                            <a href="error-500.html"> Error 500 App </a>
+                                            <a href="error-500.jsp"> Error 500 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-500-alt.html"> Error 500 Global </a>
+                                            <a href="error-500-alt.jsp"> Error 500 Global </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -235,7 +235,7 @@
                                                     <label>
                                                         <input class="radio" type="radio" name="sidebarPosition" value="sidebar-fixed">
                                                         <span></span>
-                                                    </label>
+                                                  </label>
                                                 </div>
                                                 <div class="col-4">
                                                     <label>

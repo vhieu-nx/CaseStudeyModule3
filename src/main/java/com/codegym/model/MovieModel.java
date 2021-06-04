@@ -1,6 +1,5 @@
 package com.codegym.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MovieModel {
@@ -15,7 +14,6 @@ public class MovieModel {
 
     public MovieModel() {
     }
-
     public List<CategoryModel> getCategoryModels() {
         return categoryModels;
     }
