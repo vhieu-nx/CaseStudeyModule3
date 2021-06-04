@@ -138,6 +138,7 @@ public class UserDAO implements IUserDAO {
             throwables.printStackTrace();
         }
         return userModel;
+//        nó có phải A hoặc client
     }
 
     @Override

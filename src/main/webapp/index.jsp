@@ -5,6 +5,300 @@
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
+<<<<<<< HEAD
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moviepoint - Online Movie,Vedio and TV Show HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="assets/img/favcion.png" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="all" />
+    <!-- Slick nav CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slicknav.min.css" media="all" />
+    <!-- Iconfont CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/icofont.css" media="all" />
+    <!-- Owl carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+    <!-- Popup CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+    <!-- Main style CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="all" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Page loader -->
+<div id="preloader"></div>
+<!-- header section start -->
+<header class="header">
+    <div class="container">
+        <div class="header-area">
+            <div class="logo">
+                <a href="index-2.html"><img src="assets/img/logo.png" alt="logo" /></a>
+            </div>
+            <div class="header-right">
+                <form action="#">
+                    <select>
+                        <option value="Movies">Movies</option>
+                        <option value="Movies">Movies</option>
+                        <option value="Movies">Movies</option>
+                    </select>
+                    <input type="text"/>
+                    <button><i class="icofont icofont-search"></i></button>
+                </form>
+                <ul>
+                    <li><a href="#">Welcome Guest!</a></li>
+                    <li><a class="login-popup" href="#">Login</a></li>
+                </ul>
+            </div>
+            <div class="menu-area">
+                <div class="responsive-menu"></div>
+                <div class="mainmenu">
+                    <ul id="primary-menu">
+                        <li><a class="active" href="index-2.jsp">Home</a></li>
+                        <li><a href="movies.jsp">Movies</a></li>
+            
+                        <li><a href="top-movies.jsp">Top Movies</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="login-area">
+    <div class="login-box">
+        <a href="#"><i class="icofont icofont-close"></i></a>
+        <h2>LOGIN</h2>
+        <form action="UserServlet" method="post">
+            <h6>EMAIL ADDRESS</h6>
+            <input type="text" name="email" />
+            <h6>PASSWORD</h6>
+            <input type="text" name="password" />
+            <div class="login-remember">
+                <input type="checkbox" />
+                <span>Remember Me</span>
+            </div>
+            <div class="login-signup">
+                <span>SIGNUP</span>
+            </div>
+            <a href="/UserServlet?action=login" class="theme-btn" name="action" >LOG IN</a>
+            <span>Or Via Social</span>
+            <div class="login-social">
+                <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                <a href="#"><i class="icofont icofont-social-twitter"></i></a>
+                <a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+                <a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+                <a href="#"><i class="icofont icofont-camera"></i></a>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="buy-ticket">
+    <div class="container">
+        <div class="buy-ticket-area">
+            <a href="#"><i class="icofont icofont-close"></i></a>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="buy-ticket-box">
+                        <h4>Buy Tickets</h4>
+                        <h5>Seat</h5>
+                        <h6>Screen</h6>
+                        <div class="ticket-box-table">
+                            <table class="ticket-table-seat">
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                </tr>
+                            </table>
+                            <table class="ticket-table-seat">
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td class="active">1</td>
+                                    <td class="active">1</td>
+                                    <td class="active">1</td>
+                                    <td class="active">1</td>
+                                    <td class="active">1</td>
+                                    <td class="active">1</td>
+                                    <td class="active">1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                </tr>
+                            </table>
+                            <table class="ticket-table-seat">
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="ticket-box-available">
+                            <input type="checkbox" />
+                            <span>Available</span>
+                            <input type="checkbox" checked />
+                            <span>Unavailable</span>
+                            <input type="checkbox" />
+                            <span>Selected</span>
+                        </div>
+                        <a href="#" class="theme-btn">previous</a>
+                        <a href="#" class="theme-btn">Next</a>
+=======
+>>>>>>> 1151b62cb944604162beb15e9b6ae14a36bb6405
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>

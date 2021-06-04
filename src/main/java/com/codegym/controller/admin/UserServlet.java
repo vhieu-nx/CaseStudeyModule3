@@ -19,6 +19,11 @@ public class UserServlet extends HttpServlet {
             action="";
         }
         switch (action){
+            case "login":
+                String jsp  = "index.jsp";
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+                requestDispatcher.forward(request,response);
+                break;
             case "create":
                 userService.createFormUser(request,response);
                 break;
@@ -31,8 +36,8 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-                requestDispatcher.forward(request,response);
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+//                requestDispatcher.forward(request,response);
                 break;
         }
 
