@@ -1,16 +1,13 @@
 package com.codegym.model;
 
 public class UserModel {
+    private String id;
     private String name;
     private String email;
     private String password;
     private String role;
 
-    public UserModel(String name, String email, String password, String role) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
+    public UserModel() {
     }
 
     public UserModel(String name, String email, String password) {
@@ -19,11 +16,27 @@ public class UserModel {
         this.password = password;
     }
 
-    public UserModel(String name) {
+    public UserModel(String name, String email, String password, String role) {
         this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
-    public UserModel() {
+    public UserModel(String id, String name, String email, String password, String role) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

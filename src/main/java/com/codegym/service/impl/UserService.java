@@ -8,8 +8,6 @@ import com.codegym.service.IUserService;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.EOFException;
 import java.io.IOException;
 import java.util.List;
 
@@ -124,19 +122,16 @@ public class UserService implements IUserService {
         }
 
     }
+
+    @Override
     public void removeUser(HttpServletRequest request, HttpServletResponse response) {
-        String jsp ="wedmovie/adminuser/listuserclient.jsp";
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         int id = Integer.parseInt(request.getParameter("id"));
         userDAO.delete(id);
         try {
-            requestDispatcher.forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+            response.sendRedirect("/AdminServlet");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 }

@@ -20,6 +20,7 @@ public class AdminServlet extends HttpServlet {
         }
         switch (action) {
             case "remove":
+                userService.removeUser(request,response);
                 break;
             default:
                 userService.showAllUserClient(request, response);
@@ -36,6 +37,7 @@ public class AdminServlet extends HttpServlet {
         }
         switch (action) {
             case "remove":
+                userService.removeUser(request,response);
                 break;
             default:
                 userService.showAllUserClient(request, response);

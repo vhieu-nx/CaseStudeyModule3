@@ -17,6 +17,7 @@
     <h2 style="color: mediumblue"> Danh sách tài khoản khách </h2>
     <table border="1 solid">
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>password</th>
@@ -24,10 +25,11 @@
         </tr>
         <a:forEach items="${user}" var="user">
             <tr>
+                <td>${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.email}</td>
                 <td>${user.password}</td>
-                <td><input type="submit" value="delete" ></td>
+                <td><a href="${pageContext.request.contextPath}/AdminServlet?action=remove&id=${user.id}">Xoá</a></td>
             </tr>
         </a:forEach>
 
