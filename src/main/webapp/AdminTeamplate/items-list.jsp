@@ -149,13 +149,13 @@
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li class="active open">
-                                    <a href="items-list.html">
+                                    <a href="items-list.jsp">
                                         <i class="fa fa-th-large"></i> Items List
                                     </a>
                                 
                                 </li>
                                 <li>
-                                    <a href="forms.html">
+                                    <a href="forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>
                                 </li>
                                 <li>
@@ -165,25 +165,25 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="login.html"> Login </a>
+                                            <a href="login.jsp"> Login </a>
                                         </li>
                                         <li>
-                                            <a href="signup.html"> Sign Up </a>
+                                            <a href="signup.jsp"> Sign Up </a>
                                         </li>
                                         <li>
-                                            <a href="reset.html"> Reset </a>
+                                            <a href="reset.jsp"> Reset </a>
                                         </li>
                                         <li>
-                                            <a href="error-404.html"> Error 404 App </a>
+                                            <a href="error-404.jsp"> Error 404 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-404-alt.html"> Error 404 Global </a>
+                                            <a href="error-404-alt.jsp"> Error 404 Global </a>
                                         </li>
                                         <li>
-                                            <a href="error-500.html"> Error 500 App </a>
+                                            <a href="error-500.jsp"> Error 500 App </a>
                                         </li>
                                         <li>
-                                            <a href="error-500-alt.html"> Error 500 Global </a>
+                                            <a href="error-500-alt.jsp"> Error 500 Global </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -296,7 +296,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3 class="title"> Items
-                                        <a href="item-editor.html" class="btn btn-primary btn-sm rounded-s"> Add New </a>
+                                        <a href="item-editor.jsp" class="btn btn-primary btn-sm rounded-s"> Add New </a>
                                         <!--
 				 -->
                                     </h3>
@@ -373,14 +373,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
+                                        <a href="item-editor.jsp">
                                             <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.html" class="">
+                                            <a href="item-editor.jsp" class="">
                                                 <h4 class="item-title"> 12 Myths Uncovered About IT &amp; Software </h4>
                                             </a>
                                         </div>
@@ -429,7 +429,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.html">
+                                                        <a class="edit" href="item-editor.jsp">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
                                                     </li>
@@ -448,14 +448,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
+                                        <a href="item-editor.jsp">
                                             <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.html" class="">
+                                            <a href="item-editor.jsp" class="">
                                                 <h4 class="item-title"> 50% of things doesn&#x27;t really belongs to you </h4>
                                             </a>
                                         </div>
@@ -504,7 +504,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.html">
+                                                        <a class="edit" href="item-editor.jsp">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
                                                     </li>
@@ -523,14 +523,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
+                                        <a href="item-editor.jsp">
                                             <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.html" class="">
+                                            <a href="item-editor.jsp" class="">
                                                 <h4 class="item-title"> Vestibulum tincidunt amet laoreet mauris sit sem aliquam cras maecenas vel aliquam. </h4>
                                             </a>
                                         </div>
@@ -579,7 +579,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.html">
+                                                        <a class="edit" href="item-editor.jsp">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
                                                     </li>
@@ -598,14 +598,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
+                                        <a href="item-editor.jsp">
                                             <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/why_this/128.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.html" class="">
+                                            <a href="item-editor.jsp" class="">
                                                 <h4 class="item-title"> Lorem Ipsum is not simply random text </h4>
                                             </a>
                                         </div>
@@ -654,7 +654,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.html">
+                                                        <a class="edit" href="item-editor.jsp">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
                                                     </li>
@@ -673,14 +673,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
+                                        <a href="item-editor.jsp">
                                             <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/w7download/128.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.html" class="">
+                                            <a href="item-editor.jsp" class="">
                                                 <h4 class="item-title"> Ut dui quis amet curabitur vestibulum </h4>
                                             </a>
                                         </div>
@@ -729,7 +729,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.html">
+                                                        <a class="edit" href="item-editor.jsp">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
                                                     </li>
@@ -748,14 +748,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
+                                        <a href="item-editor.jsp">
                                             <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/pankogut/128.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.html" class="">
+                                            <a href="item-editor.jsp" class="">
                                                 <h4 class="item-title"> Mus sociosqu etiam autem rutrum at molestie elit pulvinar </h4>
                                             </a>
                                         </div>
@@ -804,7 +804,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.html">
+                                                        <a class="edit" href="item-editor.jsp">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
                                                     </li>
