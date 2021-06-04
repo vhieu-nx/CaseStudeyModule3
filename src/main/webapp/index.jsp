@@ -5,6 +5,7 @@
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -296,6 +297,8 @@
                         </div>
                         <a href="#" class="theme-btn">previous</a>
                         <a href="#" class="theme-btn">Next</a>
+=======
+>>>>>>> 1151b62cb944604162beb15e9b6ae14a36bb6405
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
