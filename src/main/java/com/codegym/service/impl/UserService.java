@@ -122,7 +122,7 @@ public class UserService implements IUserService {
         }
 
     }
-
+//Xoa tai khoan khach
     @Override
     public void removeUser(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -132,6 +132,41 @@ public class UserService implements IUserService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+//vao trang dang nhap
+    @Override
+    public void login(HttpServletRequest request, HttpServletResponse response) {
+        String jsp  = "index.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+//Nhap vao tai khoan de dang nhap
+    @Override
+    public void enterlogin(HttpServletRequest request, HttpServletResponse response){
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        UserModel userModel = userDAO.findUserName(email,password);
+        if (userModel.getRole().equalsIgnoreCase("CLIENT")){
+            try {
+                response.sendRedirect(request.getContextPath()+"/trang-chu");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else
+            if(userModel.getRole().equalsIgnoreCase("ADMIN")){
+                try {
+                    response.sendRedirect(request.getContextPath()+"/");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
     }
 
 }
