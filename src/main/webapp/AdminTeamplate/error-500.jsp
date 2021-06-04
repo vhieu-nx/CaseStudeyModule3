@@ -1,4 +1,11 @@
-<!doctype html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 9:01 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="en">
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -238,13 +245,13 @@
                                         <li>
                                             <a href="reset.html"> Reset </a>
                                         </li>
-                                        <li class="active">
+                                        <li>
                                             <a href="error-404.html"> Error 404 App </a>
                                         </li>
                                         <li>
                                             <a href="error-404-alt.html"> Error 404 Global </a>
                                         </li>
-                                        <li>
+                                        <li class="active">
                                             <a href="error-500.html"> Error 500 App </a>
                                         </li>
                                         <li>
@@ -415,28 +422,17 @@
                 <div class="sidebar-overlay" id="sidebar-overlay"></div>
                 <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
                 <div class="mobile-menu-handle"></div>
-                <article class="content error-404-page">
+                <article class="content error-500-page">
                     <section class="section">
                         <div class="error-card">
                             <div class="error-title-block">
-                                <h1 class="error-title">404</h1>
-                                <h2 class="error-sub-title"> Sorry, page not found </h2>
+                                <h1 class="error-title">500</h1>
+                                <h2 class="error-sub-title"> Internal Server Error. </h2>
                             </div>
                             <div class="error-container">
-                                <p>You better try our awesome search:</p>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-primary" type="button">Search</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
+                                <p>Why not try refreshing your page? or you can contact support</p>
                                 <a class="btn btn-primary" href="index-2.html">
-                                    <i class="fa fa-angle-left"></i> Back to Dashboard</a>
+                                    <i class="fa fa-angle-left"></i> Back to Dashboard </a>
                             </div>
                         </div>
                     </section>

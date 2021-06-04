@@ -1,6 +1,14 @@
-<!doctype html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 9:03 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html class="no-js" lang="en">
- <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -40,20 +48,28 @@
                             </div> ModularAdmin </h1>
                     </header>
                     <div class="auth-content">
-                        <p class="text-center">PASSWORD RECOVER</p>
-                        <p class="text-muted text-center">
-                            <small>Enter your email address to recover your password.</small>
-                        </p>
-                        <form id="reset-form" action="https://modularcode.io/index.html" method="GET" novalidate="">
+                        <p class="text-center">LOGIN TO CONTINUE</p>
+                        <form id="login-form" action="https://modularcode.io/index.html" method="GET" novalidate="">
                             <div class="form-group">
-                                <label for="email1">Email</label>
-                                <input type="email" class="form-control underlined" name="email1" id="email1" placeholder="Your email address" required> </div>
+                                <label for="username">Username</label>
+                                <input type="email" class="form-control underlined" name="username" id="username" placeholder="Your email address" required> </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-primary">Reset</button>
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password" required> </div>
+                            <div class="form-group">
+                                <label for="remember">
+                                    <input class="checkbox" id="remember" type="checkbox">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>
                             </div>
-                            <div class="form-group clearfix">
-                                <a class="pull-left" href="login.html">return to Login</a>
-                                <a class="pull-right" href="signup.html">Sign Up!</a>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-block btn-primary">Login</button>
+                            </div>
+                            <div class="form-group">
+                                <p class="text-muted text-center">Do not have an account?
+                                    <a href="signup.html">Sign Up!</a>
+                                </p>
                             </div>
                         </form>
                     </div>

@@ -1,7 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="zxx">
-	
-<head>
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 8:51 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,18 +62,9 @@
 						<div class="responsive-menu"></div>
 					    <div class="mainmenu">
                             <ul id="primary-menu">
-                                <li><a href="index-2.html">Home</a></li>
-                                <li><a href="movies.html">Movies</a></li>
-                                <li><a href="celebrities.html">CelebritiesList</a></li>
-                                <li><a class="active" href="top-movies.html">Top Movies</a></li>
-                                <li><a href="blog.html">News</a></li>
-								<li><a href="#">Pages <i class="icofont icofont-simple-down"></i></a>
-									<ul>
-										<li><a href="blog-details.html">Blog Details</a></li>
-										<li><a href="movie-details.html">Movie Details</a></li>
-									</ul>
-								</li>
-                                <li><a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i> Tickets</a></li>
+                                <li><a href="index-2.jsp">Home</a></li>
+                                <li><a href="movies.jsp">Movies</a></li>
+                                <li><a class="active" href="top-movies.jsp">Top Movies</a></li>
                             </ul>
 					    </div>
 					</div>
@@ -700,5 +697,4 @@
 		<!-- main JS -->
 		<script src="assets/js/main.js"></script>
 	</body>
-
 </html>
