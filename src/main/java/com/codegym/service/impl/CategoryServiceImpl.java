@@ -24,6 +24,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public CategoryModel findById(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("category_id"));
+        return categoryDao.findById(id);
+    }
+
+    @Override
     public boolean update(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter("category_id"));
         String categoryName = request.getParameter("category_name");
@@ -48,8 +54,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public boolean save(HttpServletRequest request, HttpServletResponse response) {
-        String categoryName = request.getParameter("category_name");
+        String categoryName = request.getParameter("name");
         CategoryModel categoryModel = new CategoryModel(categoryName);
+
         try {
             categoryDao.save(categoryModel);
             return true;

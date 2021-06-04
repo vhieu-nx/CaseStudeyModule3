@@ -32,15 +32,6 @@ public class CategoryDAO implements ICategoryDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-//        finally {
-//            try {
-//                connection.close();
-//                preparedStatement.close();
-//                resultSet.close();
-//            } catch (SQLException throwables) {
-//                throwables.printStackTrace();
-//            }
-//        }
         return list;
     }
 
@@ -57,7 +48,7 @@ public class CategoryDAO implements ICategoryDao {
             while (resultSet.next()){
             CategoryModel categoryModel = new CategoryModel();
             categoryModel.setCategory_id(resultSet.getInt("id_category"));
-            categoryModel.setName(resultSet.getString("categoryName"));
+            categoryModel.setName(resultSet.getString("category_name"));
             return categoryModel;
             }
         } catch (SQLException throwables) {
@@ -80,15 +71,6 @@ public class CategoryDAO implements ICategoryDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-//        finally {
-//            try {
-//                connection.close();
-//                preparedStatement.close();
-//            } catch (SQLException throwables) {
-//                throwables.printStackTrace();
-//            }
-//        }
-
     }
 
     @Override
@@ -100,37 +82,24 @@ public class CategoryDAO implements ICategoryDao {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, categoryId);
             preparedStatement.executeUpdate();
-//        }
-//        finally {
-//            try {
-//                connection.close();
-//                preparedStatement.close();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-//        }
-
-
     }
 
     @Override
     public void save(CategoryModel categoryModel) throws SQLException {
         Connection connection = ConnectionJDBC.getConnection();
-        String sql = "insert into category (name) value (?)";
+        String sql = "insert into category (category_name) value (?)";
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, categoryModel.getName());
             preparedStatement.executeUpdate();
-//        } finally {
-//            try {
-//                connection.close();
-//                preparedStatement.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
 }
-
-//}

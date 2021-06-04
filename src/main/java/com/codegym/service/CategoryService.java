@@ -10,10 +10,12 @@ public interface CategoryService {
 
     List<CategoryModel> findAll();
 
+    CategoryModel findById(HttpServletRequest request, HttpServletResponse response);
+
     boolean update(HttpServletRequest request);
 
     boolean delete(HttpServletRequest request);
 
-    boolean save(HttpServletRequest request,HttpServletResponse response);
+    boolean save(HttpServletRequest request, HttpServletResponse response);
 
 }

@@ -1,4 +1,5 @@
 package com.codegym.controller.admin;
+import com.codegym.model.CategoryModel;
 import com.codegym.service.CategoryService;
 import com.codegym.service.impl.CategoryServiceImpl;
 import javax.servlet.ServletException;
@@ -21,9 +22,15 @@ public class CategoriesServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
+            case "showFormEdit":
+                CategoryModel categoryModel = categoryService.findById(req,resp);
+                req.setAttribute("category", categoryModel);
+                req.getRequestDispatcher("/category/updatecategory.jsp").forward(req, resp);
+                break;
             case "create":
                 categoryService.save(req, resp);
                 req.getRequestDispatcher("/category/createcategory.jsp").forward(req, resp);
+                findALL(req, resp, categoryService, "/category/listcategory.jsp");
                 break;
             case "delete":
                 categoryService.delete(req);
@@ -31,10 +38,15 @@ public class CategoriesServlet extends HttpServlet {
                 break;
             case "update":
                 categoryService.update(req);
-                req.getRequestDispatcher("/category/updatecategory.jsp");
+                resp.sendRedirect("/admin-categories");
+                break;
+            case "findById":
+                categoryService.findById(req,resp);
+                req.getRequestDispatcher("/category/listcategory.jsp").forward(req,resp);
                 break;
             default:
                 findALL(req, resp, categoryService, "/category/listcategory.jsp");
+
         }
     }
 
@@ -50,19 +62,22 @@ public class CategoriesServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
+
             case "create":
                 categoryService.save(req, resp);
                 findALL(req, resp, categoryService, "/category/listcategory.jsp");
-
                 break;
             case "delete":
                 categoryService.delete(req);
                 findALL(req, resp, categoryService, "/category/listcategory.jsp");
-
                 break;
             case "update":
                 categoryService.update(req);
                 findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                break;
+            case "findById":
+                categoryService.findById(req,resp);
+                req.getRequestDispatcher("/category/listcategory.jsp").forward(req,resp);
                 break;
             default:
                 findALL(req, resp, categoryService, "/category/listcategory.jsp");

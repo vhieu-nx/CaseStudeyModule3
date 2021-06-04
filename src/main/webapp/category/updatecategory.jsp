@@ -12,10 +12,11 @@
 </head>
 <body>
 <h1>Sửa</h1>
-<form method="post" action="update">
-    <input name="category_id" value="${categoryModel.category_id}" hidden>
-    <input name="category_name" value="${categoryModel.name}">
-    <button type="submit" value="update">Update</button>
+<form method="get" action="/admin-categories">
+    <input name="category_id" value="${category.category_id}" hidden>
+    <input name="category_name" value="${category.name}">
+    <input name="action" value="update" hidden>
+    <button type="submit">Update</button>
 </form>
 
 </body>
