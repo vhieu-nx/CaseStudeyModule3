@@ -1,7 +1,9 @@
 package com.codegym.controller.admin;
 
 import com.codegym.model.MovieModel;
+import com.codegym.service.CategoryService;
 import com.codegym.service.IMovieService;
+import com.codegym.service.impl.CategoryServiceImpl;
 import com.codegym.service.impl.MovieService;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +18,7 @@ import java.util.List;
 @WebServlet(name = "MoviesServlet", urlPatterns = "/MovieServlet")
 public class MoviesServlet extends HttpServlet {
     private static IMovieService movieService = new MovieService();
+    private static CategoryService categoryService = new CategoryServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,7 +37,7 @@ public class MoviesServlet extends HttpServlet {
 
     private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("movie/createMovie");
-//            req.setAttribute("categories",);
+            req.setAttribute("categories",categoryService.findAll());
         try {
             requestDispatcher.forward(req,resp);
         } catch (ServletException e) {
@@ -58,6 +61,7 @@ public class MoviesServlet extends HttpServlet {
     }
 
     private void addNewMovie(HttpServletRequest req, HttpServletResponse resp) {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/item-editor.jsp");
         String title = req.getParameter("title");
         String content = req.getParameter("content");
         String description = req.getParameter("description");
