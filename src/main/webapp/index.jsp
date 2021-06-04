@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
 <html>
 <head>
     <meta charset="UTF-8">
@@ -300,44 +299,6 @@
                         </div>
                         <a href="#" class="theme-btn">previous</a>
                         <a href="#" class="theme-btn">Next</a>
-=======
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html class="no-js" lang="en">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="AdminTeamplate/apple-touch-icon.jsp">
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="stylesheet" href="css/vendor.css">
-        <!-- Theme initialization -->
-    <script>
-        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
-            {};
-        var themeName = themeSettings.themeName || '';
-        if (themeName)
-        {
-            document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
-        }
-        else
-        {
-            document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
-        }
-    </script>
-    </head>
-    <body>
-        <div class="main-wrapper">
-            <div class="app" id="app">
-                <header class="header">
-                    <div class="header-block header-block-collapse d-lg-none d-xl-none">
-                        <button class="collapse-btn" id="sidebar-collapse-btn">
-                            <i class="fa fa-bars"></i>
-                        </button>
->>>>>>> 616a0e893472b3fed593e62ca27fde38cf095f54
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
@@ -601,58 +562,6 @@
                         <div class="hero-area-content">
                             <img src="assets/img/slide1.png" alt="about" />
                         </div>
-<<<<<<< HEAD
-=======
-                        <nav class="menu">
-                            <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                                <li class="active">
-                                    <a href="#">
-                                        <i class="fa fa-home"></i> Dashboard </a>
-                                </li>
-                                <li>
-                                    <a href="/MovieServlet">
-                                        <i class="fa fa-th-large"></i> Items List
-                                    </a>
-                                </li>
-
-
-                                <li>
-                                    <a href="AdminTeamplate/forms.jsp">
-                                        <i class="fa fa-pencil-square-o"></i> Forms </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-file-text-o"></i> Pages
-                                        <i class="fa arrow"></i>
-                                    </a>
-                                    <ul class="sidebar-nav">
-                                        <li>
-                                            <a href="AdminTeamplate/login.jsp"> Login </a>
-                                        </li>
-                                        <li>
-                                            <a href="AdminTeamplate/signup.jsp"> Sign Up </a>
-                                        </li>
-                                        <li>
-                                            <a href="AdminTeamplate/reset.jsp"> Reset </a>
-                                        </li>
-                                        <li>
-                                            <a href="AdminTeamplate/error-404.jsp"> Error 404 App </a>
-                                        </li>
-                                        <li>
-                                            <a href="AdminTeamplate/error-404-alt.jsp"> Error 404 Global </a>
-                                        </li>
-                                        <li>
-                                            <a href="AdminTeamplate/error-500.jsp"> Error 500 App </a>
-                                        </li>
-                                        <li>
-                                            <a href="AdminTeamplate/error-500-alt.jsp"> Error 500 Global </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
->>>>>>> 616a0e893472b3fed593e62ca27fde38cf095f54
                     </div>
                     <div class="col-lg-6">
                         <div class="hero-area-content pr-50">
@@ -963,23 +872,3 @@
 </body>
 
 </html>
-<<<<<<< HEAD
-=======
-
-
-<!-- <%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--&lt;%&ndash;<a href="/UserServlet?action=create">Tao tài khoản</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<a href="/UserServlet?action=update">Sửa tài khoản</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<a href="/UserServlet?action=remove">Xoá tài khoản</a>&ndash;%&gt;--%>
-
-<%--<a href="/UserServlet?action=create">Tao tài khoản</a>--%>
-<%--<br>--%>
-<%--<a href="/UserServlet?action=update">Sửa tài khoản</a>--%>
-<%--<br>--%>
-<%--<a href="/UserServlet?action=remove">Xoá tài khoản</a>--%>
-<%--<a href="/movie?action=create">Xoá tài khoản</a>--%> -->
->>>>>>> 616a0e893472b3fed593e62ca27fde38cf095f54
