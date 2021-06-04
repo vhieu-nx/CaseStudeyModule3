@@ -396,17 +396,18 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="MovieServlet?action=delete&id=${movies.movie_id}" title="Xóa phim">
+                                                        <a  href="MovieServlet?action=delete&id=${movies.movie_id}" title="Delete Film">
                                                             <i class="fa fa-trash-o "></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="MovieServlet?action=create" title="Thêm phim">
+<%--                                                        MovieServlet?action=edit&id=${movies.movie_id}--%>
+                                                        <a  href="MovieServlet?action=create" title="ADDNEW Movie">
                                                             <i class="fas fa-plus-circle"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="delete" href="MovieServlet?action=edit" title="Sửa phim">
+                                                        <a href="MovieServlet?action=edit&id=${movies.movie_id}" title="Edit Film">
                                                            <i class="fas fa-edit"></i>
                                                         </a>
                                                     </li>

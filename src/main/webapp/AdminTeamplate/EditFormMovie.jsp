@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+    <title> MovieAdmin - EditFormMovie </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.jsp">
@@ -415,26 +415,28 @@
         <div class="mobile-menu-handle"></div>
         <article class="content item-editor-page">
             <div class="title-block">
-                <h3 class="title"> Add new item
+                <h3 class="title"> Edit Movies
                     <span class="sparkline bar" data-type="bar"></span>
                 </h3>
             </div>
-            <form action="MovieServlet" name="item" method="post">
+            <form action="MovieServlet" method="post">
                 <div class="card card-block">
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="title" placeholder="Enter Title"></div>
+                            <input type="text" class="form-control boxed" name="title" value="${movies.title}"></div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                         <div class="col-sm-10">
-                            <input type="text" name="content" class="form-control boxed" placeholder="Enter content"></div>
+                            <input type="text" name="content" class="form-control boxed" value="${movies.content}">
+<%--                            <input type="text" name="content" class="form-control boxed">${movies.content}--%>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Description: </label>
                         <div class="col-sm-10">
-                            <textarea name="description" rows="5" cols="50" ></textarea>
+                            <textarea name="description" rows="5" cols="50" >${movies.description}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -449,24 +451,23 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> Image: </label>
+                        <label class="col-sm-2 form-control-label text-xs-right"> Image </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="image" placeholder="Enter url Image"></div>
+                            <input type="text" class="form-control boxed" name="image" value="${movies.image_movie}"></div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> YoutubeTrainer: </label>
+                        <label class="col-sm-2 form-control-label text-xs-right" > YoutubeTrainer: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="trainer" placeholder="Enter url Image"></div>
+                            <input type="text" class="form-control boxed" name="trainer" value="${movies.youtubeTrainer}"></div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> VideoMovie: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="movie" placeholder="Enter url Image"></div>
+                            <input type="text" class="form-control boxed" name="movie" value="${movies.videoMovie}"></div>
                     </div>
-
                     <div class="form-group row">
                         <div class="col-sm-10 col-sm-offset-2">
-                            <button type="submit" class="btn btn-primary" value="create" name="action"> Submit</button>
+                            <button type="submit" class="btn btn-primary" value="edit" name="action"> Submit</button>
                         </div>
                     </div>
                 </div>
