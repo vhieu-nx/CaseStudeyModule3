@@ -26,13 +26,13 @@
                 <td>${el.category_id}</td>
                 <td>${el.name}</td>
 
-                <td>
-                    <form action="/admin-categories" method="get">
-                        <input type="text" name="category_name" value="${el.name}" hidden>
-                        <input type="text" name="action" value="update" hidden>
-                        <button type="submit">Update</button>
-                    </form>
-                </td>
+<%--                <td>--%>
+<%--                    <form action="/admin-categories" method="get">--%>
+<%--                        <input type="text" name="category_name" value="${el.name}" hidden>--%>
+<%--                        <input type="text" name="action" value="update" hidden>--%>
+<%--                        <button type="submit">Update</button>--%>
+<%--                    </form>--%>
+<%--                </td>--%>
 
                 <td>
                     <form action="/admin-categories" method="get">

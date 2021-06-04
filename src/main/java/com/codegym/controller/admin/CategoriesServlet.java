@@ -23,7 +23,7 @@ public class CategoriesServlet extends HttpServlet {
         switch (action) {
             case "create":
                 categoryService.save(req, resp);
-                req.getRequestDispatcher("/category/create.jsp").forward(req, resp);
+                req.getRequestDispatcher("/category/createcategory.jsp").forward(req, resp);
                 break;
             case "delete":
                 categoryService.delete(req);
@@ -31,10 +31,10 @@ public class CategoriesServlet extends HttpServlet {
                 break;
             case "update":
                 categoryService.update(req);
-                req.getRequestDispatcher("/category/update.jsp");
+                req.getRequestDispatcher("/category/updatecategory.jsp");
                 break;
             default:
-                findALL(req, resp, categoryService, "/category/list.jsp");
+                findALL(req, resp, categoryService, "/category/listcategory.jsp");
         }
     }
 
@@ -52,20 +52,20 @@ public class CategoriesServlet extends HttpServlet {
         switch (action) {
             case "create":
                 categoryService.save(req, resp);
-                findALL(req, resp, categoryService, "/category/list.jsp");
+                findALL(req, resp, categoryService, "/category/listcategory.jsp");
 
                 break;
             case "delete":
                 categoryService.delete(req);
-                findALL(req, resp, categoryService, "/category/list.jsp");
+                findALL(req, resp, categoryService, "/category/listcategory.jsp");
 
                 break;
             case "update":
                 categoryService.update(req);
-                findALL(req, resp, categoryService, "/category/list.jsp");
+                findALL(req, resp, categoryService, "/category/listcategory.jsp");
                 break;
             default:
-                findALL(req, resp, categoryService, "/category/list.jsp");
+                findALL(req, resp, categoryService, "/category/listcategory.jsp");
         }
     }
 }

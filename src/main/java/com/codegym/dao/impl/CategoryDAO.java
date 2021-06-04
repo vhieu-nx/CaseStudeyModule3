@@ -23,7 +23,7 @@ public class CategoryDAO implements ICategoryDao {
         try {
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int id = resultSet.getInt("id_category");
                 String name = resultSet.getString("category_name");
                 CategoryModel categoryModel = new CategoryModel(id, name);
@@ -42,6 +42,29 @@ public class CategoryDAO implements ICategoryDao {
 //            }
 //        }
         return list;
+    }
+
+    @Override
+    public CategoryModel findById(int id_category) {
+        Connection connection = ConnectionJDBC.getConnection();
+        String sql = "select * from category where id_category = ? ";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id_category);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+            CategoryModel categoryModel = new CategoryModel();
+            categoryModel.setCategory_id(resultSet.getInt("id_category"));
+            categoryModel.setName(resultSet.getString("categoryName"));
+            return categoryModel;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+
     }
 
     @Override
@@ -82,9 +105,9 @@ public class CategoryDAO implements ICategoryDao {
 //            try {
 //                connection.close();
 //                preparedStatement.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 //        }
 
 
@@ -103,12 +126,11 @@ public class CategoryDAO implements ICategoryDao {
 //            try {
 //                connection.close();
 //                preparedStatement.close();
-            }
-            catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-
     }
+
+}
 
 //}
