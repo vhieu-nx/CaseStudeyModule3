@@ -147,9 +147,11 @@ public class MovieService implements IMovieService {
             e.printStackTrace();
         }
     }
-    public List<CategoryModel> getCategoryByMovieId(int movieId){
+    public List<CategoryModel> getCategoryByMovieId(int movieId) {
         List<CategoryModel> categoryModels = new ArrayList<>();
         Connection connection = getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIES_BY_MOVIEID);
+//        PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIES_BY_MOVIEID);
+//    }
+        return null;
     }
 }
