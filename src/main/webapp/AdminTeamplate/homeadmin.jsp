@@ -1,6 +1,11 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Mr.Nguyen
+  Date: 6/4/2021
+  Time: 9:02 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html class="no-js" lang="en">
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -10,23 +15,23 @@
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="AdminTeamplate/apple-touch-icon.jsp">
+        <link rel="apple-touch-icon" href="apple-touch-icon.html">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="css/vendor.css">
         <!-- Theme initialization -->
-    <script>
-        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+        <script>
+            var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
             {};
-        var themeName = themeSettings.themeName || '';
-        if (themeName)
-        {
-            document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
-        }
-        else
-        {
-            document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
-        }
-    </script>
+            var themeName = themeSettings.themeName || '';
+            if (themeName)
+            {
+                document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
+            }
+            else
+            {
+                document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
+            }
+        </script>
     </head>
     <body>
         <div class="main-wrapper">
@@ -117,7 +122,7 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-gear icon"></i> Settings </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="AdminTeamplate/login.jsp">
+                                    <a class="dropdown-item" href="login.html">
                                         <i class="fa fa-power-off icon"></i> Logout </a>
                                 </div>
                             </li>
@@ -143,14 +148,14 @@
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/items-list.jsp">
+                                    <a href="items-list.jsp">
                                         <i class="fa fa-th-large"></i> Items List
                                     </a>
                                 </li>
                                 
                                 
                                 <li>
-                                    <a href="AdminTeamplate/forms.jsp">
+                                    <a href="forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>
                                 </li>
                                 
@@ -161,25 +166,25 @@
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="AdminTeamplate/login.jsp"> Login </a>
+                                            <a href="login.jsp"> Login </a>
                                         </li>
                                         <li>
-                                            <a href="AdminTeamplate/signup.jsp"> Sign Up </a>
+                                            <a href="signup.jsp"> Sign Up </a>
                                         </li>
                                         <li>
-                                            <a href="AdminTeamplate/reset.jsp"> Reset </a>
+                                            <a href="reset.jsp"> Reset </a>
                                         </li>
                                         <li>
-                                            <a href="AdminTeamplate/error-404.jsp"> Error 404 App </a>
+                                            <a href="error-404.jsp"> Error 404 App </a>
                                         </li>
                                         <li>
-                                            <a href="AdminTeamplate/error-404-alt.jsp"> Error 404 Global </a>
+                                            <a href="error-404-alt.jsp"> Error 404 Global </a>
                                         </li>
                                         <li>
-                                            <a href="AdminTeamplate/error-500.jsp"> Error 500 App </a>
+                                            <a href="error-500.jsp"> Error 500 App </a>
                                         </li>
                                         <li>
-                                            <a href="AdminTeamplate/error-500-alt.jsp"> Error 500 Global </a>
+                                            <a href="error-500-alt.jsp"> Error 500 Global </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -413,7 +418,7 @@
                                     <div class="card-header bordered">
                                         <div class="header-block">
                                             <h3 class="title"> Items </h3>
-                                            <a href="AdminTeamplate/item-editor.jsp" class="btn btn-primary btn-sm"> Add new </a>
+                                            <a href="item-editor.html" class="btn btn-primary btn-sm"> Add new </a>
                                         </div>
                                         <div class="header-block pull-right">
                                             <label class="search">
@@ -1339,19 +1344,3 @@
     </body>
 
 </html>
-
-<!-- <%--    <title>Title</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--&lt;%&ndash;<a href="/UserServlet?action=create">Tao tài khoản</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<a href="/UserServlet?action=update">Sửa tài khoản</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<a href="/UserServlet?action=remove">Xoá tài khoản</a>&ndash;%&gt;--%>
-
-<%--<a href="/UserServlet?action=create">Tao tài khoản</a>--%>
-<%--<br>--%>
-<%--<a href="/UserServlet?action=update">Sửa tài khoản</a>--%>
-<%--<br>--%>
-<%--<a href="/UserServlet?action=remove">Xoá tài khoản</a>--%>
-<%--<a href="/movie?action=create">Xoá tài khoản</a>--%> -->
