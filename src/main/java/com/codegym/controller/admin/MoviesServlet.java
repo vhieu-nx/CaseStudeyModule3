@@ -1,5 +1,6 @@
 package com.codegym.controller.admin;
 
+import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
 import com.codegym.service.CategoryService;
 import com.codegym.service.IMovieService;
@@ -25,7 +26,8 @@ public class MoviesServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
-        }switch (action) {
+        }
+        switch (action) {
             case "create":
                 showFormCreate(req, resp);
                 break;
@@ -36,10 +38,11 @@ public class MoviesServlet extends HttpServlet {
     }
 
     private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) {
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("movie/createMovie");
-            req.setAttribute("categories",categoryService.findAll());
+        List<CategoryModel> categoryModels = categoryService.findAll();
+        req.setAttribute("categories", categoryModels);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/item-editor.jsp");
         try {
-            requestDispatcher.forward(req,resp);
+            requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -50,9 +53,9 @@ public class MoviesServlet extends HttpServlet {
     private void showAll(HttpServletRequest req, HttpServletResponse resp) {
         List<MovieModel> movieModels = movieService.selectAll();
         req.setAttribute("listMovie", movieModels);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("show.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/items-list.jsp");
         try {
-            requestDispatcher.forward(req,resp);
+            requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -61,22 +64,33 @@ public class MoviesServlet extends HttpServlet {
     }
 
     private void addNewMovie(HttpServletRequest req, HttpServletResponse resp) {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/item-editor.jsp");
+
+
         String title = req.getParameter("title");
         String content = req.getParameter("content");
         String description = req.getParameter("description");
         String image = req.getParameter("image");
         String trainer = req.getParameter("trainer");
-        String  movie = req.getParameter("movie");
+        String movie = req.getParameter("movie");
         String[] categoriesSr = req.getParameterValues("categories");
         int[] categories = new int[categoriesSr.length];
-        for (int i = 0; i < categoriesSr.length ; i++) {
+        for (int i = 0; i < categoriesSr.length; i++) {
             categories[i] = Integer.parseInt(categoriesSr[i]);
         }
-        MovieModel movieModel = new MovieModel(title,content,description,image,trainer,movie);
-        movieService.insert(movieModel,categories);
+        MovieModel movieModel = new MovieModel(title, content, description, image, trainer, movie);
+        movieService.insert(movieModel, categories);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/items-list.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -88,7 +102,7 @@ public class MoviesServlet extends HttpServlet {
                 addNewMovie(req, resp);
                 break;
             default:
-                showAll(req,resp);
+                showAll(req, resp);
         }
     }
 }
