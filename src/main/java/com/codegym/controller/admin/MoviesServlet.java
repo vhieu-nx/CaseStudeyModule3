@@ -31,10 +31,30 @@ public class MoviesServlet extends HttpServlet {
             case "create":
                 showFormCreate(req, resp);
                 break;
+            case "edit":
+                showFormEdit(req,resp);
             default:
                 showAll(req, resp);
                 break;
         }
+    }
+
+    private void showFormEdit(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        MovieModel movieModel = new MovieModel();
+        List<CategoryModel> categoryModels = categoryService.findAll();
+        req.setAttribute("movie",movieModel);
+        req.setAttribute("categories",categoryModels);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/EditFormMovie.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) {
@@ -87,8 +107,6 @@ public class MoviesServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override

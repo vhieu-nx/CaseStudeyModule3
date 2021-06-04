@@ -1,6 +1,7 @@
 package com.codegym.service.impl;
 
 import com.codegym.dao.connection.ConnectionJDBC;
+import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
 import com.codegym.service.IMovieService;
 
@@ -15,6 +16,8 @@ public class MovieService implements IMovieService {
     private static final String UPDATE_MOVIE_FROM_MOVIE ="UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where movie_id =?";
     private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,movie_id) value (?,?)";
     private static final String SELECT_MOVIE_ID ="SELECT  * FROM movies where move_id = ?" ;
+    private static final String SELECT_CATEGORIES_BY_MOVIEID ="" ;
+    private static final String DELETE_MOVIE_FROM_CATEGORYMOIVE = "DELETE FROM id_category where movie_id = ?";
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
@@ -131,6 +134,9 @@ public class MovieService implements IMovieService {
             preparedStatement.setString(5,movieModel.getYoutubeTrainer());
             preparedStatement.setString(6,movieModel.getVideoMovie());
             preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement2 = connection.prepareStatement(DELETE_MOVIE_FROM_CATEGORYMOIVE);
+            preparedStatement2.setInt(1,movieModel.getMovie_id());
+            preparedStatement2.executeUpdate();
             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE);
             for (int i = 0; i <movieModel.getCategoryModels().size() ; i++) {
                 preparedStatement1.setInt(1,movieModel.getMovie_id());
@@ -140,5 +146,10 @@ public class MovieService implements IMovieService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public List<CategoryModel> getCategoryByMovieId(int movieId){
+        List<CategoryModel> categoryModels = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIES_BY_MOVIEID);
     }
 }
