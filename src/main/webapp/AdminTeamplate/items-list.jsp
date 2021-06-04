@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html class="no-js" lang="en">
     
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -15,7 +16,7 @@
         <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.html">
+        <link rel="apple-touch-icon" href="apple-touch-icon.jsp">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="css/vendor.css">
         <!-- Theme initialization -->
@@ -295,8 +296,8 @@
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="title"> Items
-                                        <a href="item-editor.jsp" class="btn btn-primary btn-sm rounded-s"> Add New </a>
+                                    <h3 class="title"> List Movies
+                                        <a href="/MovieServlet?action=create" class="btn btn-primary btn-sm rounded-s"> Add New </a>
                                         <!--
 				 -->
                                     </h3>
@@ -316,19 +317,20 @@
                             </form>
                         </div>
                     </div>
+
                     <div class="card items">
                         <ul class="item-list striped">
                             <li class="item item-list-header">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
+                                        <label class="item-check" id="select-all-items1">
                                             <input type="checkbox" class="checkbox">
                                             <span></span>
                                         </label>
                                     </div>
                                     <div class="item-col item-col-header fixed item-col-img md">
                                         <div>
-                                            <span>Media</span>
+                                            <span>Image</span>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-header item-col-title">
@@ -336,24 +338,9 @@
                                             <span>Name</span>
                                         </div>
                                     </div>
-                                    <div class="item-col item-col-header item-col-sales">
-                                        <div>
-                                            <span>Sales</span>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-header item-col-stats">
-                                        <div class="no-overflow">
-                                            <span>Stats</span>
-                                        </div>
-                                    </div>
                                     <div class="item-col item-col-header item-col-category">
                                         <div class="no-overflow">
-                                            <span>Category</span>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-header item-col-author">
-                                        <div class="no-overflow">
-                                            <span>Author</span>
+                                            <span>Content</span>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-header item-col-date">
@@ -364,52 +351,37 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
+                            <c:forEach var="movies" items="${listMovie}">
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
+                                        <label class="item-check" id="select-all-items2">
                                             <input type="checkbox" class="checkbox">
                                             <span></span>
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
                                         <a href="item-editor.jsp">
-                                            <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
+                                            <div class="item-img rounded" style="background-image: url(${movies.image_movie})"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
                                             <a href="item-editor.jsp" class="">
-                                                <h4 class="item-title"> 12 Myths Uncovered About IT &amp; Software </h4>
+                                                <h4 class="item-title"> ${movies.title} </h4>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">Sales</div>
-                                        <div> 46323 </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">Stats</div>
-                                        <div class="no-overflow">
-                                            <div class="item-stats sparkline" data-type="bar"></div>
-                                        </div>
-                                    </div>
                                     <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">Category</div>
+                                        <div class="item-heading">Content</div>
                                         <div class="no-overflow">
-                                            <a href="#">Software</a>
+                                            <a href="#">${movies.content}</a>
                                         </div>
                                     </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">Author</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Meadow Katheryne</a>
-                                        </div>
-                                    </div>
+
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">Published</div>
-                                        <div class="no-overflow"> 21 SEP 10:45 </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -424,13 +396,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="Xóa bài viết">
                                                             <i class="fa fa-trash-o "></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="item-editor.jsp">
-                                                            <i class="fa fa-pencil"></i>
+                                                        <a class="edit" href="MovieServlet?action=create" title="Thêm bài viết">
+                                                            <i class="fas fa-plus-circle"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -439,383 +411,10 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
-                                            <input type="checkbox" class="checkbox">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.jsp">
-                                            <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">Name</div>
-                                        <div>
-                                            <a href="item-editor.jsp" class="">
-                                                <h4 class="item-title"> 50% of things doesn&#x27;t really belongs to you </h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">Sales</div>
-                                        <div> 4567 </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">Stats</div>
-                                        <div class="no-overflow">
-                                            <div class="item-stats sparkline" data-type="bar"></div>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">Category</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Hardware</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">Author</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Alexander Sargssyan</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">Published</div>
-                                        <div class="no-overflow"> 21 SEP 10:45 </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn">
-                                                <span class="inactive">
-                                                    <i class="fa fa-cog"></i>
-                                                </span>
-                                                <span class="active">
-                                                    <i class="fa fa-chevron-circle-right"></i>
-                                                </span>
-                                            </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
-                                                            <i class="fa fa-trash-o "></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="item-editor.jsp">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
-                                            <input type="checkbox" class="checkbox">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.jsp">
-                                            <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">Name</div>
-                                        <div>
-                                            <a href="item-editor.jsp" class="">
-                                                <h4 class="item-title"> Vestibulum tincidunt amet laoreet mauris sit sem aliquam cras maecenas vel aliquam. </h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">Sales</div>
-                                        <div> 854 </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">Stats</div>
-                                        <div class="no-overflow">
-                                            <div class="item-stats sparkline" data-type="bar"></div>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">Category</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Anywhere</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">Author</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Some Long Author Name</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">Published</div>
-                                        <div class="no-overflow"> 21 SEP 10:45 </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn">
-                                                <span class="inactive">
-                                                    <i class="fa fa-cog"></i>
-                                                </span>
-                                                <span class="active">
-                                                    <i class="fa fa-chevron-circle-right"></i>
-                                                </span>
-                                            </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
-                                                            <i class="fa fa-trash-o "></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="item-editor.jsp">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
-                                            <input type="checkbox" class="checkbox">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.jsp">
-                                            <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/why_this/128.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">Name</div>
-                                        <div>
-                                            <a href="item-editor.jsp" class="">
-                                                <h4 class="item-title"> Lorem Ipsum is not simply random text </h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">Sales</div>
-                                        <div> 1861 </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">Stats</div>
-                                        <div class="no-overflow">
-                                            <div class="item-stats sparkline" data-type="bar"></div>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">Category</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Something</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">Author</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Willard Bennett</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">Published</div>
-                                        <div class="no-overflow"> 21 SEP 10:45 </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn">
-                                                <span class="inactive">
-                                                    <i class="fa fa-cog"></i>
-                                                </span>
-                                                <span class="active">
-                                                    <i class="fa fa-chevron-circle-right"></i>
-                                                </span>
-                                            </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
-                                                            <i class="fa fa-trash-o "></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="item-editor.jsp">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
-                                            <input type="checkbox" class="checkbox">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.jsp">
-                                            <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/w7download/128.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">Name</div>
-                                        <div>
-                                            <a href="item-editor.jsp" class="">
-                                                <h4 class="item-title"> Ut dui quis amet curabitur vestibulum </h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">Sales</div>
-                                        <div> 7891 </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">Stats</div>
-                                        <div class="no-overflow">
-                                            <div class="item-stats sparkline" data-type="bar"></div>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">Category</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Something Else</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">Author</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Ivy Lorrie</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">Published</div>
-                                        <div class="no-overflow"> 21 SEP 10:45 </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn">
-                                                <span class="inactive">
-                                                    <i class="fa fa-cog"></i>
-                                                </span>
-                                                <span class="active">
-                                                    <i class="fa fa-chevron-circle-right"></i>
-                                                </span>
-                                            </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
-                                                            <i class="fa fa-trash-o "></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="item-editor.jsp">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
-                                            <input type="checkbox" class="checkbox">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.jsp">
-                                            <div class="item-img rounded" style="background-image: url(../../s3.amazonaws.com/uifaces/faces/twitter/pankogut/128.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">Name</div>
-                                        <div>
-                                            <a href="item-editor.jsp" class="">
-                                                <h4 class="item-title"> Mus sociosqu etiam autem rutrum at molestie elit pulvinar </h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">Sales</div>
-                                        <div> 95150 </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">Stats</div>
-                                        <div class="no-overflow">
-                                            <div class="item-stats sparkline" data-type="bar"></div>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">Category</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Other</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">Author</div>
-                                        <div class="no-overflow">
-                                            <a href="#">Evander Archie</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">Published</div>
-                                        <div class="no-overflow"> 21 SEP 10:45 </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn">
-                                                <span class="inactive">
-                                                    <i class="fa fa-cog"></i>
-                                                </span>
-                                                <span class="active">
-                                                    <i class="fa fa-chevron-circle-right"></i>
-                                                </span>
-                                            </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal">
-                                                            <i class="fa fa-trash-o "></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="item-editor.jsp">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            </c:forEach>
                         </ul>
                     </div>
+
                     <nav class="text-right">
                         <ul class="pagination">
                             <li class="page-item">

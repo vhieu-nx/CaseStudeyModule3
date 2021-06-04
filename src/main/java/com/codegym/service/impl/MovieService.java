@@ -10,16 +10,15 @@ import java.util.List;
 
 public class MovieService implements IMovieService {
     private static final String SELECT_ALL_USER = "SELECT *FROM movies";
-    private static final String INSERT_USER_SQL = "Select move_id,title,content,description,image_movie,youtubeTrainer,videoMovie value (?,?,?,?,?,?)";
+    private static final String INSERT_USER_SQL = "INSERT  into movies  (title,content,description,image_movie,youtubeTrainer,videoMovie) value (?,?,?,?,?,?)";
     private static final String INSERT_NEW_MOVIES_CATEGORY = "insert into categorymovie (id_category, move_id) VALUE (?, ?)";
     private static final String UPDATE_MOVIE_FROM_MOVIE ="UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where movie_id =?";
     private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,movie_id) value (?,?)";
-    ;
+    private static final String SELECT_MOVIE_ID ="SELECT  * FROM movies where move_id = ?" ;
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
     }
-
     @Override
     public void insert(MovieModel movieModel,int[] categories) {
         int movie_id = 0;
@@ -56,8 +55,27 @@ public class MovieService implements IMovieService {
     }
 
     @Override
-    public MovieModel selectUserByID(String id) {
-        return null;
+    public MovieModel selectUserByID(int id) {
+        Connection connection = getConnection();
+        MovieModel movieModel = null;
+        try {
+            PreparedStatement preparedStatement =  connection.prepareStatement(SELECT_MOVIE_ID);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int movie_id = resultSet.getInt("move_id");
+                String  title = resultSet.getString("title");
+                String content = resultSet.getString("content");
+                String description = resultSet.getString("description");
+                String image_movie = resultSet.getString("image_movie");
+                String trainer = resultSet.getString("youtubeTrainer");
+                String video = resultSet.getString("videoMovie");
+                movieModel = new MovieModel(movie_id,title,content,description,image_movie,trainer,video);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return movieModel;
     }
 
     @Override
