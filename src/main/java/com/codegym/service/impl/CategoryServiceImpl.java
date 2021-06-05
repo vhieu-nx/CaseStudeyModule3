@@ -2,9 +2,9 @@ package com.codegym.service.impl;
 
 import com.codegym.dao.ICategoryDao;
 import com.codegym.dao.impl.CategoryDAO;
+import com.codegym.dto.MoviesInfo;
 import com.codegym.model.CategoryModel;
 import com.codegym.service.CategoryService;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
@@ -21,6 +21,18 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryModel> findAll() {
         return categoryDao.findAll();
+    }
+
+    @Override
+    public CategoryModel findById(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        return categoryDao.findById(id);
+    }
+
+    @Override
+    public List<MoviesInfo> findByIdCategory(HttpServletRequest request, HttpServletResponse response) {
+        Integer categoryId = Integer.parseInt(request.getParameter("categoryIdSearch"));
+        return categoryDao.findByIdCategory(categoryId, "");
     }
 
     @Override
@@ -48,11 +60,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public boolean save(HttpServletRequest request, HttpServletResponse response) {
-        String categoryName = request.getParameter("category_name");
+        String categoryName = request.getParameter("name");
         CategoryModel categoryModel = new CategoryModel(categoryName);
+
         try {
             categoryDao.save(categoryModel);
             return true;
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

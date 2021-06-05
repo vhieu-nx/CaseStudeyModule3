@@ -117,12 +117,15 @@ public class MovieService implements IMovieService {
         return movieModels;
     }
 
+
+
     @Override
     public List<MovieModel> selectAll() {
         List<MovieModel> movies = new ArrayList<>();
         Connection connection = getConnection();
         try {
-            connection.setAutoCommit(false);
+
+//            connection.setAutoCommit(false);
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USER);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -134,8 +137,7 @@ public class MovieService implements IMovieService {
                 String ytbTrainer = rs.getString("youtubeTrainer");
                 String video = rs.getString("videoMovie");
                 movies.add(new MovieModel(moveid, title, content, description,image,ytbTrainer,video));
-                connection.commit();
-
+//                connection.commit(); ???
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
