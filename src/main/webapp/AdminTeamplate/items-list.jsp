@@ -412,6 +412,12 @@
                                                         </a>
                                                     </li>
 
+                                                    <li>
+                                                        <a href="#" title="Info details">
+                                                            <i class="fas fa-info"></i>
+                                                        </a>
+                                                    </li>
+
                                                 </ul>
                                             </div>
                                         </div>
