@@ -33,6 +33,7 @@ public class MoviesServlet extends HttpServlet {
                 break;
             case "edit":
                 showFormEdit(req,resp);
+                break;
             case "delete":
                 deleteMovie(req,resp);
                 break;
@@ -54,9 +55,9 @@ public class MoviesServlet extends HttpServlet {
 
     private void showFormEdit(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
-        MovieModel movieModel = new MovieModel();
+        MovieModel movieModel =  movieService.selectUserByID(id);
         List<CategoryModel> categoryModels = categoryService.findAll();
-        req.setAttribute("movie",movieModel);
+        req.setAttribute("movies",movieModel);
         req.setAttribute("categories",categoryModels);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/EditFormMovie.jsp");
         try {
@@ -137,6 +138,7 @@ public class MoviesServlet extends HttpServlet {
                 break;
             default:
                 showAll(req, resp);
+                break;
         }
     }
 
