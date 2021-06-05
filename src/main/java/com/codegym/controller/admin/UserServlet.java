@@ -2,13 +2,14 @@ package com.codegym.controller.admin;
 
 import com.codegym.service.IUserService;
 import com.codegym.service.impl.UserService;
+import com.codegym.utils.SessionUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "UserServlet", value = "/UserServlet")
+@WebServlet(name = "UserServlet", value = "/Login")
 public class UserServlet extends HttpServlet {
     IUserService userService = new UserService();
 
@@ -21,6 +22,11 @@ public class UserServlet extends HttpServlet {
         switch (action){
             case "login":
                 userService.login(request,response);
+                break;
+            case "logout":
+
+                SessionUtils.getInstance().removeValue(request,"userModel");
+                response.sendRedirect(request.getContextPath()+ "/Login");
                 break;
             case "create":
                 userService.createFormUser(request,response);
@@ -35,7 +41,7 @@ public class UserServlet extends HttpServlet {
                 break;
             default:
 //                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
@@ -64,7 +70,7 @@ public class UserServlet extends HttpServlet {
                 break;
             default:
 //                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
