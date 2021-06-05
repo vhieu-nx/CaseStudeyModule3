@@ -24,9 +24,7 @@ public class UserServlet extends HttpServlet {
                 userService.login(request,response);
                 break;
             case "logout":
-
-                SessionUtils.getInstance().removeValue(request,"userModel");
-                response.sendRedirect(request.getContextPath()+ "/Login");
+                userService.logOut(request,response);
                 break;
             case "create":
                 userService.createFormUser(request,response);
@@ -38,11 +36,13 @@ public class UserServlet extends HttpServlet {
                 userService.updateFormB2User(request,response);
                 break;
             case "remove":
+                userService.removeUser(request,response);
+                break;
+            case "showclientuser":
+                userService.showAllUserClient(request,response);
                 break;
             default:
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-                requestDispatcher.forward(request,response);
+                userService.enterHome(request,response);
                 break;
         }
 
@@ -69,9 +69,7 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-                requestDispatcher.forward(request,response);
+                userService.enterHome(request,response);
                 break;
         }
     }

@@ -155,6 +155,12 @@
                                     </a>
                                 
                                 </li>
+                                <li class="active open">
+                                    <a href="/Login?action=showclientuser">
+                                        <i class="fa fa-th-large"></i> User List
+                                    </a>
+
+                                </li>
                                 <li>
                                     <a href="forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>

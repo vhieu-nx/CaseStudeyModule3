@@ -14,6 +14,9 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       String jsp = "indexAdmin.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        requestDispatcher.forward(request,response);
     }
 
     @Override

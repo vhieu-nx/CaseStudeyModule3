@@ -17,6 +17,8 @@ public interface IUserService {
     public void removeUser(HttpServletRequest request, HttpServletResponse response);
     public void login(HttpServletRequest request, HttpServletResponse response);
     public void enterlogin(HttpServletRequest request, HttpServletResponse response);
+    public void enterHome(HttpServletRequest request, HttpServletResponse response);
+    public void logOut(HttpServletRequest request, HttpServletResponse response);
 
 
     }

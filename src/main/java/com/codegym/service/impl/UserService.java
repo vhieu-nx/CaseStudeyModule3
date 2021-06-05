@@ -4,6 +4,7 @@ package com.codegym.service.impl;
 import com.codegym.dao.impl.UserDAO;
 import com.codegym.model.UserModel;
 import com.codegym.service.IUserService;
+import com.codegym.utils.SessionUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.*;
@@ -18,12 +19,12 @@ public class UserService implements IUserService {
 
     @Override
     public void showAllUserClient(HttpServletRequest request, HttpServletResponse response) {
-        String jsp ="wedmovie/adminuser/listuserclient.jsp";
-        RequestDispatcher requestDispatcher= request.getRequestDispatcher(jsp);
+        String jsp = "AdminTeamplate/showuserlist.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         List<UserModel> userModels = userDAO.showAll();
-        request.setAttribute("user",userModels);
+        request.setAttribute("user", userModels);
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -36,7 +37,7 @@ public class UserService implements IUserService {
         String jsp = "wedmovie/createuser.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -49,7 +50,7 @@ public class UserService implements IUserService {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        UserModel userModel = new UserModel(name,email,password);
+        UserModel userModel = new UserModel(name, email, password);
         userDAO.save(userModel);
     }
 
@@ -58,7 +59,7 @@ public class UserService implements IUserService {
         String jsp = "wedmovie/updateuser/update1.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -71,10 +72,10 @@ public class UserService implements IUserService {
         String jsp = "wedmovie/updateuser/update2.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -86,18 +87,17 @@ public class UserService implements IUserService {
         try {
             email = request.getParameter("email");
             userModel = userDAO.findByEmail(email);
-            if (userModel== null){
+            if (userModel == null) {
                 throw new Error();
 //                Chưa đúng lắm .......
 //                ................................
             }
-        }catch (Error e){
-            request.setAttribute("status","Email Không có trên hệ thống");
+        } catch (Error e) {
+            request.setAttribute("status", "Email Không có trên hệ thống");
 //            Hiển thị ra đâu?????
 //            ...........................
         }
-
-            request.setAttribute("userModel",userModel);
+        request.setAttribute("userModel", userModel);
         try {
             response.sendRedirect("/UserServlet?action=update1");
         } catch (IOException e) {
@@ -110,19 +110,20 @@ public class UserService implements IUserService {
     public void updateB2User(HttpServletRequest request, HttpServletResponse response) {
         String email = request.getParameter("email");
         UserModel userModel = userDAO.findByEmail(email);
-        if (userModel!= null){
+        if (userModel != null) {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
-            UserModel userModel1 = new UserModel(name,email,password);
-            userDAO.updateUser(email,userModel1);
-        }else {
+            UserModel userModel1 = new UserModel(name, email, password);
+            userDAO.updateUser(email, userModel1);
+        } else {
 //            làm sau
 //            ......
 //            .......
         }
 
     }
-//Xoa tai khoan khach
+
+    //Xoa tai khoan khach
     @Override
     public void removeUser(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -133,72 +134,89 @@ public class UserService implements IUserService {
             e.printStackTrace();
         }
     }
-//vao trang dang nhap
+
+    //vao trang dang nhap
     @Override
     public void login(HttpServletRequest request, HttpServletResponse response) {
-        String jsp  = "index-2.jsp";
+        String jsp = "index-2.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-//Nhap vao tai khoan de dang nhap
+
+    //Nhap vao tai khoan de dang nhap
     @Override
-    public void enterlogin(HttpServletRequest request, HttpServletResponse response){
+    public void enterlogin(HttpServletRequest request, HttpServletResponse response) {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        UserModel userModel = userDAO.findUserName(email,password);
-        String name = userModel.getName();
-        if (userModel!=null){
-            if (userModel.getRole().equalsIgnoreCase("CLIENT")){
-                try {
+        UserModel userModel = userDAO.findUserName(email, password);
+        if (userModel != null) {
+            if (userModel.getRole().equalsIgnoreCase("CLIENT")) {
+                String name = userModel.getName();
+                try {Cookie cookie = new Cookie(email, password);
+                    cookie.setMaxAge(60 * 1);
+                    response.addCookie(cookie);
                     HttpSession session = request.getSession();
                     String jsp = "/index.jsp";
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-                    session.setAttribute("userModel",name);
-                    requestDispatcher.forward(request,response);
+                    session.setAttribute("userModel", name);
+                    requestDispatcher.forward(request, response);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ServletException e) {
                     e.printStackTrace();
                 }
-            }else
-            if(userModel.getRole().equalsIgnoreCase("ADMIN")){
+            } else if (userModel.getRole().equalsIgnoreCase("ADMIN")) {
+                String name = userModel.getName();
+
                 try {
                     HttpSession session = request.getSession();
-                    response.sendRedirect(request.getContextPath()+"/indexAdmin.jsp");
-                    session.setAttribute("userModel",name);
-//                    requestDispatcher.forward(request,response);
-
+                    response.sendRedirect(request.getContextPath() + "/admin-home");
+                    session.setAttribute("userModel", name);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
-        }else {
-
+        } else {
 //            người dùng không truyền dữ liệu ấn submit thì sẽ thông báo nhập dữ liệu.
 //            không thực hiện đúng ý
-           String jsp= "/Login?action=login";
+            String jsp = "/index.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-            String s = "mời bạn đăng nhập";
-            request.setAttribute("s" ,s);
             try {
-                requestDispatcher.forward(request,response);
+                requestDispatcher.forward(request, response);
             } catch (ServletException e) {
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 
+    @Override
+    public void enterHome(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    @Override
+    public void logOut(HttpServletRequest request, HttpServletResponse response) {
+        SessionUtils.getInstance().removeValue(request, "userModel");
+        try {
+            response.sendRedirect(request.getContextPath() + "/Login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

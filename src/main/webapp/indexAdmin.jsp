@@ -152,6 +152,11 @@
                                         <i class="fa fa-th-large"></i> Review List
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="/Login?action=showclientuser">
+                                        <i class="fa fa-th-large"></i> User List
+                                    </a>
+                                </li>
 
 
                                 <li>

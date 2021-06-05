@@ -119,6 +119,7 @@ public class UserDAO implements IUserDAO {
         return null;
     }
 
+
     @Override
     public UserModel findUserName(String email,String password) {
         UserModel userModel = null;
@@ -138,8 +139,8 @@ public class UserDAO implements IUserDAO {
             throwables.printStackTrace();
         }
         return userModel;
-//        nó có phải A hoặc client
     }
+
 
     @Override
     public UserModel findByEmail(String email) {
