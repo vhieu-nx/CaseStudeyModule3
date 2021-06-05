@@ -168,7 +168,7 @@ public class UserService implements IUserService {
             }else
             if(userModel.getRole().equalsIgnoreCase("ADMIN")){
                 try {
-                    response.sendRedirect(request.getContextPath()+"/index.jsp");
+                    response.sendRedirect(request.getContextPath()+"/indexAdmin.jsp");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
