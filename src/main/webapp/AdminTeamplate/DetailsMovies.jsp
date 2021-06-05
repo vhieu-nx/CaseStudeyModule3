@@ -32,7 +32,7 @@
 
 </head>
 <body>
-<section class="transformers-area">
+<section class="transformers-area"  id="myDIV" >
     <div class="container">
         <div class="transformers-box">
             <div class="row flexbox-center">
@@ -128,6 +128,10 @@
         </div>
     </div>
 </section>
+<script>
+    document.getElementById("myDIV").style.display = "none";
+
+</script>
 <script src="assets/js/jquery.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="assets/js/bootstrap.min.js"></script>
@@ -141,5 +145,6 @@
 <script src="assets/js/isotope.pkgd.min.js"></script>
 <!-- main JS -->
 <script src="assets/js/main.js"></script>
+
 </body>
 </html>

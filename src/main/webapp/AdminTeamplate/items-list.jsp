@@ -413,7 +413,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="#" title="Info details">
+                                                        <a href="" title="Info details">
                                                             <i class="fas fa-info"></i>
                                                         </a>
                                                     </li>
