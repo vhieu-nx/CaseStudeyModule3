@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "MoviesServlet", urlPatterns = "/MovieServlet")
@@ -32,10 +33,10 @@ public class MoviesServlet extends HttpServlet {
                 showFormCreate(req, resp);
                 break;
             case "edit":
-                showFormEdit(req,resp);
+                showFormEdit(req, resp);
                 break;
             case "delete":
-                deleteMovie(req,resp);
+                deleteMovie(req, resp);
                 break;
             default:
                 showAll(req, resp);
@@ -55,20 +56,20 @@ public class MoviesServlet extends HttpServlet {
 
     private void showFormEdit(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
-        MovieModel movieModel =  movieService.selectUserByID(id);
+        MovieModel movieModel = movieService.selectUserByID(id);
         List<CategoryModel> categoryModels = categoryService.findAll();
-        req.setAttribute("movies",movieModel);
-        req.setAttribute("categories",categoryModels);
+        List<CategoryModel> categoryModelsOfMovie = movieService.getCategoryByMovieId(id);
+        req.setAttribute("movies", movieModel);
+        req.setAttribute("categories", categoryModels);
+        req.setAttribute("categoriesOfMovie", categoryModelsOfMovie);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/EditFormMovie.jsp");
         try {
-            requestDispatcher.forward(req,resp);
+            requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) {
@@ -113,11 +114,8 @@ public class MoviesServlet extends HttpServlet {
         }
         MovieModel movieModel = new MovieModel(title, content, description, image, trainer, movie);
         movieService.insert(movieModel, categories);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/items-list.jsp");
         try {
-            requestDispatcher.forward(req,resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
+            resp.sendRedirect(req.getContextPath() + "/MovieServlet");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,7 +132,7 @@ public class MoviesServlet extends HttpServlet {
                 addNewMovie(req, resp);
                 break;
             case "edit":
-                updateMovie(req,resp);
+                updateMovie(req, resp);
                 break;
             default:
                 showAll(req, resp);
@@ -143,6 +141,36 @@ public class MoviesServlet extends HttpServlet {
     }
 
     private void updateMovie(HttpServletRequest req, HttpServletResponse resp) {
+        try {
+            int id = Integer.parseInt(req.getParameter("id"));
+            String title = req.getParameter("title");
+            String content = req.getParameter("content");
+            String description = req.getParameter("description");
+//        List<CategoryModel> categories = new ArrayList<>();
+            String[] categoriesStr = req.getParameterValues("categories");
+            List<CategoryModel> categoryModels = new ArrayList<>();
+            for (String category_id_string : categoriesStr
+            ) {
+                categoryModels.add(new CategoryModel(Integer.parseInt(category_id_string)));
+            }
+            String image = req.getParameter("image");
+            String trainer = req.getParameter("trainer");
+            String movie = req.getParameter("movie");
+            MovieModel movieModel = new MovieModel(id, title, content, description, categoryModels, image, trainer, movie);
+            movieService.update(movieModel);
+            resp.sendRedirect(req.getContextPath() + "/MovieServlet");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        movieService.update();
+//        title
+//
+//        description
+//                categories
+//        image
+//                trainer
+//        movie
+
 
     }
 }
