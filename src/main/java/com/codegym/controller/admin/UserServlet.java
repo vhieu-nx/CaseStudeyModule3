@@ -20,9 +20,7 @@ public class UserServlet extends HttpServlet {
         }
         switch (action){
             case "login":
-                String jsp  = "index.jsp";
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-                requestDispatcher.forward(request,response);
+                userService.login(request,response);
                 break;
             case "create":
                 userService.createFormUser(request,response);
@@ -37,7 +35,8 @@ public class UserServlet extends HttpServlet {
                 break;
             default:
 //                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-//                requestDispatcher.forward(request,response);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
+                requestDispatcher.forward(request,response);
                 break;
         }
 
@@ -49,6 +48,9 @@ public class UserServlet extends HttpServlet {
             action="";
         }
         switch (action){
+            case "login":
+                userService.enterlogin(request,response);
+                break;
             case "create":
                 userService.createUser(request,response);
                 break;
@@ -61,7 +63,8 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
