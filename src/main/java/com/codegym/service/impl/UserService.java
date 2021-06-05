@@ -152,14 +152,15 @@ public class UserService implements IUserService {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         UserModel userModel = userDAO.findUserName(email,password);
+        String name = userModel.getName();
         if (userModel!=null){
             if (userModel.getRole().equalsIgnoreCase("CLIENT")){
                 try {
-                    String jsp = "/index-2.jsp";
+                    HttpSession session = request.getSession();
+                    String jsp = "/index.jsp";
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-                    request.setAttribute("userModel",userModel);
+                    session.setAttribute("userModel",name);
                     requestDispatcher.forward(request,response);
-//                response.sendRedirect(request.getContextPath()+"/index-2.jsp");
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (ServletException e) {
@@ -168,7 +169,11 @@ public class UserService implements IUserService {
             }else
             if(userModel.getRole().equalsIgnoreCase("ADMIN")){
                 try {
+                    HttpSession session = request.getSession();
                     response.sendRedirect(request.getContextPath()+"/indexAdmin.jsp");
+                    session.setAttribute("userModel",name);
+//                    requestDispatcher.forward(request,response);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -176,7 +181,13 @@ public class UserService implements IUserService {
             }
         }else {
 
+<<<<<<< HEAD
            String jsp= "/UserServlet?action=login";
+=======
+//            người dùng không truyền dữ liệu ấn submit thì sẽ thông báo nhập dữ liệu.
+//            không thực hiện đúng ý
+           String jsp= "/Login?action=login";
+>>>>>>> f2122db88a0c38dffad22ab285ce7cea7bb4dd49
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             String s = "mời bạn đăng nhập";
             request.setAttribute("s" ,s);
@@ -191,5 +202,7 @@ public class UserService implements IUserService {
         }
 
     }
+
+
 
 }

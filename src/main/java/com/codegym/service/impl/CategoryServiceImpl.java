@@ -25,7 +25,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryModel findById(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("category_id"));
+        int id = Integer.parseInt(request.getParameter("id"));
         return categoryDao.findById(id);
     }
 
@@ -66,6 +66,7 @@ public class CategoryServiceImpl implements CategoryService {
         try {
             categoryDao.save(categoryModel);
             return true;
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

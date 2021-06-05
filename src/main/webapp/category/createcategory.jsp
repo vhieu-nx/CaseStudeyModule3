@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Tạo Mới</h1>
-<form  method="post">
+<form action="/admin-categories?action=create" method="post">
     <input name="name" placeholder="Name" id="category_name">
     <button type="submit">Create</button>
 

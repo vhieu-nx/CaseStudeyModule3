@@ -47,7 +47,6 @@
                     <form action="/admin-categories" method="get">
                         <input type="text" name="action" value="findById" hidden>
                         <input type="number" name="categoryIdSearch" value="${el.category_id}" hidden>
-
                         <button type="submit">Tìm Kiếm Phim Cùng Thể Loại</button>
 
                     </form>

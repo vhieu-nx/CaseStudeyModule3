@@ -50,6 +50,7 @@ public class CategoryDAO implements ICategoryDao {
             CategoryModel categoryModel = new CategoryModel();
             categoryModel.setCategory_id(resultSet.getInt("id_category"));
             categoryModel.setName(resultSet.getString("category_name"));
+            return categoryModel;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
