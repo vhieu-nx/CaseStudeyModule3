@@ -91,6 +91,7 @@
 						<span>SIGNUP</span>
 					</div>
 					<button type="submit" class="theme-btn" value="login">LOGIN</button>
+					<p>${s}</p>
 <%--					<a href="/UserServlet" class="theme-btn">LOG IN</a>--%>
 					<span>Or Via Social</span>
 					<div class="login-social">

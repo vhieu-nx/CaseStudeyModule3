@@ -74,7 +74,7 @@ public class UserService implements IUserService {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -152,19 +152,20 @@ public class UserService implements IUserService {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         UserModel userModel = userDAO.findUserName(email,password);
-        if (userModel.getRole().equalsIgnoreCase("CLIENT")){
-            try {
-                String jsp = "/index-2.jsp";
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-                request.setAttribute("userModel",userModel);
-                requestDispatcher.forward(request,response);
+        if (userModel!=null){
+            if (userModel.getRole().equalsIgnoreCase("CLIENT")){
+                try {
+                    String jsp = "/index-2.jsp";
+                    RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+                    request.setAttribute("userModel",userModel);
+                    requestDispatcher.forward(request,response);
 //                response.sendRedirect(request.getContextPath()+"/index-2.jsp");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
-        }else
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                }
+            }else
             if(userModel.getRole().equalsIgnoreCase("ADMIN")){
                 try {
                     response.sendRedirect(request.getContextPath()+"/index.jsp");
@@ -173,6 +174,23 @@ public class UserService implements IUserService {
                 }
 
             }
+        }else {
+//            người dùng không truyền dữ liệu ấn submit thì sẽ thông báo nhập dữ liệu.
+//            không thực hiện đúng ý
+           String jsp= "/UserServlet?action=login";
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+            String s = "mời bạn đăng nhập";
+            request.setAttribute("s" ,s);
+            try {
+                requestDispatcher.forward(request,response);
+            } catch (ServletException e) {
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 
 }
