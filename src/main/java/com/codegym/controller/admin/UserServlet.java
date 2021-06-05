@@ -34,8 +34,8 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
@@ -63,8 +63,8 @@ public class UserServlet extends HttpServlet {
             case "remove":
                 break;
             default:
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
-//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
