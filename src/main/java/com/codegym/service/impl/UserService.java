@@ -136,7 +136,7 @@ public class UserService implements IUserService {
 //vao trang dang nhap
     @Override
     public void login(HttpServletRequest request, HttpServletResponse response) {
-        String jsp  = "index.jsp";
+        String jsp  = "index-2.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request,response);
@@ -154,14 +154,20 @@ public class UserService implements IUserService {
         UserModel userModel = userDAO.findUserName(email,password);
         if (userModel.getRole().equalsIgnoreCase("CLIENT")){
             try {
-                response.sendRedirect(request.getContextPath()+"/trang-chu");
+                String jsp = "/index-2.jsp";
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+                request.setAttribute("userModel",userModel);
+                requestDispatcher.forward(request,response);
+//                response.sendRedirect(request.getContextPath()+"/index-2.jsp");
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ServletException e) {
                 e.printStackTrace();
             }
         }else
             if(userModel.getRole().equalsIgnoreCase("ADMIN")){
                 try {
-                    response.sendRedirect(request.getContextPath()+"/");
+                    response.sendRedirect(request.getContextPath()+"/index.jsp");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

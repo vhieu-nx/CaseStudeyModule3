@@ -35,6 +35,7 @@ public class UserServlet extends HttpServlet {
                 break;
             default:
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
@@ -47,6 +48,9 @@ public class UserServlet extends HttpServlet {
             action="";
         }
         switch (action){
+            case "login":
+                userService.enterlogin(request,response);
+                break;
             case "create":
                 userService.createUser(request,response);
                 break;
@@ -60,6 +64,7 @@ public class UserServlet extends HttpServlet {
                 break;
             default:
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("wedmovie/user.jsp");
+//                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index-2.jsp");
                 requestDispatcher.forward(request,response);
                 break;
         }
