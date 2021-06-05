@@ -1,5 +1,6 @@
 package com.codegym.service;
 
+import com.codegym.dto.MoviesInfo;
 import com.codegym.model.CategoryModel;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,8 @@ public interface CategoryService {
     List<CategoryModel> findAll();
 
     CategoryModel findById(HttpServletRequest request, HttpServletResponse response);
+
+    List<MoviesInfo> findByIdCategory(HttpServletRequest request, HttpServletResponse response);
 
     boolean update(HttpServletRequest request);
 

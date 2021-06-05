@@ -30,7 +30,7 @@ public class CategoriesServlet extends HttpServlet {
             case "create":
                 categoryService.save(req, resp);
                 req.getRequestDispatcher("/category/createcategory.jsp").forward(req, resp);
-                findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                findA(req, resp, categoryService, "/category/listcategory.jsp");
                 break;
             case "delete":
                 categoryService.delete(req);
@@ -41,16 +41,16 @@ public class CategoriesServlet extends HttpServlet {
                 resp.sendRedirect("/admin-categories");
                 break;
             case "findById":
-                categoryService.findById(req,resp);
-                req.getRequestDispatcher("/category/listcategory.jsp").forward(req,resp);
+                req.setAttribute("categories", categoryService.findByIdCategory(req, resp));
+                req.getRequestDispatcher("/category/moviesOrCategory.jsp").forward(req, resp);
                 break;
             default:
-                findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                findA(req, resp, categoryService, "/category/listcategory.jsp");
 
         }
     }
 
-    private void findALL(HttpServletRequest req, HttpServletResponse resp, CategoryService categoryService, String path) throws ServletException, IOException {
+    private void findA(HttpServletRequest req, HttpServletResponse resp, CategoryService categoryService, String path) throws ServletException, IOException {
         req.setAttribute("categories", categoryService.findAll());
         req.getRequestDispatcher(path).forward(req, resp);
     }
@@ -65,22 +65,22 @@ public class CategoriesServlet extends HttpServlet {
 
             case "create":
                 categoryService.save(req, resp);
-                findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                findA(req, resp, categoryService, "/category/listcategory.jsp");
                 break;
             case "delete":
                 categoryService.delete(req);
-                findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                findA(req, resp, categoryService, "/category/listcategory.jsp");
                 break;
             case "update":
                 categoryService.update(req);
-                findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                findA(req, resp, categoryService, "/category/listcategory.jsp");
                 break;
             case "findById":
-                categoryService.findById(req,resp);
-                req.getRequestDispatcher("/category/listcategory.jsp").forward(req,resp);
+                categoryService.findByIdCategory(req,resp);
+                req.getRequestDispatcher("/category/moviesOrCategory.jsp").forward(req,resp);
                 break;
             default:
-                findALL(req, resp, categoryService, "/category/listcategory.jsp");
+                findA(req, resp, categoryService, "/category/listcategory.jsp");
         }
     }
 }
