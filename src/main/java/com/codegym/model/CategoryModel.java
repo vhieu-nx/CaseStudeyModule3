@@ -14,6 +14,10 @@ public class CategoryModel {
         this.name = name;
     }
 
+    public CategoryModel(int category_id) {
+        this.category_id = category_id;
+    }
+
     public CategoryModel(int category_id, String name, List<MovieModel> movieModel) {
         this.category_id = category_id;
         this.name = name;
@@ -24,6 +28,8 @@ public class CategoryModel {
         this.category_id = category_id;
         this.name = name;
     }
+
+
 
     public int getCategory_id() {
         return category_id;
