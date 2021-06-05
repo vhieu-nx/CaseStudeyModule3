@@ -1,5 +1,7 @@
 package com.codegym.service;
 
+import com.codegym.model.CategoryModel;
+
 import java.util.List;
 
 public interface IGeneralDao<T> {
@@ -9,5 +11,6 @@ public interface IGeneralDao<T> {
     List<T> selectAll();
     void delete(int id);
     void update(T t);
+    List<CategoryModel> getCategoryByMovieId(int movieId);
 
 }

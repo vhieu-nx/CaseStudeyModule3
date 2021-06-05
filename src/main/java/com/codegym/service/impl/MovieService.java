@@ -3,6 +3,7 @@ package com.codegym.service.impl;
 import com.codegym.dao.connection.ConnectionJDBC;
 import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
+import com.codegym.model.ReviewModel;
 import com.codegym.service.IMovieService;
 
 import java.sql.*;
@@ -13,12 +14,18 @@ public class MovieService implements IMovieService {
     private static final String SELECT_ALL_USER = "SELECT *FROM movies";
     private static final String INSERT_USER_SQL = "INSERT  into movies  (title,content,description,image_movie,youtubeTrainer,videoMovie) value (?,?,?,?,?,?)";
     private static final String INSERT_NEW_MOVIES_CATEGORY = "insert into categorymovie (id_category, move_id) VALUE (?, ?)";
-    private static final String UPDATE_MOVIE_FROM_MOVIE ="UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where movie_id =?";
-    private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,movie_id) value (?,?)";
+    private static final String  UPDATE_MOVIE_FROM_MOVIE ="UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where move_id =?";
+    private static final String INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE = "INSERT into  categorymovie(id_category,move_id) value (?,?)";
     private static final String SELECT_MOVIE_ID ="SELECT  * FROM movies where move_id = ?" ;
-    private static final String SELECT_CATEGORIES_BY_MOVIEID ="" ;
+    private static final String SELECT_CATEGORIES_BY_MOVIEID ="select c.id_category as category_id, c.category_name as category_name\n" +
+            "            from ((movies\n" +
+            "            join categorymovie bc on movies.move_id = bc.move_id\n" +
+            "            join category c on c.id_category = bc.id_category))\n" +
+            "            where movies.move_id  = ?" ;
     private static final String DELETE_MOVIE_FROM_CATEGORYMOIVE = "DELETE FROM categorymovie where move_id = ?";
     private static final String DELETE_MOVIE_FROM_MOVIE ="DELETE FROM movies where move_id=?" ;
+    private static final String SELECT_MOVIE_BY_TITLE =" SELECT * FROM movies WHERE movies.title like ?";
+
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
@@ -60,6 +67,7 @@ public class MovieService implements IMovieService {
 
     @Override
     public MovieModel selectUserByID(int id) {
+//        List<ReviewModel> findAllByMovieId(int movieId);
         Connection connection = getConnection();
         MovieModel movieModel = null;
         try {
@@ -84,7 +92,29 @@ public class MovieService implements IMovieService {
 
     @Override
     public List<MovieModel> selectUserByName(String inputSearch) {
-        return null;
+        String search ="%" +inputSearch+ "%";
+        List<MovieModel> movieModels = new ArrayList<>();
+        Connection connection =getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MOVIE_BY_TITLE);
+            preparedStatement.setString(1, search);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String  title = rs.getString("title");
+                String content = rs.getString("content");
+                String description = rs.getString("description");
+                String image_movie = rs.getString("image_movie");
+                String youtubeTrainer = rs.getString("youtubeTrainer");
+                String videoMovie = rs.getString("videoMovie");
+                movieModels.add(new MovieModel(title,content,description,image_movie,youtubeTrainer,videoMovie));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+
+        return movieModels;
     }
 
 
@@ -149,25 +179,47 @@ public class MovieService implements IMovieService {
             preparedStatement.setString(4,movieModel.getImage_movie());
             preparedStatement.setString(5,movieModel.getYoutubeTrainer());
             preparedStatement.setString(6,movieModel.getVideoMovie());
+            preparedStatement.setInt(7,movieModel.getMovie_id());
             preparedStatement.executeUpdate();
             PreparedStatement preparedStatement2 = connection.prepareStatement(DELETE_MOVIE_FROM_CATEGORYMOIVE);
             preparedStatement2.setInt(1,movieModel.getMovie_id());
             preparedStatement2.executeUpdate();
+//            PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_NEW_MOVIES_CATEGORY);
+//            for (int id_category : categories){
+//                preparedStatement1.setInt(1,id_category);
+//                preparedStatement1.setInt(2,movie_id);
+//                preparedStatement1.executeUpdate();
+//            }
             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_MOVIE_CATEGORY_FROM_CATEGORYMOVIE);
             for (int i = 0; i <movieModel.getCategoryModels().size() ; i++) {
-                preparedStatement1.setInt(1,movieModel.getMovie_id());
-                preparedStatement1.setInt(2,movieModel.getCategoryModels().get(i).getCategory_id());
+                preparedStatement1.setInt(1,movieModel.getCategoryModels().get(i).getCategory_id());
+                preparedStatement1.setInt(2,movieModel.getMovie_id());
                 preparedStatement1.executeUpdate();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    @Override
     public List<CategoryModel> getCategoryByMovieId(int movieId) {
         List<CategoryModel> categoryModels = new ArrayList<>();
         Connection connection = getConnection();
-//        PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIES_BY_MOVIEID);
-//    }
-        return null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CATEGORIES_BY_MOVIEID);
+            preparedStatement.setInt(1,movieId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("category_id");
+                String name = resultSet.getString("category_name");
+                CategoryModel categoryModel = new CategoryModel(id,name);
+                categoryModels.add(categoryModel);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categoryModels;
     }
+
 }

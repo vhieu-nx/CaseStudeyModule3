@@ -40,7 +40,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
             </div>
-            <div class="header-block header-block-search">
+            <!-- <div class="header-block header-block-search">
                 <form role="search">
                     <div class="input-container">
                         <i class="fa fa-search"></i>
@@ -48,7 +48,7 @@
                         <div class="underline"></div>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <div class="header-block header-block-nav">
                 <ul class="nav-profile">
                     <li class="notifications new">
@@ -117,10 +117,6 @@
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-user icon"></i> Profile </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-bell icon"></i> Notifications </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-gear icon"></i> Settings </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="login.html">
                                 <i class="fa fa-power-off icon"></i> Logout </a>
@@ -145,79 +141,25 @@
                 </div>
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                        <li>
-                            <a href="index-2.jsp">
+                        <li class="active">
+                            <a href="#">
                                 <i class="fa fa-home"></i> Dashboard </a>
                         </li>
-                        <li class="active open">
-                            <a href="#">
-                                <i class="fa fa-th-large"></i> Items Manager
-                                <i class="fa arrow"></i>
+                        <li>
+                            <a href="/MovieServlet">
+                                <i class="fa fa-th-large"></i> Items List
                             </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="items-list.jsp"> Items List </a>
-                                </li>
-                                <li class="active">
-                                    <a href="item-editor.jsp"> Item Editor </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-area-chart"></i> Charts
-                                <i class="fa arrow"></i>
+                            <a href="/ReviewServlet">
+                                <i class="fa fa-th-large"></i> Review List
                             </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="charts-flot.jsp"> Flot Charts </a>
-                                </li>
-                                <li>
-                                    <a href="charts-morris.jsp"> Morris Charts </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-table"></i> Tables
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="static-tables.jsp"> Static Tables </a>
-                                </li>
-                                <li>
-                                    <a href="responsive-tables.jsp"> Responsive Tables </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="forms.jsp">
+                            <a href="AdminTeamplate/forms.jsp">
                                 <i class="fa fa-pencil-square-o"></i> Forms </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-desktop"></i> UI Elements
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="buttons.jsp"> Buttons </a>
-                                </li>
-                                <li>
-                                    <a href="cards.jsp"> Cards </a>
-                                </li>
-                                <li>
-                                    <a href="typography.jsp"> Typography </a>
-                                </li>
-                                <li>
-                                    <a href="icons.jsp"> Icons </a>
-                                </li>
-                                <li>
-                                    <a href="grid.jsp"> Grid </a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li>
                             <a href="#">
                                 <i class="fa fa-file-text-o"></i> Pages
@@ -225,87 +167,27 @@
                             </a>
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="login.jsp"> Login </a>
+                                    <a href="AdminTeamplate/login.jsp"> Login </a>
                                 </li>
                                 <li>
-                                    <a href="signup.jsp"> Sign Up </a>
+                                    <a href="AdminTeamplate/signup.jsp"> Sign Up </a>
                                 </li>
                                 <li>
-                                    <a href="reset.jsp"> Reset </a>
+                                    <a href="AdminTeamplate/reset.jsp"> Reset </a>
                                 </li>
                                 <li>
-                                    <a href="error-404.jsp"> Error 404 App </a>
+                                    <a href="AdminTeamplate/error-404.jsp"> Error 404 App </a>
                                 </li>
                                 <li>
-                                    <a href="error-404-alt.jsp"> Error 404 Global </a>
+                                    <a href="AdminTeamplate/error-404-alt.jsp"> Error 404 Global </a>
                                 </li>
                                 <li>
-                                    <a href="error-500.jsp"> Error 500 App </a>
+                                    <a href="AdminTeamplate/error-500.jsp"> Error 500 App </a>
                                 </li>
                                 <li>
-                                    <a href="error-500-alt.jsp"> Error 500 Global </a>
+                                    <a href="AdminTeamplate/error-500-alt.jsp"> Error 500 Global </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-sitemap"></i> Menu Levels
-                                <i class="fa arrow"></i>
-                            </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="#"> Second Level Item
-                                        <i class="fa arrow"></i>
-                                    </a>
-                                    <ul class="sidebar-nav">
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"> Second Level Item </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Second Level Item
-                                        <i class="fa arrow"></i>
-                                    </a>
-                                    <ul class="sidebar-nav">
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> Third Level Item </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> Third Level Item
-                                                <i class="fa arrow"></i>
-                                            </a>
-                                            <ul class="sidebar-nav">
-                                                <li>
-                                                    <a href="#"> Fourth Level Item </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"> Fourth Level Item </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-bar-chart"></i> Agile Metrics
-                                <span class="label label-screenful">by Screenful</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/modularcode/modular-admin-html">
-                                <i class="fa fa-github-alt"></i> Theme Docs </a>
                         </li>
                     </ul>
                 </nav>
@@ -422,6 +304,11 @@
             <form action="MovieServlet" method="post">
                 <div class="card card-block">
                     <div class="form-group row">
+                        <label class="col-sm-2 form-control-label text-xs-right">ID:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control boxed" name="id" id="id" value="${movies.movie_id}"></div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control boxed" name="title" value="${movies.title}"></div>
@@ -430,40 +317,56 @@
                         <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
                         <div class="col-sm-10">
                             <input type="text" name="content" class="form-control boxed" value="${movies.content}">
-<%--                            <input type="text" name="content" class="form-control boxed">${movies.content}--%>
+                            <%--                            <input type="text" name="content" class="form-control boxed">${movies.content}--%>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Description: </label>
                         <div class="col-sm-10">
-                            <textarea name="description" rows="5" cols="50" >${movies.description}</textarea>
+                            <textarea name="description" rows="5" cols="50">${movies.description}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Category: </label>
                         <div class="col-sm-10">
-                            <select class="c-select form-control boxed" name="categories" multiple>
-                                <%--                                <option selected>Select Category</option>--%>
-                                <c:forEach items="${categories}" var="category" >
-                                    <option value="${category.category_id}">${category.name}</option>
+                            <select class="c-select form-control boxed" name="categories" id="categories" multiple>
+                                <c:forEach items="${categories}" var="category">
+                                    <option value="${category.category_id}"
+                                            <c:forEach items="${categoriesOfMovie}" var="cOB">
+                                                <c:if test="${category.category_id == categoryOfMovie.movie_id}">selected="true"</c:if>
+                                            </c:forEach>>
+                                            ${category.name}
+                                    </option>
                                 </c:forEach>
+<%--                                <c:forEach items="${categories}" var="category">--%>
+<%--                                    <option value="${category.category_id}">--%>
+<%--                                        <c:forEach items="${categoriesOfMovie}" var="categoryOfMovie">--%>
+<%--                                            <c:if test="${category.category_id == categoryOfMovie.movie_id}">selected="true"</c:if>--%>
+<%--                                        </c:forEach>--%>
+<%--                                            ${category.name}--%>
+<%--                                    </option>--%>
+<%--                                    &lt;%&ndash;                                    <option value="${category.category_id}">${category.name}</option>&ndash;%&gt;--%>
+<%--                                </c:forEach>--%>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> Image </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="image" value="${movies.image_movie}"></div>
+                            <input type="text" class="form-control boxed" name="image" value="${movies.image_movie}">
+                        </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right" > YoutubeTrainer: </label>
+                        <label class="col-sm-2 form-control-label text-xs-right"> YoutubeTrainer: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="trainer" value="${movies.youtubeTrainer}"></div>
+                            <input type="text" class="form-control boxed" name="trainer"
+                                   value="${movies.youtubeTrainer}"></div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 form-control-label text-xs-right"> VideoMovie: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="movie" value="${movies.videoMovie}"></div>
+                            <input type="text" class="form-control boxed" name="movie" value="${movies.videoMovie}">
+                        </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10 col-sm-offset-2">
