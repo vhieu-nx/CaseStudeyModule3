@@ -12,4 +12,5 @@ public interface IGeneralDao<T> {
     void delete(int id);
     void update(T t);
     List<CategoryModel> getCategoryByMovieId(int movieId);
+
 }

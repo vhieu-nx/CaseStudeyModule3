@@ -3,6 +3,7 @@ package com.codegym.service.impl;
 import com.codegym.dao.connection.ConnectionJDBC;
 import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
+import com.codegym.model.ReviewModel;
 import com.codegym.service.IMovieService;
 
 import java.sql.*;
@@ -66,6 +67,7 @@ public class MovieService implements IMovieService {
 
     @Override
     public MovieModel selectUserByID(int id) {
+//        List<ReviewModel> findAllByMovieId(int movieId);
         Connection connection = getConnection();
         MovieModel movieModel = null;
         try {

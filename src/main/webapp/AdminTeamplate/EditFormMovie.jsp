@@ -150,8 +150,11 @@
                                 <i class="fa fa-th-large"></i> Items List
                             </a>
                         </li>
-
-
+                        <li>
+                            <a href="/ReviewServlet">
+                                <i class="fa fa-th-large"></i> Review List
+                            </a>
+                        </li>
                         <li>
                             <a href="AdminTeamplate/forms.jsp">
                                 <i class="fa fa-pencil-square-o"></i> Forms </a>
