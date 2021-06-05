@@ -305,11 +305,11 @@
                             </div>
                         </div>
                         <div class="items-search">
-                            <form class="form-inline">
+                            <form action="MovieServlet" method="get" class="form-inline">
                                 <div class="input-group">
-                                    <input type="text" class="form-control boxed rounded-s" placeholder="Search for...">
+                                    <input type="text" class="form-control boxed rounded-s" name="txtSearchValue" placeholder="Search for...">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-secondary rounded-s" type="button">
+                                        <button class="btn btn-secondary rounded-s" type="submit" name="action" value="search">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </span>

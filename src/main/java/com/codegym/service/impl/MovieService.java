@@ -23,6 +23,8 @@ public class MovieService implements IMovieService {
             "            where movies.move_id  = ?" ;
     private static final String DELETE_MOVIE_FROM_CATEGORYMOIVE = "DELETE FROM categorymovie where move_id = ?";
     private static final String DELETE_MOVIE_FROM_MOVIE ="DELETE FROM movies where move_id=?" ;
+    private static final String SELECT_MOVIE_BY_TITLE =" SELECT * FROM movies WHERE movies.title like ?";
+
 
     public static Connection getConnection(){
         return ConnectionJDBC.getConnection();
@@ -88,7 +90,29 @@ public class MovieService implements IMovieService {
 
     @Override
     public List<MovieModel> selectUserByName(String inputSearch) {
-        return null;
+        String search ="%" +inputSearch+ "%";
+        List<MovieModel> movieModels = new ArrayList<>();
+        Connection connection =getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MOVIE_BY_TITLE);
+            preparedStatement.setString(1, search);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String  title = rs.getString("title");
+                String content = rs.getString("content");
+                String description = rs.getString("description");
+                String image_movie = rs.getString("image_movie");
+                String youtubeTrainer = rs.getString("youtubeTrainer");
+                String videoMovie = rs.getString("videoMovie");
+                movieModels.add(new MovieModel(title,content,description,image_movie,youtubeTrainer,videoMovie));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+
+        return movieModels;
     }
 
     @Override

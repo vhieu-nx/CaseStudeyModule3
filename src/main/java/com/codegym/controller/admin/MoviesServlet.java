@@ -38,9 +38,23 @@ public class MoviesServlet extends HttpServlet {
             case "delete":
                 deleteMovie(req, resp);
                 break;
+            case "search":
+                searchMovieByTitle(req, resp);
+                break;
             default:
                 showAll(req, resp);
                 break;
+        }
+    }
+
+    private void searchMovieByTitle(HttpServletRequest req, HttpServletResponse resp) {
+        String searchValue = req.getParameter("txtSearchValue");
+        List<MovieModel> movieModels = movieService.selectUserByName(searchValue);
+        req.setAttribute("listMovie", movieModels);
+        try {
+            resp.sendRedirect(req.getContextPath() + "/MovieServlet");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
