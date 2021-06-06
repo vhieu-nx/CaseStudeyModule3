@@ -134,7 +134,7 @@
                         <h2 style="margin-left: 50px;color: orangered" >Title: ${movies.title}</h2>
                         <p style="color: #3bc1f1"> Category
                             <c:forEach items="${categories}" var="category">
-                                <option value="${category.category_id}"
+                                <option  style="color: #3bc1f1" value="${category.category_id}"
                                         <c:forEach items="${categoriesOfMovie}" var="cOB">
                                             <c:if test="${category.category_id == categoryOfMovie.movie_id}">selected="true"</c:if>
                                         </c:forEach>>

@@ -83,6 +83,7 @@
         </div>
     </div>
 </header>
+
 <div class="login-area">
     <div class="login-box">
         <a href="#"><i class="icofont icofont-close"></i></a>
@@ -143,7 +144,7 @@
                         <div class="slide-trailor">
                             <h3>Watch Trailer</h3>
                             <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}">Trailer</a>
-                            <a class="theme-btn theme-btn2" href="/trang-chu?action=details&id=${listMovie.movie_id}">Details<i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                            <a class="theme-btn theme-btn2" href="/trangchu?action=details&id=${listMovie.movie_id}">Details<i class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
