@@ -11,6 +11,7 @@ public class MovieModel {
     private String image_movie;
     private String youtubeTrainer;
     private String videoMovie;
+    private int id_category;
 
     public MovieModel() {
     }
@@ -24,6 +25,9 @@ public class MovieModel {
         this.image_movie = image_movie;
         this.youtubeTrainer = youtubeTrainer;
         this.videoMovie = videoMovie;
+    }
+
+    public MovieModel(String id1, String title, String content, String description, String image_movie, String trainer, String video) {
     }
 
     public List<CategoryModel> getCategoryModels() {

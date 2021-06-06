@@ -47,6 +47,20 @@ public class MoviesServlet extends HttpServlet {
         }
     }
 
+    private void showAllMovieID(HttpServletRequest req, HttpServletResponse resp) {
+        int id =Integer.parseInt(req.getParameter("id"));
+        List<MovieModel> movieModels = movieService.selectAllByMoveId(id);
+        req.setAttribute("listMovie",movieModels);
+        RequestDispatcher requestDispatcher =req.getRequestDispatcher("AdminTeamplate/DetailsMovies");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void searchMovieByTitle(HttpServletRequest req, HttpServletResponse resp) {
         String searchValue = req.getParameter("txtSearchValue");
         List<MovieModel> movieModels = movieService.selectUserByName(searchValue);

@@ -122,6 +122,16 @@ public class ReviewService implements IReviewService {
     }
 
     @Override
+    public List<ReviewModel> selectAllByMoveId(int id) {
+        return null;
+    }
+
+    @Override
+    public List<CategoryModel> getCateByMovie(int movieId) {
+        return null;
+    }
+
+    @Override
     public Optional<ReviewModel> findById(int reviewId) {
         return Optional.empty();
     }

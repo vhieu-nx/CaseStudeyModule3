@@ -138,10 +138,11 @@
                             </div>
                             <h4>180k voters</h4>
                         </div>
-                        <p>${listMovie.description}</p>
+                        <p >${listMovie.description}</p>
                         <div class="slide-trailor">
                             <h3>Watch Trailer</h3>
-                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}" >Trainer</a>
+                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}">Trailer</a>
+                            <a class="theme-btn theme-btn2" href="/trang-chu?action=details&id=${listMovie.movie_id}">Details<i class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

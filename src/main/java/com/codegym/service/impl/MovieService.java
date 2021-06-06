@@ -9,6 +9,7 @@ import com.codegym.service.IMovieService;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MovieService implements IMovieService {
     private static final String SELECT_ALL_USER = "SELECT *FROM movies";
@@ -22,9 +23,17 @@ public class MovieService implements IMovieService {
             "            join categorymovie bc on movies.move_id = bc.move_id\n" +
             "            join category c on c.id_category = bc.id_category))\n" +
             "            where movies.move_id  = ?" ;
+    private static final String SELECT_ALL_MOVIE_BYMOVIEID = "select m.title,m.content,m.image_movie,m.description,m.youtubeTrainer,m.videoMovie,c.category_name\n" +
+            "                 from category c inner join categorymovie cam\n" +
+            "                 on c.id_category = cam.id_category\n" +
+            "                inner join movies m on cam.move_id = m.move_id where m.move_id = ?";
     private static final String DELETE_MOVIE_FROM_CATEGORYMOIVE = "DELETE FROM categorymovie where move_id = ?";
     private static final String DELETE_MOVIE_FROM_MOVIE ="DELETE FROM movies where move_id=?" ;
     private static final String SELECT_MOVIE_BY_TITLE =" SELECT * FROM movies WHERE movies.title like ?";
+    private static final  String SELECT_CATEGORY_BY_MOVIE = "select  m.move_id,c.category_name\n" +
+            "                 from category c inner join categorymovie cam\n" +
+            "                 on c.id_category = cam.id_category\n" +
+            "                inner join movies m on cam.move_id = m.move_id where m.move_id = ?";
 
 
     public static Connection getConnection(){
@@ -200,6 +209,25 @@ public class MovieService implements IMovieService {
             e.printStackTrace();
         }
     }
+    @Override
+    public List<CategoryModel> getCateByMovie(int movieId) {
+        List<CategoryModel> categoryModels = new ArrayList<>();
+        Connection connection =getConnection();
+        try {
+            PreparedStatement preparedStatement =connection.prepareStatement(SELECT_CATEGORY_BY_MOVIE);
+            preparedStatement.setInt(1,movieId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+
+                String name = resultSet.getString("category_name");
+                CategoryModel categoryModel = new CategoryModel(name);
+                categoryModels.add(categoryModel);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categoryModels;
+    }
 
     @Override
     public List<CategoryModel> getCategoryByMovieId(int movieId) {
@@ -221,5 +249,34 @@ public class MovieService implements IMovieService {
         }
         return categoryModels;
     }
+
+    @Override
+    public List<MovieModel> selectAllByMoveId(int id) {
+        Connection connection = getConnection();
+//        List<CategoryModel> categoryModels = new ArrayList<>();
+        List<MovieModel> movieModel = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement =  connection.prepareStatement(SELECT_ALL_MOVIE_BYMOVIEID);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                String  title = resultSet.getString("title");
+                String content = resultSet.getString("content");
+                String description = resultSet.getString("description");
+                String image_movie = resultSet.getString("image_movie");
+                String trainer = resultSet.getString("youtubeTrainer");
+                String video = resultSet.getString("videoMovie");
+//                movieModel = (List<MovieModel>) new MovieModel(movie_id,title,content,description,image_movie,trainer,video);
+                MovieModel movieModel1 = new MovieModel(title,content,description,image_movie,trainer,video);
+                movieModel.add(movieModel1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return movieModel;
+    }
+
+
 
 }
