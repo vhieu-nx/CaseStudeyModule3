@@ -63,19 +63,20 @@
                 </form>
                 <ul>
                     <li><a href="#">Welcome </a></li>
-                    <li><a href="#">${sessionScope.userModel}</a></li>
-                    <li><a class="login-popup" href="/trang-chu">Login</a></li>
-                    <li><a href="/Login?action=logout">Logout</a></li>
+                    <li><a href="#">${sessionScope.userModel.name}</a></li>
+                    <li><a class="login-popup" href="/trang-chu">Đăng Nhập</a></li>
+                    <li><a href="/Login?action=create">Đăng Ký</a></li>
+                    <li><a href="/Login?action=logout">Đăng Xuất</a></li>
                 </ul>
             </div>
             <div class="menu-area">
                 <div class="responsive-menu"></div>
                 <div class="mainmenu">
                     <ul id="primary-menu">
-                        <li><a class="active" href='<c:url value="/Login"/>'>Home</a></li>
-                        <li><a href="movies.jsp">Movies</a></li>
+                        <li><a class="active" href='<c:url value="/trangchu"/>'>Home</a></li>
+<%--                        <li><a href="movies.jsp">Movies</a></li>--%>
 
-                        <li><a href="top-movies.jsp">Top Movies</a></li>
+<%--                        <li><a href="top-movies.jsp">Top Movies</a></li>--%>
 
                     </ul>
                 </div>
@@ -89,10 +90,10 @@
         <a href="#"><i class="icofont icofont-close"></i></a>
         <h2>LOGIN</h2>
         <form action="/Login?action=login" method="post">
-            <h6>EMAIL ADDRESS</h6>
-            <input type="text" name="name"/>
+            <h6>YOUR NAME</h6>
+            <input type="text" style="color: #0b0b0b" name="name"/>
             <h6>PASSWORD</h6>
-            <input type="text" name="password"/>
+            <input type="text" style="color: #0b0b0b" name="password"/>
             <div class="login-remember">
                 <input type="checkbox"/>
                 <span>Remember Me</span>
@@ -100,7 +101,7 @@
             <div class="login-signup">
                 <span>SIGNUP</span>
             </div>
-            <button type="submit" style="color:#e91010" class="theme-btn" value="login">LOGIN</button>
+            <button type="submit" style="color:#e91010" class="theme-btn" value="login">Đăng Nhập</button>
             <p>${s}</p>
             <%--					<a href="/UserServlet" class="theme-btn">LOG IN</a>--%>
             <span>Or Via Social</span>
@@ -140,11 +141,12 @@
                             </div>
                             <h4>180k voters</h4>
                         </div>
-                        <p >${listMovie.description}</p>
+                        <p>${listMovie.description}</p>
                         <div class="slide-trailor">
                             <h3>Watch Trailer</h3>
                             <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}">Trailer</a>
-                            <a class="theme-btn theme-btn2" href="/trangchu?action=details&id=${listMovie.movie_id}">Details<i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                            <a class="theme-btn theme-btn2" href="/trangchu?action=details&id=${listMovie.movie_id}">Details<i
+                                    class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

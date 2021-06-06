@@ -48,12 +48,12 @@ public class MoviesServlet extends HttpServlet {
     }
 
     private void showAllMovieID(HttpServletRequest req, HttpServletResponse resp) {
-        int id =Integer.parseInt(req.getParameter("id"));
+        int id = Integer.parseInt(req.getParameter("id"));
         List<MovieModel> movieModels = movieService.selectAllByMoveId(id);
-        req.setAttribute("listMovie",movieModels);
-        RequestDispatcher requestDispatcher =req.getRequestDispatcher("AdminTeamplate/DetailsMovies");
+        req.setAttribute("listMovie", movieModels);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/DetailsMovies");
         try {
-            requestDispatcher.forward(req,resp);
+            requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

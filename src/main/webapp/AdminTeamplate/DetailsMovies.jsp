@@ -57,7 +57,7 @@
                     <button><i class="icofont icofont-search"></i></button>
                 </form>
                 <ul>
-                    <li><a href="#">Welcome ${sessionScope.userModel}</a></li>
+                    <li><a href="#">Welcome ${sessionScope.userModel.name}</a></li>
                     <li><a class="login-popup" href="#">Login</a></li>
                 </ul>
             </div>
@@ -131,10 +131,10 @@
                 </div>
                 <div class="col-lg-7">
                     <div style="color: #3bc1f1" class="transformers-content">
-                        <h2 style="margin-left: 50px;color: orangered" >Title: ${movies.title}</h2>
+                        <h2 style="margin-left: 50px;color: orangered">Title: ${movies.title}</h2>
                         <p style="color: #3bc1f1"> Category
                             <c:forEach items="${categories}" var="category">
-                                <option  style="color: #3bc1f1" value="${category.category_id}"
+                                <option style="color: #3bc1f1" value="${category.category_id}"
                                         <c:forEach items="${categoriesOfMovie}" var="cOB">
                                             <c:if test="${category.category_id == categoryOfMovie.movie_id}">selected="true"</c:if>
                                         </c:forEach>>
@@ -230,7 +230,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="select-container">
-                                        <input type="text" value="${sessionScope.userModel}"/>
+                                        <input type="text" value="${sessionScope.userModel.name}"/>
                                         <i class="icofont icofont-ui-user"></i>
                                     </div>
                                 </div>
