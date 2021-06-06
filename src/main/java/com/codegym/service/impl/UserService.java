@@ -152,7 +152,7 @@ public class UserService implements IUserService {
     //Nhap vao tai khoan de dang nhap
     @Override
     public void enterlogin(HttpServletRequest request, HttpServletResponse response) {
-        String email = request.getParameter("email");
+        String email = request.getParameter("name");
         String password = request.getParameter("password");
         UserModel userModel = userDAO.findUserName(email, password);
         if (userModel != null) {

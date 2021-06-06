@@ -88,7 +88,7 @@
         <h2>LOGIN</h2>
         <form action="/Login?action=login" method="post">
             <h6>EMAIL ADDRESS</h6>
-            <input type="text" name="email"/>
+            <input type="text" name="name"/>
             <h6>PASSWORD</h6>
             <input type="text" name="password"/>
             <div class="login-remember">
