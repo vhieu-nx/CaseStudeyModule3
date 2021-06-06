@@ -89,10 +89,10 @@
         <a href="#"><i class="icofont icofont-close"></i></a>
         <h2>LOGIN</h2>
         <form action="/Login?action=login" method="post">
-            <h6>EMAIL ADDRESS</h6>
-            <input type="text" name="name"/>
+            <h6>YOUR NAME</h6>
+            <input type="text" style="color: #0b0b0b" name="name"/>
             <h6>PASSWORD</h6>
-            <input type="text" name="password"/>
+            <input type="text" style="color: #0b0b0b" name="password"/>
             <div class="login-remember">
                 <input type="checkbox"/>
                 <span>Remember Me</span>

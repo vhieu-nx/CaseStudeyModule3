@@ -165,7 +165,7 @@ public class UserService implements IUserService {
                     HttpSession session = request.getSession();
 
                     session.setAttribute("userModel", name);
-                   response.sendRedirect(request.getContextPath() + "/trang-chu");
+                   response.sendRedirect(request.getContextPath() + "/trangchu");
 
                 } catch (IOException e) {
                     e.printStackTrace();

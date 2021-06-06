@@ -123,7 +123,7 @@ public class UserDAO implements IUserDAO {
     @Override
     public UserModel findUserName(String email,String password) {
         UserModel userModel = null;
-        String sql = "select * from user where email = ? && password =?";
+        String sql = "select * from user where username = ? and password =?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,email);
