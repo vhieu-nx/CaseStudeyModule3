@@ -121,16 +121,16 @@ public class UserDAO implements IUserDAO {
 
 
     @Override
-    public UserModel findUserName(String name,String password) {
+    public UserModel findUserName(String email,String password) {
         UserModel userModel = null;
-        String sql = "select * from user where username = ? && password =?";
+        String sql = "select * from user where email = ? && password =?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,name);
+            preparedStatement.setString(1,email);
             preparedStatement.setString(2,password);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                String email = resultSet.getString("email");
+                String name = resultSet.getString("username");
                 String role = resultSet.getString("role");
                 userModel = new UserModel(name,email,password,role);
 
