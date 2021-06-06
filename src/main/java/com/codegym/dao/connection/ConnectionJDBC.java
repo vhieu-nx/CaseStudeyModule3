@@ -23,6 +23,7 @@ public class ConnectionJDBC {
                         "jdbc:mysql://localhost:3306/casestudymodule3",
                         "root",
                         "Aa13071997"
+
                 );
                 System.out.println("yes");
             } catch (ClassNotFoundException e) {

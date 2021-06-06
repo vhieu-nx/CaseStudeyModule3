@@ -138,7 +138,7 @@ public class UserService implements IUserService {
     //vao trang dang nhap
     @Override
     public void login(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "index-2.jsp";
+        String jsp = "/index.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request, response);
@@ -152,26 +152,26 @@ public class UserService implements IUserService {
     //Nhap vao tai khoan de dang nhap
     @Override
     public void enterlogin(HttpServletRequest request, HttpServletResponse response) {
-        String email = request.getParameter("email");
+        String email = request.getParameter("name");
         String password = request.getParameter("password");
         UserModel userModel = userDAO.findUserName(email, password);
         if (userModel != null) {
             if (userModel.getRole().equalsIgnoreCase("CLIENT")) {
                 String name = userModel.getName();
-                try {Cookie cookie = new Cookie(email, password);
-                    cookie.setMaxAge(60 * 1);
-                    response.addCookie(cookie);
+                try {
+//                    Cookie cookie = new Cookie(email, password);
+//                    cookie.setMaxAge(60 * 1);
+//                    response.addCookie(cookie);
                     HttpSession session = request.getSession();
 
                     session.setAttribute("userModel", name);
-                    response.sendRedirect(request.getContextPath() + "/trang-chu");
+                   response.sendRedirect(request.getContextPath() + "/trang-chu");
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else if (userModel.getRole().equalsIgnoreCase("ADMIN")) {
                 String name = userModel.getName();
-
                 try {
                     HttpSession session = request.getSession();
                     response.sendRedirect(request.getContextPath() + "/admin-home");

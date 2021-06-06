@@ -51,8 +51,12 @@
                         <p class="text-center">LOGIN TO CONTINUE</p>
                         <form id="login-form" action="https://modularcode.io/index.html" method="GET" novalidate="">
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="email" class="form-control underlined" name="username" id="username" placeholder="Your email address" required> </div>
+                                <label for="username">Your Name</label>
+                                <input type="email" class="form-control underlined" name="name" id="username" placeholder="Your name" required> </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control underlined" name="mail" id="useremail" placeholder="Your email address" required> </div>
+
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password" required> </div>

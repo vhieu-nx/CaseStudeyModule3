@@ -89,7 +89,7 @@
         <h2>LOGIN</h2>
         <form action="/Login?action=login" method="post">
             <h6>EMAIL ADDRESS</h6>
-            <input type="text" name="email"/>
+            <input type="text" name="name"/>
             <h6>PASSWORD</h6>
             <input type="text" name="password"/>
             <div class="login-remember">
@@ -142,7 +142,7 @@
                         <p>${listMovie.description}</p>
                         <div class="slide-trailor">
                             <h3>Watch Trailer</h3>
-                            <a class="popup-youtube" href="${listMovie.youtubeTrainer}" ><i class="icofont icofont-play"></i> Tickets</a>
+                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}" >Trainer</a>
                         </div>
                     </div>
                 </div>
@@ -407,16 +407,17 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="row portfolio-item">
+                    <c:forEach var="movie" items="${listMovie}">
                     <div class="col-md-4 col-sm-6 soon released">
                         <div class="single-portfolio">
                             <div class="single-portfolio-img">
-                                <img src="assets/img/portfolio/portfolio1.png" alt="portfolio"/>
-                                <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+                                <img src="${movie.image_movie}" alt="portfolio"/>
+                                <a href="${movie.videoMovie}" class="popup-youtube">
                                     <i class="icofont icofont-ui-play"></i>
                                 </a>
                             </div>
                             <div class="portfolio-content">
-                                <h2>Boyz II Men</h2>
+                                <h2>${movie.title}</h2>
                                 <div class="review">
                                     <div class="author-review">
                                         <i class="icofont icofont-star"></i>
@@ -430,121 +431,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 top">
-                        <div class="single-portfolio">
-                            <div class="single-portfolio-img">
-                                <img src="assets/img/portfolio/portfolio2.png" alt="portfolio"/>
-                                <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
-                                    <i class="icofont icofont-ui-play"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-content">
-                                <h2>Tale of Revemge</h2>
-                                <div class="review">
-                                    <div class="author-review">
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                    </div>
-                                    <h4>180k voters</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 soon">
-                        <div class="single-portfolio">
-                            <div class="single-portfolio-img">
-                                <img src="assets/img/portfolio/portfolio3.png" alt="portfolio"/>
-                                <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
-                                    <i class="icofont icofont-ui-play"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-content">
-                                <h2>The Lost City of Z</h2>
-                                <div class="review">
-                                    <div class="author-review">
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                    </div>
-                                    <h4>180k voters</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 top released">
-                        <div class="single-portfolio">
-                            <div class="single-portfolio-img">
-                                <img src="assets/img/portfolio/portfolio4.png" alt="portfolio"/>
-                                <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
-                                    <i class="icofont icofont-ui-play"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-content">
-                                <h2>Beast Beauty</h2>
-                                <div class="review">
-                                    <div class="author-review">
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                    </div>
-                                    <h4>180k voters</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 released">
-                        <div class="single-portfolio">
-                            <div class="single-portfolio-img">
-                                <img src="assets/img/portfolio/portfolio5.png" alt="portfolio"/>
-                                <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
-                                    <i class="icofont icofont-ui-play"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-content">
-                                <h2>In The Fade</h2>
-                                <div class="review">
-                                    <div class="author-review">
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                    </div>
-                                    <h4>180k voters</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 soon top">
-                        <div class="single-portfolio">
-                            <div class="single-portfolio-img">
-                                <img src="assets/img/portfolio/portfolio6.png" alt="portfolio"/>
-                                <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
-                                    <i class="icofont icofont-ui-play"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-content">
-                                <h2>Last Hero</h2>
-                                <div class="review">
-                                    <div class="author-review">
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                        <i class="icofont icofont-star"></i>
-                                    </div>
-                                    <h4>180k voters</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
             <div class="col-lg-3 text-center text-lg-left">
