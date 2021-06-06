@@ -63,8 +63,9 @@
                 <ul>
                     <li><a href="#">Welcome </a></li>
                     <li><a href="#">${sessionScope.userModel}</a></li>
-                    <li><a class="login-popup" href="#">Login</a></li>
-                    <li><a href="/Login?action=logout">Logout</a></li>
+                    <li><a class="login-popup" href="#">Đăng Nhập</a></li>
+                    <li><a href="/Login?action=create">Đăng Ký</a></li>
+                    <li><a href="/Login?action=logout">Đăng Xuất</a></li>
                 </ul>
             </div>
             <div class="menu-area">
@@ -87,7 +88,7 @@
         <a href="#"><i class="icofont icofont-close"></i></a>
         <h2>LOGIN</h2>
         <form action="/Login?action=login" method="post">
-            <h6>EMAIL ADDRESS</h6>
+            <h6>YOUR NAME</h6>
             <input type="text" name="name"/>
             <h6>PASSWORD</h6>
             <input type="text" name="password"/>
