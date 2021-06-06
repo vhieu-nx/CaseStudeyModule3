@@ -58,11 +58,29 @@ public class ReviewServlet extends HttpServlet {
         int movieId = Integer.parseInt(req.getParameter("movieId"));
         ReviewModel reviewModel = new ReviewModel(userid,movieId,text);
         review.save(reviewModel);
+        req.setAttribute("reviewmodel",reviewModel);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/DetailsMovies.jsp");
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-
+        if (action ==null){
+            action="";
+        }switch (action){
+            case "addreview":
+                addReview(req,resp);
+                break;
+            default:
+                showAllReview(req,resp);
+                break;
+        }
     }
 }

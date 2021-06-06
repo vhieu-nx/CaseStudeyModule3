@@ -17,14 +17,14 @@ import java.util.Map;
 import java.util.Optional;
 
 public class ReviewService implements IReviewService {
-    private static final String REVIEWS_TABLE = "reviews";
-    private static final String INSERT_REVIEW = "INSERT INTO " + REVIEWS_TABLE + " (user_id, movie_id, text)" +
+    private static final String REVIEWS_TABLE = "review";
+    private static final String INSERT_REVIEW = "INSERT INTO " + REVIEWS_TABLE + " (user_id, move_id, text)" +
             " VALUES (?, ?, ?);";
     private static final String UPDATE_REVIEW = "UPDATE" + REVIEWS_TABLE + "SET text = ? WHERE review_id=?";
-    private static final String SELECT_ALL_REVIEW = "SELECT * from" + REVIEWS_TABLE;
+    private static final String SELECT_ALL_REVIEW = "select  * from review";
     private static final String DELETE_REVIEW = "delete from " + REVIEWS_TABLE +"where review_id=?";
-    private String SELECT_ReviewByID ="SELECT  * FROM" + REVIEWS_TABLE+" WHERE review_id =?";
-    ;
+    private static final String SELECT_ReviewByID ="select  * from review where move_id=?";
+
 
     public static Connection getConnection() {
         return ConnectionJDBC.getConnection();
@@ -123,7 +123,46 @@ public class ReviewService implements IReviewService {
 
     @Override
     public List<ReviewModel> selectAllByMoveId(int id) {
-        return null;
+//        List<ReviewModel> reviewModels = new ArrayList<>();
+//        Connection connection = getConnection();
+//        try {
+//            connection.setAutoCommit(false);
+//            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_REVIEW);
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            while (resultSet.next()){
+//                int review_id = resultSet.getInt("review_id");
+//                int user_id = resultSet.getInt("user_id");
+//                int move_id = resultSet.getInt("move_id");
+//                String text = resultSet.getString("text");
+//                reviewModels.add(new ReviewModel(review_id,user_id,move_id,text));
+//                connection.commit();
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            try {
+//                connection.rollback();
+//            } catch (SQLException throwables) {
+//                throwables.printStackTrace();
+//            }
+//        }
+//        return null;
+        Connection connection =getConnection();
+        List<ReviewModel> reviewModel = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ReviewByID);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int review_id = resultSet.getInt("review_id");
+                int user_id = resultSet.getInt("user_id");
+                int movie_id = resultSet.getInt("move_id");
+                String text = resultSet.getString("text");
+                reviewModel.add(new ReviewModel(review_id,user_id,movie_id,text));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reviewModel;
     }
 
     @Override
