@@ -7,12 +7,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<
+
 <html>
 <head>
     <style>
         input {
             color: #1b1e21;
+        }
+        #spmovie{
+            padding-top: 6px;
+            padding-left: 10px;
+
         }
     </style>
     <meta charset="UTF-8">
@@ -51,14 +56,10 @@
                 <a href="#"><img src="assets/img/logo.png" alt="logo"/></a>
             </div>
             <div class="header-right">
-                <form action="#">
-                    <select>
-                        <option value="Movies">Movies</option>
-                        <option value="Movies">Movies</option>
-                        <option value="Movies">Movies</option>
-                    </select>
-                    <input type="text"/>
-                    <button><i class="icofont icofont-search"></i></button>
+                <form action="/movies/search" method="get">
+                    <label for="abc" id="spmovie">Movies</label>
+                    <input type="text" id="abc" name="name" />
+                    <button type="submit"><i class="icofont icofont-search"></i></button>
                 </form>
                 <ul>
                     <li><a href="#">Welcome </a></li>
