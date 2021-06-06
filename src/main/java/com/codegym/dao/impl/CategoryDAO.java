@@ -56,26 +56,18 @@ public class CategoryDAO implements ICategoryDao {
             throwables.printStackTrace();
         }
         return null;
-
     }
-
 
     @Override
     public List<MoviesInfo> findByIdCategory(int categoryId, String name) {
         List<MoviesInfo> list= new ArrayList<>();
         Connection connection = ConnectionJDBC.getConnection();
-//        String sql = "select mv.title,mv.content,mv.image_movie,c2.category_name " +
-//                "from movies as mv left join categorymovie c join category c2 " +
-//                "on c2.id_category = c.id_category on mv.move_id = c.move_id " +
-//                "where c.category_name like ? and c2.id= ?;";
-
         String sql = "select m.title,m.content,m.image_movie,c.category_name" +
                 " from category c inner join categorymovie cam" +
                 " on c.id_category = cam.id_category " +
                 "inner join movies m on cam.move_id = m.move_id where c.id_category = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setString(1, name);
             preparedStatement.setInt(1, categoryId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
