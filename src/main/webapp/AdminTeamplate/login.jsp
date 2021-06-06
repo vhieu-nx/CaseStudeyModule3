@@ -50,20 +50,19 @@
                         </h1>
                     </header>
                     <div class="auth-content">
-                        <p class="text-center">LOGIN TO CONTINUE</p>
-                        <form id="login-form" action="https://modularcode.io/index.html" method="GET" novalidate="">
+                        <p class="text-center">Đăng Ký</p>
+                        <form  action="/Login?action=create" method="post">
                             <div class="form-group">
-                                <label for="username">Your Name</label>
-                                <input type="email" class="form-control underlined" name="name" id="username"
+                                <label for="username">YOUR NAME</label>
+                                <input type="text" style="color:#000" class="form-control underlined" name="name" id="username"
                                        placeholder="Your name" required></div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control underlined" name="mail" id="useremail"
+                                <input type="email" style="color:#000" class="form-control underlined" name="email" id="useremail"
                                        placeholder="Your email address" required></div>
-
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control underlined" name="password" id="password"
+                                <input type="password" style="color:#000" class="form-control underlined" name="password" id="password"
                                        placeholder="Your password" required></div>
                             <div class="form-group">
                                 <label for="remember">
@@ -73,7 +72,7 @@
                                 <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-primary">Login</button>
+                                <button type="submit" value="create" >Đăng Ký</button>
                             </div>
                             <div class="form-group">
                                 <p class="text-muted text-center">Do not have an account?

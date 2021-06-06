@@ -63,19 +63,20 @@
                 </form>
                 <ul>
                     <li><a href="#">Welcome </a></li>
-                    <li><a href="#">${sessionScope.userModel}</a></li>
-                    <li><a class="login-popup" href="/trang-chu">Login</a></li>
-                    <li><a href="/Login?action=logout">Logout</a></li>
+                    <li><a href="#">${sessionScope.userModel.name}</a></li>
+                    <li><a class="login-popup" href="/trang-chu">Đăng Nhập</a></li>
+                    <li><a href="/Login?action=create">Đăng Ký</a></li>
+                    <li><a href="/Login?action=logout">Đăng Xuất</a></li>
                 </ul>
             </div>
             <div class="menu-area">
                 <div class="responsive-menu"></div>
                 <div class="mainmenu">
                     <ul id="primary-menu">
-                        <li><a class="active" href='<c:url value="/Login"/>'>Home</a></li>
-                        <li><a href="movies.jsp">Movies</a></li>
+                        <li><a class="active" href='<c:url value="/trangchu"/>'>Home</a></li>
+<%--                        <li><a href="movies.jsp">Movies</a></li>--%>
 
-                        <li><a href="top-movies.jsp">Top Movies</a></li>
+<%--                        <li><a href="top-movies.jsp">Top Movies</a></li>--%>
 
                     </ul>
                 </div>
@@ -100,7 +101,7 @@
             <div class="login-signup">
                 <span>SIGNUP</span>
             </div>
-            <button type="submit" style="color:#e91010" class="theme-btn" value="login">LOGIN</button>
+            <button type="submit" style="color:#e91010" class="theme-btn" value="login">Đăng Nhập</button>
             <p>${s}</p>
             <%--					<a href="/UserServlet" class="theme-btn">LOG IN</a>--%>
             <span>Or Via Social</span>

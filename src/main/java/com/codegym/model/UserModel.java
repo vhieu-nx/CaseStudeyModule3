@@ -1,7 +1,7 @@
 package com.codegym.model;
 
 public class UserModel {
-    private String id;
+    private int id;
     private String name;
     private String email;
     private String password;
@@ -23,7 +23,7 @@ public class UserModel {
         this.role = role;
     }
 
-    public UserModel(String id, String name, String email, String password, String role) {
+    public UserModel(int id, String name, String email, String password, String role) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -31,11 +31,11 @@ public class UserModel {
         this.role = role;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

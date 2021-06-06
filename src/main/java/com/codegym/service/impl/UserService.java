@@ -34,7 +34,7 @@ public class UserService implements IUserService {
 
     @Override
     public void createFormUser(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "wedmovie/createuser.jsp";
+        String jsp = "AdminTeamplate/login.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request, response);
@@ -52,6 +52,12 @@ public class UserService implements IUserService {
         String password = request.getParameter("password");
         UserModel userModel = new UserModel(name, email, password);
         userDAO.save(userModel);
+        enterHome(request,response);
+//        try {
+//            response.sendRedirect(request.getContextPath() + "/trangchu");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -157,14 +163,14 @@ public class UserService implements IUserService {
         UserModel userModel = userDAO.findUserName(email, password);
         if (userModel != null) {
             if (userModel.getRole().equalsIgnoreCase("CLIENT")) {
-                String name = userModel.getName();
+//                String name = userModel.getName();
                 try {
 //                    Cookie cookie = new Cookie(email, password);
 //                    cookie.setMaxAge(60 * 1);
 //                    response.addCookie(cookie);
                     HttpSession session = request.getSession();
 
-                    session.setAttribute("userModel", name);
+                    session.setAttribute("userModel", userModel);
                    response.sendRedirect(request.getContextPath() + "/trangchu");
 
                 } catch (IOException e) {

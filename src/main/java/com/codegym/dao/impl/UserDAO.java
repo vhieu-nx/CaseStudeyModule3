@@ -21,7 +21,7 @@ public class UserDAO implements IUserDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                String id = resultSet.getString("user_id");
+                int id = resultSet.getInt("user_id");
                 String name = resultSet.getString("username");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
@@ -130,9 +130,10 @@ public class UserDAO implements IUserDAO {
             preparedStatement.setString(2,password);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
+                int id = resultSet.getInt("user_id");
                 String name = resultSet.getString("username");
                 String role = resultSet.getString("role");
-                userModel = new UserModel(name,email,password,role);
+                userModel = new UserModel(id,name,email,password,role);
 
             }
         } catch (SQLException throwables) {
