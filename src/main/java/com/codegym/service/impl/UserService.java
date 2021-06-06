@@ -162,14 +162,11 @@ public class UserService implements IUserService {
                     cookie.setMaxAge(60 * 1);
                     response.addCookie(cookie);
                     HttpSession session = request.getSession();
-                    String jsp = "/index.jsp";
-                    RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+
                     session.setAttribute("userModel", name);
-                    requestDispatcher.forward(request, response);
+                    response.sendRedirect(request.getContextPath() + "/trang-chu");
 
                 } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ServletException e) {
                     e.printStackTrace();
                 }
             } else if (userModel.getRole().equalsIgnoreCase("ADMIN")) {
