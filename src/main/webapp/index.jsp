@@ -17,7 +17,6 @@
         #spmovie{
             padding-top: 6px;
             padding-left: 10px;
-
         }
     </style>
     <meta charset="UTF-8">
@@ -74,7 +73,7 @@
                 <div class="mainmenu">
                     <ul id="primary-menu">
                         <li><a class="active" href='<c:url value="/trangchu"/>'>Home</a></li>
-<%--                        <li><a href="movies.jsp">Movies</a></li>--%>
+                        <li><a href="movies.jsp">Movies</a></li>
 
 <%--                        <li><a href="top-movies.jsp">Top Movies</a></li>--%>
 
