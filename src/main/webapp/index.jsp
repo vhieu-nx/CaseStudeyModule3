@@ -64,9 +64,8 @@
                 <ul>
                     <li><a href="#">Welcome </a></li>
                     <li><a href="#">${sessionScope.userModel}</a></li>
-                    <li><a class="login-popup" href="#">Đăng Nhập</a></li>
-                    <li><a href="/Login?action=create">Đăng Ký</a></li>
-                    <li><a href="/Login?action=logout">Đăng Xuất</a></li>
+                    <li><a class="login-popup" href="/trang-chu">Login</a></li>
+                    <li><a href="/Login?action=logout">Logout</a></li>
                 </ul>
             </div>
             <div class="menu-area">
@@ -84,12 +83,13 @@
         </div>
     </div>
 </header>
+
 <div class="login-area">
     <div class="login-box">
         <a href="#"><i class="icofont icofont-close"></i></a>
         <h2>LOGIN</h2>
         <form action="/Login?action=login" method="post">
-            <h6>YOUR NAME</h6>
+            <h6>EMAIL ADDRESS</h6>
             <input type="text" name="name"/>
             <h6>PASSWORD</h6>
             <input type="text" name="password"/>
@@ -143,7 +143,9 @@
                         <p>${listMovie.description}</p>
                         <div class="slide-trailor">
                             <h3>Watch Trailer</h3>
-                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}" >Trainer</a>
+                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}">Trailer</a>
+                            <a class="theme-btn theme-btn2" href="/trangchu?action=details&id=${listMovie.movie_id}">Details<i
+                                    class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

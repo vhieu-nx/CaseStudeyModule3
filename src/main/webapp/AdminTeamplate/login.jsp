@@ -45,20 +45,26 @@
                                 <span class="l l3"></span>
                                 <span class="l l4"></span>
                                 <span class="l l5"></span>
-                            </div> ModularAdmin </h1>
+                            </div>
+                            ModularAdmin
+                        </h1>
                     </header>
                     <div class="auth-content">
-                        <p class="text-center">Đăng Ký</p>
-                        <form id="login-form" action="/Login?action=login" method="post" >
+                        <p class="text-center">LOGIN TO CONTINUE</p>
+                        <form id="login-form" action="https://modularcode.io/index.html" method="GET" novalidate="">
                             <div class="form-group">
                                 <label for="username">Your Name</label>
-                                <input type="text" class="form-control underlined" name="name" id="username" placeholder="Your name" required> </div>
+                                <input type="email" class="form-control underlined" name="name" id="username"
+                                       placeholder="Your name" required></div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control underlined" name="mail" id="useremail" placeholder="Your email address" required> </div>
+                                <input type="email" class="form-control underlined" name="mail" id="useremail"
+                                       placeholder="Your email address" required></div>
+
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control underlined" name="password" id="password" placeholder="Your password" required> </div>
+                                <input type="password" class="form-control underlined" name="password" id="password"
+                                       placeholder="Your password" required></div>
                             <div class="form-group">
                                 <label for="remember">
                                     <input class="checkbox" id="remember" type="checkbox">
@@ -67,11 +73,11 @@
                                 <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-block btn-primary" value="login">Đăng Ký</button>
+                                <button type="submit" class="btn btn-block btn-primary">Login</button>
                             </div>
                             <div class="form-group">
                                 <p class="text-muted text-center">Do not have an account?
-                                    <a href="">Sign Up!</a>
+                                    <a href="signup.html">Sign Up!</a>
                                 </p>
                             </div>
                         </form>

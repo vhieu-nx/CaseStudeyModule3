@@ -34,7 +34,7 @@ public class UserService implements IUserService {
 
     @Override
     public void createFormUser(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "AdminTeamplate/login.jsp";
+        String jsp = "wedmovie/createuser.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request, response);
@@ -52,11 +52,6 @@ public class UserService implements IUserService {
         String password = request.getParameter("password");
         UserModel userModel = new UserModel(name, email, password);
         userDAO.save(userModel);
-//        try {
-//            response.sendRedirect(request.getContextPath()+"/trang-chu");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override

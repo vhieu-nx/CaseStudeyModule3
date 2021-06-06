@@ -1,5 +1,6 @@
 package com.codegym.controller.web;
 
+import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
 import com.codegym.service.CategoryService;
 import com.codegym.service.IMovieService;
@@ -12,7 +13,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HomeController", value = "/trang-chu")
+@WebServlet(name = "trangchu", urlPatterns = "/trangchu")
 public class HomeController extends HttpServlet {
     private static IMovieService movieService = new MovieService();
     private static CategoryService categoryService = new CategoryServiceImpl();
@@ -22,12 +23,39 @@ public class HomeController extends HttpServlet {
         if (action==null){
             action = "";
         }
-        switch (action){
+        switch (action) {
             case "review":
                 break;
-            default:
-                showAllMovieClient(request,response);
+            case "details":
+                detailMovie(request, response);
                 break;
+            default:
+                showAllMovieClient(request, response);
+                break;
+        }
+    }
+
+    private void detailMovie(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+//        MovieModel movieModel = movieService.selectUserByID(id);
+//        List<CategoryModel> categoryModels = movieService.getCateByMovie(id);
+//        List<CategoryModel> categoryModels1 = categoryModels.
+//        request.setAttribute("listMovie", movieModel);
+//        request.setAttribute("categories", categoryModels);
+//        request.setAttribute("listMovie",movieModels);
+        MovieModel movieModel = movieService.selectUserByID(id);
+        List<CategoryModel> categoryModels = categoryService.findAll();
+        List<CategoryModel> categoryModelsOfMovie = movieService.getCategoryByMovieId(id);
+        request.setAttribute("movies", movieModel);
+        request.setAttribute("categories", categoryModels);
+        request.setAttribute("categoriesOfMovie", categoryModelsOfMovie);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("AdminTeamplate/DetailsMovies.jsp");
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -46,6 +74,19 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "review":
+                break;
+            case "details":
+                detailMovie(request, response);
+                break;
+            default:
+                showAllMovieClient(request, response);
+                break;
+        }
     }
 }
