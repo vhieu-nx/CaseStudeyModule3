@@ -183,22 +183,10 @@ public class UserService implements IUserService {
                     e.printStackTrace();
                 }
             }
-<<<<<<< HEAD
         } else {
 //            người dùng không truyền dữ liệu ấn submit thì sẽ thông báo nhập dữ liệu.
 //            không thực hiện đúng ý
             String jsp = "/index.jsp";
-=======
-        }else {
-
-<<<<<<< HEAD
-           String jsp= "/UserServlet?action=login";
-=======
-//            người dùng không truyền dữ liệu ấn submit thì sẽ thông báo nhập dữ liệu.
-//            không thực hiện đúng ý
-           String jsp= "/Login?action=login";
->>>>>>> f2122db88a0c38dffad22ab285ce7cea7bb4dd49
->>>>>>> 8ad0599309d9745f138246dd7c030caad8a245fe
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             try {
                 requestDispatcher.forward(request, response);

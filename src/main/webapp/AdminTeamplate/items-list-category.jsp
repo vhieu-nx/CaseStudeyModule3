@@ -364,7 +364,7 @@
                                 <div class="item-col fixed pull-left item-col-title">
                                     <div class="item-heading">Name</div>
                                     <div>
-                                        <a href="item-editor.jsp" class="">
+                                        <a  class="">
                                             <h4 class="item-title"> ${categories.name} </h4>
                                         </a>
                                     </div>

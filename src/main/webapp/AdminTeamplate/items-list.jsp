@@ -371,14 +371,14 @@
                                         </label>
                                     </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.jsp">
+                                        <a >
                                             <div class="item-img rounded" style="background-image: url(${categories.image_movie})"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
-                                            <a href="item-editor.jsp" class="">
+                                            <a  class="">
                                                 <h4 class="item-title"> ${categories.title} </h4>
                                             </a>
                                         </div>
@@ -386,7 +386,7 @@
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">Content</div>
                                         <div class="no-overflow">
-                                            <a href="#">${categories.content}</a>
+                                            <a>${categories.content}</a>
                                         </div>
                                     </div>
 

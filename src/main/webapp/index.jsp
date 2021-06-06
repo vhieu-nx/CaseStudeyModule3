@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mr.Nguyen
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<
 <html>
 <head>
     <style>
@@ -46,7 +48,7 @@
     <div class="container">
         <div class="header-area">
             <div class="logo">
-                <a href="index-2.html"><img src="assets/img/logo.png" alt="logo" /></a>
+                <a href="#"><img src="assets/img/logo.png" alt="logo" /></a>
             </div>
             <div class="header-right">
                 <form action="#">
@@ -69,7 +71,7 @@
                 <div class="responsive-menu"></div>
                 <div class="mainmenu">
                     <ul id="primary-menu">
-                        <li><a class="active" href="index-2.jsp">Home</a></li>
+                        <li><a class="active" href='<c:url value="/Login"/>'>Home</a></li>
                         <li><a href="movies.jsp">Movies</a></li>
             
                         <li><a href="top-movies.jsp">Top Movies</a></li>
