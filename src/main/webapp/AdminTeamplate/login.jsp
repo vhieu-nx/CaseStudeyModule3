@@ -50,7 +50,7 @@
                         </h1>
                     </header>
                     <div class="auth-content">
-                        <p class="text-center">Đăng Ký</p>
+                        <h1 class="text-center">Đăng Ký</h1>
                         <form  action="/Login?action=create" method="post">
                             <div class="form-group">
                                 <label for="username">YOUR NAME</label>
@@ -65,27 +65,22 @@
                                 <input type="password" style="color:#000" class="form-control underlined" name="password" id="password"
                                        placeholder="Your password" required></div>
                             <div class="form-group">
-                                <label for="remember">
-                                    <input class="checkbox" id="remember" type="checkbox">
-                                    <span>Remember me</span>
-                                </label>
-                                <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>
                             </div>
                             <div class="form-group">
-                                <button type="submit" value="create" >Đăng Ký</button>
+                                <button type="submit" value="create">Đăng Ký</button>
                             </div>
-                            <div class="form-group">
-                                <p class="text-muted text-center">Do not have an account?
-                                    <a href="signup.html">Sign Up!</a>
-                                </p>
-                            </div>
+<%--                            <div class="form-group">--%>
+<%--                                <p class="text-muted text-center">Do not have an account?--%>
+<%--&lt;%&ndash;                                    <a href="signup.html">Sign Up!</a>&ndash;%&gt;--%>
+<%--                                </p>--%>
+<%--                            </div>--%>
                         </form>
                     </div>
                 </div>
-                <div class="text-center">
-                    <a href="index-2.html" class="btn btn-secondary btn-sm">
-                        <i class="fa fa-arrow-left"></i> Back to dashboard </a>
-                </div>
+<%--                <div class="text-center">--%>
+<%--&lt;%&ndash;                    <a href="index-2.html" class="btn btn-secondary btn-sm">&ndash;%&gt;--%>
+<%--                        <i class="fa fa-arrow-left"></i> Back to dashboard </a>--%>
+<%--                </div>--%>
             </div>
         </div>
         <!-- Reference block for JS -->

@@ -88,18 +88,17 @@
     <div class="login-box">
         <a href="#"><i class="icofont icofont-close"></i></a>
         <h2>LOGIN</h2>
-        <form action="/Login?action=login" method="post">
+        <form action="/Login?action=login" method="post" >
             <h6>YOUR NAME</h6>
-            <input type="text" style="color: #0b0b0b" name="name"/>
+            <input type="text" style="color: #0b0b0b" name="name" required/>
             <h6>PASSWORD</h6>
-            <input type="text" style="color: #0b0b0b" name="password"/>
+            <input type="text" style="color: #0b0b0b" name="password" required/>
             <div class="login-remember">
-                <input type="checkbox"/>
-                <span>Remember Me</span>
+<%--                <input type="checkbox"/>--%>
+                <a style="color: mediumblue" href="/Login?action=update">Login_Update</a>
             </div>
             <div class="login-signup">
-                <span>SIGNUP</span>
-            </div>
+                <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>            </div>
             <button type="submit" style="color:#e91010" class="theme-btn" value="login">Đăng Nhập</button>
             <p>${s}</p>
             <%--					<a href="/UserServlet" class="theme-btn">LOG IN</a>--%>
