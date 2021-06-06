@@ -347,7 +347,7 @@
                             <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                         </div>
                     </li>
-                    <c:forEach var="user" items="${user}">
+                    <c:forEach var="review" items="${user}">
                         <li class="item">
                             <div class="item-row">
                                 <div class="item-col fixed item-col-check">
@@ -361,14 +361,14 @@
                                     <div class="item-heading">Name</div>
                                     <div>
                                         <a class="">
-                                            <h4 class="item-title"> ${user.name} </h4>
+                                            <h4 class="item-title"> ${review.name} </h4>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item-col item-col-category no-overflow">
                                     <div class="item-heading">Email</div>
                                     <div class="no-overflow">
-                                        <a >${user.email}</a>
+                                        <a >${review.email}</a>
                                     </div>
                                 </div>
 
@@ -388,7 +388,7 @@
                                         <div class="item-actions-block">
                                             <ul class="item-actions-list">
                                                 <li>
-                                                    <a  href="Login?action=remove&id=${user.id}" title="Delete User">
+                                                    <a href="Login?action=remove&id=${review.id}" title="Delete User">
                                                         <i class="fa fa-trash-o "></i>
                                                     </a>
                                                 </li>

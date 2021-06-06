@@ -85,7 +85,7 @@ public class ReviewService implements IReviewService {
                 throwables.printStackTrace();
             }
         }
-        return null;
+        return reviewModels;
     }
 
     @Override

@@ -28,9 +28,6 @@ public class ReviewServlet extends HttpServlet {
             action ="";
         }
         switch (action){
-            case "deleteReview":
-                deleteReview(req,resp);
-                break;
             default:
                 showAllReview(req,resp);
                 break;
@@ -44,10 +41,10 @@ public class ReviewServlet extends HttpServlet {
 
     private void showAllReview(HttpServletRequest req, HttpServletResponse resp) {
         List<ReviewModel> reviewModels = review.selectAll();
-        req.setAttribute("reviewmodel", reviewModels);
+        req.setAttribute("review", reviewModels);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/itemsListReview.jsp");
         try {
-            requestDispatcher.forward(req,resp);
+            requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -79,9 +76,7 @@ public class ReviewServlet extends HttpServlet {
         if (action ==null){
             action="";
         }switch (action){
-            case "addreview":
-                addReview(req,resp);
-                break;
+
             default:
                 showAllReview(req,resp);
                 break;

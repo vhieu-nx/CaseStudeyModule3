@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+    <title> User_List_Client </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.jsp">
@@ -149,19 +149,9 @@
                             <a href="#">
                                 <i class="fa fa-home"></i> Dashboard </a>
                         </li>
-                        <li class="">
-                            <a href="MovieServlet">
-                                <i class="fa fa-th-large"></i> Items List
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="/admin-categories">
-                                <i class="fa fa-th-large"></i> Items Category
-                            </a>
-                        </li>
                         <li class="active open">
-                            <a href="/Login?action=showclientuser">
-                                <i class="fa fa-th-large"></i> User List
+                            <a href="items-list.jsp">
+                                <i class="fa fa-th-large"></i> Items List
                             </a>
 
                         </li>
@@ -338,14 +328,10 @@
                                     <span></span>
                                 </label>
                             </div>
-                            <div class="item-col item-col-header fixed item-col-img md">
-                                <div>
-                                    <span>User Name</span>
-                                </div>
-                            </div>
+
                             <div class="item-col item-col-header item-col-title">
                                 <div>
-                                    <span>Movie Title</span>
+                                    <span>Name</span>
                                 </div>
                             </div>
                             <div class="item-col item-col-header item-col-category">
@@ -370,26 +356,19 @@
                                         <span></span>
                                     </label>
                                 </div>
+
                                 <div class="item-col fixed pull-left item-col-title">
-                                    <div class="item-heading">User Name</div>
+                                    <div class="item-heading">Name</div>
                                     <div>
-                                        <a  class="">
+                                        <a class="">
                                             <h4 class="item-title"> ${review.userId} </h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item-col fixed pull-left item-col-title">
-                                    <div class="item-heading">Movie Title</div>
-                                    <div>
-                                        <a  class="">
-                                            <h4 class="item-title"> ${review.movieId} </h4>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item-col item-col-category no-overflow">
                                     <div class="item-heading">Comment</div>
                                     <div class="no-overflow">
-                                        <a>${review.text}</a>
+                                        <a >${review.text}</a>
                                     </div>
                                 </div>
 
@@ -409,27 +388,11 @@
                                         <div class="item-actions-block">
                                             <ul class="item-actions-list">
                                                 <li>
-                                                    <a href="MovieServlet?action=delete&id=${categories.movie_id}" title="Delete Film">
+                                                    <a href="Login?action=remove&id=${review.id}" title="Delete User">
                                                         <i class="fa fa-trash-o "></i>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                        <%--                                                        MovieServlet?action=edit&id=${movies.movie_id}--%>
-                                                    <a  href="MovieServlet?action=create" title="ADDNEW Movie">
-                                                        <i class="fas fa-plus-circle"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="MovieServlet?action=edit&id=${categories.movie_id}" title="Edit Film">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                </li>
 
-                                                <li>
-                                                    <a href="" title="Info details">
-                                                        <i class="fas fa-info"></i>
-                                                    </a>
-                                                </li>
 
                                             </ul>
                                         </div>
