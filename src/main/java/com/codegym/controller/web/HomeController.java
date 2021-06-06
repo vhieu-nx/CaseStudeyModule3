@@ -13,7 +13,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HomeController", value = "/trang-chu")
+@WebServlet(name = "trangchu", urlPatterns = "/trangchu")
 public class HomeController extends HttpServlet {
     private static IMovieService movieService = new MovieService();
     private static CategoryService categoryService = new CategoryServiceImpl();

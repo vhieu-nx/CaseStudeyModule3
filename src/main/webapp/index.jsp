@@ -64,7 +64,7 @@
                 <ul>
                     <li><a href="#">Welcome </a></li>
                     <li><a href="#">${sessionScope.userModel}</a></li>
-                    <li><a class="login-popup" href="#">Login</a></li>
+                    <li><a class="login-popup" href="/trang-chu">Login</a></li>
                     <li><a href="/Login?action=logout">Logout</a></li>
                 </ul>
             </div>

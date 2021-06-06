@@ -22,7 +22,7 @@ public class ConnectionJDBC {
                 connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/casestudymodule3",
                         "root",
-                        "Aa13071997"
+                        "123456"
 
                 );
                 System.out.println("yes");
