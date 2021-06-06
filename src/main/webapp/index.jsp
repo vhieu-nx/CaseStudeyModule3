@@ -52,7 +52,7 @@
     <div class="container">
         <div class="header-area">
             <div class="logo">
-                <a href="#"><img src="assets/img/logo.png" alt="logo"/></a>
+<%--                <a href="#"><img src="assets/img/logo.png" alt="logo"/></a>--%>
             </div>
             <div class="header-right">
                 <form action="/movies/search" method="get">
@@ -395,14 +395,14 @@
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
-                <div class="portfolio-menu">
-                    <ul>
-                        <li data-filter="*" class="active">Latest</li>
-                        <li data-filter=".soon">Comming Soon</li>
-                        <li data-filter=".top">Top Rated</li>
-                        <li data-filter=".released">Recently Released</li>
-                    </ul>
-                </div>
+<%--                <div class="portfolio-menu">--%>
+<%--                    <ul>--%>
+<%--                        <li data-filter="*" class="active">Latest</li>--%>
+<%--                        <li data-filter=".soon">Comming Soon</li>--%>
+<%--                        <li data-filter=".top">Top Rated</li>--%>
+<%--                        <li data-filter=".released">Recently Released</li>--%>
+<%--                    </ul>--%>
+<%--                </div>--%>
             </div>
         </div>
         <hr/>
