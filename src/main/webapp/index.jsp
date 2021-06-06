@@ -141,7 +141,7 @@
                         <p>${listMovie.description}</p>
                         <div class="slide-trailor">
                             <h3>Watch Trailer</h3>
-                            <a class="popup-youtube" href="${listMovie.youtubeTrainer}" ><i class="icofont icofont-play"></i> Tickets</a>
+                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}" >Trainer</a>
                         </div>
                     </div>
                 </div>

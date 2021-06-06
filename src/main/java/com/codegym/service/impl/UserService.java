@@ -171,7 +171,6 @@ public class UserService implements IUserService {
                 }
             } else if (userModel.getRole().equalsIgnoreCase("ADMIN")) {
                 String name = userModel.getName();
-
                 try {
                     HttpSession session = request.getSession();
                     response.sendRedirect(request.getContextPath() + "/admin-home");
