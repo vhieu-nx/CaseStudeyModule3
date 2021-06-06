@@ -138,7 +138,7 @@ public class UserService implements IUserService {
     //vao trang dang nhap
     @Override
     public void login(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "index-2.jsp";
+        String jsp = "/index.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request, response);
@@ -158,13 +158,14 @@ public class UserService implements IUserService {
         if (userModel != null) {
             if (userModel.getRole().equalsIgnoreCase("CLIENT")) {
                 String name = userModel.getName();
-                try {Cookie cookie = new Cookie(email, password);
-                    cookie.setMaxAge(60 * 1);
-                    response.addCookie(cookie);
+                try {
+//                    Cookie cookie = new Cookie(email, password);
+//                    cookie.setMaxAge(60 * 1);
+//                    response.addCookie(cookie);
                     HttpSession session = request.getSession();
 
                     session.setAttribute("userModel", name);
-                    response.sendRedirect(request.getContextPath() + "/trang-chu");
+                   response.sendRedirect(request.getContextPath() + "/trang-chu");
 
                 } catch (IOException e) {
                     e.printStackTrace();
