@@ -57,7 +57,7 @@
                     <button><i class="icofont icofont-search"></i></button>
                 </form>
                 <ul>
-                    <li><a href="#">Welcome Guest!</a></li>
+                    <li><a href="#">Welcome ${sessionScope.userModel}</a></li>
                     <li><a class="login-popup" href="#">Login</a></li>
                 </ul>
             </div>
@@ -113,7 +113,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-area-content">
-                    <h1>Movie Detalied Page</h1>
+                    <h1>Movie Detail Page</h1>
                 </div>
             </div>
         </div>
@@ -211,32 +211,41 @@
                             cacophonous. The first "Transformers" movie that could actually be characterized as badass.
                             Which isn't a bad thing. It may, in fact, be better.</p>
                     </div>
+
+<%--                    <div class="details-reply">--%>
+<%--                            <div class="row">--%>
+<%--                                <c:forEach var="review" items="reviewmodel">--%>
+<%--                                <div class="col-lg-4">--%>
+<%--                                    <div class="select-container">--%>
+<%--                                        <input type="text" value="${review.text}"/>--%>
+<%--                                        <i class="icofont icofont-ui-user"></i>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                                </c:forEach>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
                     <div class="details-reply">
                         <h2>Leave a Reply</h2>
-                        <form action="#">
+                        <form action="ReviewServlet?action=addreview">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="select-container">
-                                        <input type="text" placeholder="Name"/>
+                                        <input type="text" value="${sessionScope.userModel}"/>
                                         <i class="icofont icofont-ui-user"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="select-container">
-                                        <input type="text" placeholder="Email"/>
+                                        <input type="text" value="" placeholder="Enter Email"/>
                                         <i class="icofont icofont-envelope"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="select-container">
-                                        <input type="text" placeholder="Phone"/>
-                                        <i class="icofont icofont-phone"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="textarea-container">
-                                        <textarea placeholder="Type Here Message"></textarea>
-                                        <button><i class="icofont icofont-send-mail"></i></button>
+                                        <input type="hidden" name="userId" value="${sessionScope.userModel1}">
+                                        <input type="hidden" name="movieId" value="${movies.movie_id}">
+                                        <textarea name="textAreaValue" placeholder="Type Here Message"></textarea>
+                                        <button ><i class="icofont icofont-send-mail"></i></button>
                                     </div>
                                 </div>
                             </div>

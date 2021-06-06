@@ -24,6 +24,11 @@ public class ReviewModel {
         this.movieId = movieId;
     }
 
+    public ReviewModel(int userId, int movieId, String text) {
+        this.userId = userId;
+        this.movieId = movieId;
+        this.text = text;
+    }
 
     public ReviewModel(String userLogin, String userAvatarPath, String text, int userId, int movieId) {
         this.userLogin = userLogin;

@@ -164,6 +164,7 @@ public class UserService implements IUserService {
 //                    response.addCookie(cookie);
                     HttpSession session = request.getSession();
                     session.setAttribute("userModel", name);
+
                    response.sendRedirect(request.getContextPath() + "/trangchu");
 
                 } catch (IOException e) {

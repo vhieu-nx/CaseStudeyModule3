@@ -2,10 +2,13 @@ package com.codegym.controller.web;
 
 import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
+import com.codegym.model.UserModel;
 import com.codegym.service.CategoryService;
 import com.codegym.service.IMovieService;
 import com.codegym.service.impl.CategoryServiceImpl;
 import com.codegym.service.impl.MovieService;
+import com.codegym.service.impl.UserService;
+import com.codegym.utils.SessionUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,6 +20,7 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     private static IMovieService movieService = new MovieService();
     private static CategoryService categoryService = new CategoryServiceImpl();
+    private static UserService userService= new UserService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -49,6 +53,11 @@ public class HomeController extends HttpServlet {
         request.setAttribute("movies", movieModel);
         request.setAttribute("categories", categoryModels);
         request.setAttribute("categoriesOfMovie", categoryModelsOfMovie);
+//        String name = userModel.getName();
+//        String email = userModel.getEmail();
+//        HttpSession session = request.getSession();
+//        session.setAttribute("userModel", name);
+//        session.setAttribute("userModel1", email);
         RequestDispatcher requestDispatcher =request.getRequestDispatcher("AdminTeamplate/DetailsMovies.jsp");
         try {
             requestDispatcher.forward(request,response);
