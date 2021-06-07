@@ -383,8 +383,6 @@
                                         <a>${rv.text}</a>
                                     </div>
                                 </div>
-
-
                                 <div class="item-col item-col-date">
                                     <div class="item-heading">Published</div>
                                 </div>
@@ -412,9 +410,7 @@
                                                         <i class="fas fa-info"></i>
                                                     </a>
                                                 </li>
-
                                             </ul>
-
                                         </div>
                                     </div>
                                 </div>
