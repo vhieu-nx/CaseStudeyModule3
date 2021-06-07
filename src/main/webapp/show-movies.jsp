@@ -175,31 +175,32 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="row portfolio-item">
-                    <c:forEach items="${list}" var="el">
-                        <div class="col-sm-6 soon released">
-                            <div class="single-portfolio">
-                                <div class="single-portfolio-img">
-                                    <img src="${el.image_movie}" alt="portfolio"/>
-                                    <a href="${el.youtubeTrainer}" class="popup-youtube">
-                                        <i class="icofont icofont-ui-play"></i>
-                                    </a>
-                                </div>
-                                <div class="portfolio-content">
-                                    <h2>${el.title}</h2>
-                                    <div class="review">
-                                        <div class="author-review">
-                                            <i class="icofont icofont-star"></i>
-                                            <i class="icofont icofont-star"></i>
-                                            <i class="icofont icofont-star"></i>
-                                            <i class="icofont icofont-star"></i>
-                                            <i class="icofont icofont-star"></i>
+                        <c:forEach items="${list}" var="el">
+                                <div class="col-sm-6 soon released">
+                                    <div class="single-portfolio">
+                                        <div class="single-portfolio-img">
+                                            <img src="${el.image_movie}" alt="portfolio"/>
+                                            <a href="${el.youtubeTrainer}" class="popup-youtube">
+                                                <i class="icofont icofont-ui-play"></i>
+                                            </a>
                                         </div>
-                                        <h4>180k voters</h4>
+                                        <div class="portfolio-content">
+                                            <h2>${el.title}</h2>
+                                            <div class="review">
+                                                <div class="author-review">
+                                                    <i class="icofont icofont-star"></i>
+                                                    <i class="icofont icofont-star"></i>
+                                                    <i class="icofont icofont-star"></i>
+                                                    <i class="icofont icofont-star"></i>
+                                                    <i class="icofont icofont-star"></i>
+                                                </div>
+                                                <h4>180k voters</h4>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                     </c:forEach>
+
                 </div>
             </div>
 

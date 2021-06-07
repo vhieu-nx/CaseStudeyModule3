@@ -58,8 +58,8 @@
             <div class="header-right">
                 <form action="/movies/search" method="get">
                     <select name="value">
-                        <option value="category" class="spmovie">Category</option>
                         <option value="movies" class="spmovie">Movies</option>
+                        <option value="category" class="spmovie">Category</option>
                     </select>
                     <input type="text" name="name"/>
                     <button type="submit"><i class="icofont icofont-search"></i></button>
