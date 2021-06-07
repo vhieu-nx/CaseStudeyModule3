@@ -6,5 +6,9 @@ import com.codegym.paging.Pageble;
 import java.util.List;
 
 public interface IMovieService extends IGeneralDao<MovieModel> {
-List<MovieModel> findAllPaging(Pageble pageble);
+List<MovieModel> findAllPaging(Integer offset, Integer limit);
+int getTotalItem();
+
+
+
 }

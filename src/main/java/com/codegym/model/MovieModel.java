@@ -1,5 +1,6 @@
 package com.codegym.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieModel {
@@ -12,7 +13,8 @@ public class MovieModel {
     private String youtubeTrainer;
     private String videoMovie;
     private int id_category;
-    private Integer maxPageItem;
+    private Integer page;
+    private Integer maxPageItem = 5;
     private Integer totalPage;
     private Integer totalItem;
     private String sortName;
@@ -20,7 +22,17 @@ public class MovieModel {
     private String alert;
     private String message;
     private String type;
+    private List<MovieModel> lisResult = new ArrayList<>();
+
     public MovieModel() {
+    }
+
+    public List<MovieModel> getLisResult() {
+        return lisResult;
+    }
+
+    public void setLisResult(List<MovieModel> lisResult) {
+        this.lisResult = lisResult;
     }
 
     public MovieModel(int movie_id, String title, String content, String description, List<CategoryModel> categoryModels, String image_movie, String youtubeTrainer, String videoMovie) {
@@ -72,6 +84,14 @@ public class MovieModel {
         this.image_movie = image_movie;
         this.youtubeTrainer = youtubeTrainer;
         this.videoMovie = videoMovie;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
     }
 
     public int getId_category() {

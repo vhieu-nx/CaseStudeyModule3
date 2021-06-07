@@ -15,6 +15,7 @@ import java.util.Map;
 
 public class MovieService implements IMovieService {
     private static final String SELECT_ALL_USER = "SELECT *FROM movies";
+    private static final String SELECT_ALL_Movie = "SELECT *FROM movies limit ?,?";
     private static final String INSERT_USER_SQL = "INSERT  into movies  (title,content,description,image_movie,youtubeTrainer,videoMovie) value (?,?,?,?,?,?)";
     private static final String INSERT_NEW_MOVIES_CATEGORY = "insert into categorymovie (id_category, move_id) VALUE (?, ?)";
     private static final String UPDATE_MOVIE_FROM_MOVIE = "UPDATE movies set title = ?,content =?,description=?,image_movie=?,youtubeTrainer=?,videoMovie=? where move_id =?";
@@ -36,6 +37,7 @@ public class MovieService implements IMovieService {
             "                 from category c inner join categorymovie cam\n" +
             "                 on c.id_category = cam.id_category\n" +
             "                inner join movies m on cam.move_id = m.move_id where m.move_id = ?";
+    private static final String SELECT_COUNT_MOVIES = "SELECT count(*) from movies ";
 
 
     public static Connection getConnection() {
@@ -57,13 +59,13 @@ public class MovieService implements IMovieService {
             preparedStatement.setString(6, movieModel.getVideoMovie());
             preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 movie_id = resultSet.getInt(1);
             }
             PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_NEW_MOVIES_CATEGORY);
-            for (int id_category : categories){
-                preparedStatement1.setInt(1,id_category);
-                preparedStatement1.setInt(2,movie_id);
+            for (int id_category : categories) {
+                preparedStatement1.setInt(1, id_category);
+                preparedStatement1.setInt(2, movie_id);
                 preparedStatement1.executeUpdate();
             }
             connection.commit();
@@ -83,18 +85,18 @@ public class MovieService implements IMovieService {
         Connection connection = getConnection();
         MovieModel movieModel = null;
         try {
-            PreparedStatement preparedStatement =  connection.prepareStatement(SELECT_MOVIE_ID);
-            preparedStatement.setInt(1,id);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MOVIE_ID);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int movie_id = resultSet.getInt("move_id");
-                String  title = resultSet.getString("title");
+                String title = resultSet.getString("title");
                 String content = resultSet.getString("content");
                 String description = resultSet.getString("description");
                 String image_movie = resultSet.getString("image_movie");
                 String trainer = resultSet.getString("youtubeTrainer");
                 String video = resultSet.getString("videoMovie");
-                movieModel = new MovieModel(movie_id,title,content,description,image_movie,trainer,video);
+                movieModel = new MovieModel(movie_id, title, content, description, image_movie, trainer, video);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -104,31 +106,29 @@ public class MovieService implements IMovieService {
 
     @Override
     public List<MovieModel> selectUserByName(String inputSearch) {
-        String search ="%" +inputSearch+ "%";
+        String search = "%" + inputSearch + "%";
         List<MovieModel> movieModels = new ArrayList<>();
-        Connection connection =getConnection();
+        Connection connection = getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MOVIE_BY_TITLE);
             preparedStatement.setString(1, search);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                String  title = rs.getString("title");
+                String title = rs.getString("title");
                 String content = rs.getString("content");
                 String description = rs.getString("description");
                 String image_movie = rs.getString("image_movie");
                 String youtubeTrainer = rs.getString("youtubeTrainer");
                 String videoMovie = rs.getString("videoMovie");
-                movieModels.add(new MovieModel(title,content,description,image_movie,youtubeTrainer,videoMovie));
+                movieModels.add(new MovieModel(title, content, description, image_movie, youtubeTrainer, videoMovie));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
 
-
         return movieModels;
     }
-
 
 
     @Override
@@ -141,14 +141,14 @@ public class MovieService implements IMovieService {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USER);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                int  moveid = rs.getInt("move_id");
+                int moveid = rs.getInt("move_id");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String description = rs.getString("description");
                 String image = rs.getString("image_movie");
                 String ytbTrainer = rs.getString("youtubeTrainer");
                 String video = rs.getString("videoMovie");
-                movies.add(new MovieModel(moveid, title, content, description,image,ytbTrainer,video));
+                movies.add(new MovieModel(moveid, title, content, description, image, ytbTrainer, video));
 //                connection.commit(); ???
             }
         } catch (SQLException throwables) {
@@ -168,11 +168,11 @@ public class MovieService implements IMovieService {
         PreparedStatement preparedStatement = null;
         PreparedStatement preparedStatement1 = null;
         try {
-            preparedStatement =  connection.prepareStatement(DELETE_MOVIE_FROM_CATEGORYMOIVE);
-            preparedStatement.setInt(1,id);
+            preparedStatement = connection.prepareStatement(DELETE_MOVIE_FROM_CATEGORYMOIVE);
+            preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
             preparedStatement1 = connection.prepareStatement(DELETE_MOVIE_FROM_MOVIE);
-            preparedStatement1.setInt(1,id);
+            preparedStatement1.setInt(1, id);
             preparedStatement1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -185,16 +185,16 @@ public class MovieService implements IMovieService {
         Connection connection = getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_MOVIE_FROM_MOVIE);
-            preparedStatement.setString(1,movieModel.getTitle());
-            preparedStatement.setString(2,movieModel.getContent());
-            preparedStatement.setString(3,movieModel.getDescription());
-            preparedStatement.setString(4,movieModel.getImage_movie());
-            preparedStatement.setString(5,movieModel.getYoutubeTrainer());
-            preparedStatement.setString(6,movieModel.getVideoMovie());
-            preparedStatement.setInt(7,movieModel.getMovie_id());
+            preparedStatement.setString(1, movieModel.getTitle());
+            preparedStatement.setString(2, movieModel.getContent());
+            preparedStatement.setString(3, movieModel.getDescription());
+            preparedStatement.setString(4, movieModel.getImage_movie());
+            preparedStatement.setString(5, movieModel.getYoutubeTrainer());
+            preparedStatement.setString(6, movieModel.getVideoMovie());
+            preparedStatement.setInt(7, movieModel.getMovie_id());
             preparedStatement.executeUpdate();
             PreparedStatement preparedStatement2 = connection.prepareStatement(DELETE_MOVIE_FROM_CATEGORYMOIVE);
-            preparedStatement2.setInt(1,movieModel.getMovie_id());
+            preparedStatement2.setInt(1, movieModel.getMovie_id());
             preparedStatement2.executeUpdate();
 //            PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_NEW_MOVIES_CATEGORY);
 //            for (int id_category : categories){
@@ -283,19 +283,64 @@ public class MovieService implements IMovieService {
 
 
     @Override
-    public List<MovieModel> findAllPaging(Pageble pageble) {
-        PreparedStatement preparedStatement=null;
-        ResultSet resultSet  = null;
-        Connection connection =getConnection();
-        StringBuilder sql =new StringBuilder("SELECT * FROM movies");
-       if (pageble.getSorter() != null && StringUtils.isNullOrEmpty(pageble.getSorter().getSortName()) && StringUtils.isNullOrEmpty(pageble.getSorter().getSortBy())) {
-			sql.append(" ORDER BY "+pageble.getSorter().getSortName()+" "+pageble.getSorter().getSortBy()+"");
-		}
-		if (pageble.getOffset() != null && pageble.getLimit() != null) {
-			sql.append(" LIMIT "+pageble.getOffset()+", "+pageble.getLimit()+"");
-		}
+    public List<MovieModel> findAllPaging(Integer offset,Integer limit) {
+        List<MovieModel> movies = new ArrayList<>();
+        Connection connection = getConnection();
+        try {
+//            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USER);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int moveid = rs.getInt("move_id");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String description = rs.getString("description");
+                String image = rs.getString("image_movie");
+                String ytbTrainer = rs.getString("youtubeTrainer");
+                String video = rs.getString("videoMovie");
+                movies.add(new MovieModel(moveid, title, content, description, image, ytbTrainer, video));
+//                connection.commit(); ???
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return movies;
+    }
 
-//		connection.prepareStatement(sql);
-        return null;
+    @Override
+    public int getTotalItem() {
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            int count = 0;
+            preparedStatement = connection.prepareStatement(SELECT_COUNT_MOVIES);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+            return count;
+        } catch (SQLException e) {
+            return 0;
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (SQLException e) {
+                return 0;
+            }
+        }
     }
 }

@@ -167,7 +167,7 @@
                         </li>
 
                         <li>
-                            <a href="/MovieServlet">
+                            <a href="/MovieServlet?page=1&maxPageItem=5">
                                 <i class="fa fa-th-large"></i> Movie List
                             </a>
                         </li>
@@ -384,7 +384,7 @@
                             <div class="item-col item-col-header fixed item-col-actions-dropdown"></div>
                         </div>
                     </li>
-                    <c:forEach var="rv" items="${listMovie}">
+                    <c:forEach var="rv" items="${listMovie.lisResult}">
                         <li class="item">
                             <div class="item-row">
                                 <div class="item-col fixed item-col-check">
@@ -596,13 +596,19 @@
     let currentPage = ${listMovie.page};
     let limit = 2;
     $('#pagination').twbsPagination({
-        totalPages: totalPages,
+        totalPages: 3,
         visiblePages: 7,
-        startPage: currentPage,
+        startPage: 1,
         onPageClick: function (event, page) {
-            $('#page').val(page);
+            if (currentPage!=page){
+                $('#page').val(page);
+                $('#maxPageItem').val(limit);
+                // $('#formSubmit').();
 
-            $('formSubmit').submit();
+
+                $('formSubmit').submit();
+            }
+
         }
     });
     (function (i, s, o, g, r, a, m) {

@@ -114,8 +114,26 @@ public class MoviesServlet extends HttpServlet {
     }
 
     private void showAll(HttpServletRequest req, HttpServletResponse resp) {
-        List<MovieModel> movieModels = movieService.selectAll();
-        req.setAttribute("listMovie", movieModels);
+        MovieModel movieModel = new MovieModel();
+        String maxPageItemStr = req.getParameter("maxPageItem");
+        String pageStr =req.getParameter("page");
+        if (pageStr!=null){
+            movieModel.setPage(Integer.parseInt(pageStr));
+        }else {
+            movieModel.setPage(1);
+        }
+        if (maxPageItemStr!=null){
+            movieModel.setMaxPageItem(Integer.parseInt(maxPageItemStr));
+        }
+
+        Integer offset = (movieModel.getPage() -1) * movieModel.getMaxPageItem();
+        movieModel.setLisResult(movieService.findAllPaging(offset,movieModel.getMaxPageItem()));
+        movieModel.setTotalItem(movieService.getTotalItem());
+//        List<MovieModel> movieModels = movieService.selectAll();
+        movieModel.setTotalPage((int) Math.ceil((double) movieModel.getTotalItem() / movieModel.getMaxPageItem()));
+
+        req.setAttribute("listMovie", movieModel);
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("AdminTeamplate/items-list.jsp");
         try {
             requestDispatcher.forward(req, resp);
