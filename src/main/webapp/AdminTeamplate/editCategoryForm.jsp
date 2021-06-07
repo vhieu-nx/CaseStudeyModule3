@@ -142,7 +142,7 @@
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
                         <li class="active">
-                            <a href="/admin-home">
+                            <a href="#">
                                 <i class="fa fa-home"></i> Dashboard </a>
                         </li>
                         <li>
@@ -166,9 +166,40 @@
                                 <i class="fa fa-th-large"></i> User List
                             </a>
                         </li>
+                        <li>
+                            <a href="AdminTeamplate/forms.jsp">
+                                <i class="fa fa-pencil-square-o"></i> Forms </a>
+                        </li>
 
-
-
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-file-text-o"></i> Pages
+                                <i class="fa arrow"></i>
+                            </a>
+                            <ul class="sidebar-nav">
+                                <li>
+                                    <a href="AdminTeamplate/login.jsp"> Login </a>
+                                </li>
+                                <li>
+                                    <a href="AdminTeamplate/signup.jsp"> Sign Up </a>
+                                </li>
+                                <li>
+                                    <a href="AdminTeamplate/reset.jsp"> Reset </a>
+                                </li>
+                                <li>
+                                    <a href="AdminTeamplate/error-404.jsp"> Error 404 App </a>
+                                </li>
+                                <li>
+                                    <a href="AdminTeamplate/error-404-alt.jsp"> Error 404 Global </a>
+                                </li>
+                                <li>
+                                    <a href="AdminTeamplate/error-500.jsp"> Error 500 App </a>
+                                </li>
+                                <li>
+                                    <a href="AdminTeamplate/error-500-alt.jsp"> Error 500 Global </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
