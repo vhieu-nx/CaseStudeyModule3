@@ -143,6 +143,12 @@
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
+                                    <a href="/admin-categories">
+                                        <i class="fa fa-th-large"></i> Category List
+                                    </a>
+                                </li>
+
+                                <li>
                                     <a href="/MovieServlet">
                                         <i class="fa fa-th-large"></i> Movie List
                                     </a>

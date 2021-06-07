@@ -145,26 +145,32 @@
                         </div>
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                                <li>
+                                <li class="active">
                                     <a href="#">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
-                                <li class="">
-                                    <a href="MovieServlet">
-                                        <i class="fa fa-th-large"></i> Items List
-                                    </a>
-                                </li>
-                                <li class="">
+                                <li>
                                     <a href="/admin-categories">
-                                        <i class="fa fa-th-large"></i> Items Category
+                                        <i class="fa fa-th-large"></i> Category List
                                     </a>
                                 </li>
-                                <li class="active open">
+
+                                <li>
+                                    <a href="/MovieServlet">
+                                        <i class="fa fa-th-large"></i> Movie List
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/ReviewServlet">
+                                        <i class="fa fa-th-large"></i> Review List
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="/Login?action=showclientuser">
                                         <i class="fa fa-th-large"></i> User List
                                     </a>
-
                                 </li>
+
                                 <li>
                                     <a href="forms.jsp">
                                         <i class="fa fa-pencil-square-o"></i> Forms </a>

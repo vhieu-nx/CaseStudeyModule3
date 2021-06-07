@@ -145,51 +145,30 @@
                 </div>
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                        <li>
-                            <a href="index-2.jsp">
+                        <li class="active">
+                            <a href="#">
                                 <i class="fa fa-home"></i> Dashboard </a>
                         </li>
-                        <li class="active open">
-                            <a href="#">
-                                <i class="fa fa-th-large"></i> Items Manager
-                                <i class="fa arrow"></i>
+                        <li>
+                            <a href="/admin-categories">
+                                <i class="fa fa-th-large"></i> Category List
                             </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="items-list.jsp"> Items List </a>
-                                </li>
-                                <li class="active">
-                                    <a href="item-editor.jsp"> Item Editor </a>
-                                </li>
-                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/MovieServlet">
+                                <i class="fa fa-th-large"></i> Movie List
+                            </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-area-chart"></i> Charts
-                                <i class="fa arrow"></i>
+                            <a href="/ReviewServlet">
+                                <i class="fa fa-th-large"></i> Review List
                             </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="charts-flot.jsp"> Flot Charts </a>
-                                </li>
-                                <li>
-                                    <a href="charts-morris.jsp"> Morris Charts </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-table"></i> Tables
-                                <i class="fa arrow"></i>
+                            <a href="/Login?action=showclientuser">
+                                <i class="fa fa-th-large"></i> User List
                             </a>
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="static-tables.jsp"> Static Tables </a>
-                                </li>
-                                <li>
-                                    <a href="responsive-tables.jsp"> Responsive Tables </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="forms.jsp">
