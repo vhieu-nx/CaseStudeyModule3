@@ -110,13 +110,16 @@ public class MovieService implements IMovieService {
             preparedStatement.setString(1, search);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
+                Integer movieId = rs.getInt("move_id");
                 String  title = rs.getString("title");
                 String content = rs.getString("content");
                 String description = rs.getString("description");
                 String image_movie = rs.getString("image_movie");
                 String youtubeTrainer = rs.getString("youtubeTrainer");
                 String videoMovie = rs.getString("videoMovie");
-                movieModels.add(new MovieModel(title,content,description,image_movie,youtubeTrainer,videoMovie));
+                MovieModel movieModel = new MovieModel(title,content,description,image_movie,youtubeTrainer,videoMovie);
+                movieModel.setMovie_id(movieId);
+                movieModels.add(movieModel);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

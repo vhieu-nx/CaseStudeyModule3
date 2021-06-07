@@ -175,17 +175,17 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="row portfolio-item">
-                        <c:forEach items="${list}" var="el">
+                        <c:forEach items="${listMovie}" var="el">
                                 <div class="col-sm-6 soon released">
                                     <div class="single-portfolio">
                                         <div class="single-portfolio-img">
                                             <img src="${el.image_movie}" alt="portfolio"/>
-                                            <a href="${el.youtubeTrainer}" class="popup-youtube">
+                                            <a href="${el.youtubeTrainer}">
                                                 <i class="icofont icofont-ui-play"></i>
                                             </a>
                                         </div>
                                         <div class="portfolio-content">
-                                            <h2>${el.title}</h2>
+                                            <a href="/trangchu?action=details&id=${el.movie_id}"><h2>${el.title} ${el.movie_id}</h2></a>
                                             <div class="review">
                                                 <div class="author-review">
                                                     <i class="icofont icofont-star"></i>
