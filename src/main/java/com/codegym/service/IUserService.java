@@ -11,9 +11,9 @@ public interface IUserService {
     public void createFormUser(HttpServletRequest request, HttpServletResponse response);
     public void createUser(HttpServletRequest request, HttpServletResponse response);
     public void updateFormB1User(HttpServletRequest request, HttpServletResponse response);
-    public void updateFormB2User(HttpServletRequest request, HttpServletResponse response);
+//    public void updateFormB2User(HttpServletRequest request, HttpServletResponse response);
     public void updateB1User(HttpServletRequest request, HttpServletResponse response);
-    public void updateB2User(HttpServletRequest request, HttpServletResponse response);
+//    public void updateB2User(HttpServletRequest request, HttpServletResponse response);
     public void removeUser(HttpServletRequest request, HttpServletResponse response);
     public void login(HttpServletRequest request, HttpServletResponse response);
     public void enterlogin(HttpServletRequest request, HttpServletResponse response);
