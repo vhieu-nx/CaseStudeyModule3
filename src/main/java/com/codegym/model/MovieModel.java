@@ -12,7 +12,14 @@ public class MovieModel {
     private String youtubeTrainer;
     private String videoMovie;
     private int id_category;
-
+    private Integer maxPageItem;
+    private Integer totalPage;
+    private Integer totalItem;
+    private String sortName;
+    private String sortBy;
+    private String alert;
+    private String message;
+    private String type;
     public MovieModel() {
     }
 
@@ -65,6 +72,78 @@ public class MovieModel {
         this.image_movie = image_movie;
         this.youtubeTrainer = youtubeTrainer;
         this.videoMovie = videoMovie;
+    }
+
+    public int getId_category() {
+        return id_category;
+    }
+
+    public void setId_category(int id_category) {
+        this.id_category = id_category;
+    }
+
+    public Integer getMaxPageItem() {
+        return maxPageItem;
+    }
+
+    public void setMaxPageItem(Integer maxPageItem) {
+        this.maxPageItem = maxPageItem;
+    }
+
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(Integer totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public Integer getTotalItem() {
+        return totalItem;
+    }
+
+    public void setTotalItem(Integer totalItem) {
+        this.totalItem = totalItem;
+    }
+
+    public String getSortName() {
+        return sortName;
+    }
+
+    public void setSortName(String sortName) {
+        this.sortName = sortName;
+    }
+
+    public String getSortBy() {
+        return sortBy;
+    }
+
+    public void setSortBy(String sortBy) {
+        this.sortBy = sortBy;
+    }
+
+    public String getAlert() {
+        return alert;
+    }
+
+    public void setAlert(String alert) {
+        this.alert = alert;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getMovie_id() {

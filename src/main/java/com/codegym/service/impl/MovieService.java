@@ -4,7 +4,9 @@ import com.codegym.dao.connection.ConnectionJDBC;
 import com.codegym.model.CategoryModel;
 import com.codegym.model.MovieModel;
 import com.codegym.model.ReviewModel;
+import com.codegym.paging.Pageble;
 import com.codegym.service.IMovieService;
+import com.mysql.cj.util.StringUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -280,4 +282,20 @@ public class MovieService implements IMovieService {
     }
 
 
+    @Override
+    public List<MovieModel> findAllPaging(Pageble pageble) {
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet  = null;
+        Connection connection =getConnection();
+        StringBuilder sql =new StringBuilder("SELECT * FROM movies");
+       if (pageble.getSorter() != null && StringUtils.isNullOrEmpty(pageble.getSorter().getSortName()) && StringUtils.isNullOrEmpty(pageble.getSorter().getSortBy())) {
+			sql.append(" ORDER BY "+pageble.getSorter().getSortName()+" "+pageble.getSorter().getSortBy()+"");
+		}
+		if (pageble.getOffset() != null && pageble.getLimit() != null) {
+			sql.append(" LIMIT "+pageble.getOffset()+", "+pageble.getLimit()+"");
+		}
+
+//		connection.prepareStatement(sql);
+        return null;
+    }
 }
