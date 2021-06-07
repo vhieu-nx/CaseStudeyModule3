@@ -53,7 +53,7 @@
     <div class="container">
         <div class="header-area">
             <div class="logo">
-                <a href="#"><img src="assets/img/logo.png" alt="logo"/></a>
+<%--                <a href="#"><img src="assets/img/logo.png" alt="logo"/></a>--%>
             </div>
             <div class="header-right">
                 <form action="/movies/search" method="get">
@@ -63,8 +63,8 @@
                 </form>
                 <ul>
                     <li><a href="#">Welcome </a></li>
-                    <li><a href="#">${sessionScope.userModel}</a></li>
-                    <li><a class="login-popup" href="#">Login</a></li>
+                    <li><a href="#">${sessionScope.userModel.name}</a></li>
+<%--                    <li><a class="login-popup" href="#">Login</a></li>--%>
                     <li><a href="/Login?action=logout">Logout</a></li>
                 </ul>
             </div>
@@ -72,10 +72,10 @@
                 <div class="responsive-menu"></div>
                 <div class="mainmenu">
                     <ul id="primary-menu">
-                        <li><a class="active" href='<c:url value="/Login"/>'>Home</a></li>
+                        <li><a class="active" href='<c:url value="/trangchu"/>'>Home</a></li>
                         <li><a href="movies.jsp">Movies</a></li>
 
-                        <li><a href="top-movies.jsp">Top Movies</a></li>
+<%--                        <li><a href="top-movies.jsp">Top Movies</a></li>--%>
 
                     </ul>
                 </div>
@@ -157,30 +157,30 @@
         <div class="row flexbox-center">
             <div class="col-lg-6 text-center text-lg-left">
                 <div class="section-title">
-                    <h1><i class="icofont icofont-movie"></i> Spotlight This Month</h1>
+                    <h1><i class="icofont icofont-movie"></i> ${name}</h1>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
-                <div class="portfolio-menu">
-                    <ul>
-                        <li data-filter="*" class="active">Latest</li>
-                        <li data-filter=".soon">Comming Soon</li>
-                        <li data-filter=".top">Top Rated</li>
-                        <li data-filter=".released">Recently Released</li>
-                    </ul>
-                </div>
+<%--                <div class="portfolio-menu">--%>
+<%--                    <ul>--%>
+<%--                        <li data-filter="*" class="active">Latest</li>--%>
+<%--                        <li data-filter=".soon">Comming Soon</li>--%>
+<%--                        <li data-filter=".top">Top Rated</li>--%>
+<%--                        <li data-filter=".released">Recently Released</li>--%>
+<%--                    </ul>--%>
+<%--                </div>--%>
             </div>
         </div>
         <hr/>
         <div class="row">
             <div class="col-lg-9">
                 <div class="row portfolio-item">
-                    <c:forEach items="${listMovie}" var="el">
+                    <c:forEach items="${list}" var="el">
                         <div class="col-sm-6 soon released">
                             <div class="single-portfolio">
                                 <div class="single-portfolio-img">
                                     <img src="${el.image_movie}" alt="portfolio"/>
-                                    <a href="https://www.youtube.com/watch?v=RZXnugbhw_4" class="popup-youtube">
+                                    <a href="${el.youtubeTrainer}" class="popup-youtube">
                                         <i class="icofont icofont-ui-play"></i>
                                     </a>
                                 </div>

@@ -14,7 +14,8 @@
         input {
             color: #1b1e21;
         }
-        #spmovie{
+
+        .spmovie {
             padding-top: 6px;
             padding-left: 10px;
         }
@@ -56,8 +57,11 @@
             </div>
             <div class="header-right">
                 <form action="/movies/search" method="get">
-                    <label for="abc" id="spmovie">Movies</label>
-                    <input type="text" id="abc" name="name" />
+                    <select name="value">
+                        <option value="category" class="spmovie">Category</option>
+                        <option value="movies" class="spmovie">Movies</option>
+                    </select>
+                    <input type="text" name="name"/>
                     <button type="submit"><i class="icofont icofont-search"></i></button>
                 </form>
                 <ul>
@@ -75,7 +79,7 @@
                         <li><a class="active" href='<c:url value="/trangchu"/>'>Home</a></li>
                         <li><a href="movies.jsp">Movies</a></li>
 
-<%--                        <li><a href="top-movies.jsp">Top Movies</a></li>--%>
+                        <%--                        <li><a href="top-movies.jsp">Top Movies</a></li>--%>
 
                     </ul>
                 </div>
@@ -121,148 +125,150 @@
     <div class="container">
         <div class="hero-area-slider">
             <c:forEach var="listMovie" items="${listMovie}">
-            <div class="row hero-area-slide">
-                <div class="col-lg-6 col-md-5">
-                    <div class="hero-area-content">
-                        <img src="${listMovie.image_movie}" alt="about"/>
+                <div class="row hero-area-slide">
+                    <div class="col-lg-6 col-md-5">
+                        <div class="hero-area-content">
+                            <img src="${listMovie.image_movie}" alt="about"/>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-7">
-                    <div class="hero-area-content pr-50">
-                        <h2>${listMovie.title}</h2>
-                        <div class="review">
-                            <div class="author-review">
-                                <i class="icofont icofont-star"></i>
-                                <i class="icofont icofont-star"></i>
-                                <i class="icofont icofont-star"></i>
-                                <i class="icofont icofont-star"></i>
-                                <i class="icofont icofont-star"></i>
+                    <div class="col-lg-6 col-md-7">
+                        <div class="hero-area-content pr-50">
+                            <h2>${listMovie.title}</h2>
+                            <div class="review">
+                                <div class="author-review">
+                                    <i class="icofont icofont-star"></i>
+                                    <i class="icofont icofont-star"></i>
+                                    <i class="icofont icofont-star"></i>
+                                    <i class="icofont icofont-star"></i>
+                                    <i class="icofont icofont-star"></i>
+                                </div>
+                                <h4>180k voters</h4>
                             </div>
-                            <h4>180k voters</h4>
-                        </div>
-                        <p>${listMovie.description}</p>
-                        <div class="slide-trailor">
-                            <h3>Watch Trailer</h3>
-                            <a class="theme-btn theme-btn2 popup-youtube" href="${listMovie.youtubeTrainer}">Trailer</a>
-                            <a class="theme-btn theme-btn2" href="/trangchu?action=details&id=${listMovie.movie_id}">Details<i
-                                    class="fa fa-info-circle" aria-hidden="true"></i></a>
+                            <p>${listMovie.description}</p>
+                            <div class="slide-trailor">
+                                <h3>Watch Trailer</h3>
+                                <a class="theme-btn theme-btn2 popup-youtube"
+                                   href="${listMovie.youtubeTrainer}">Trailer</a>
+                                <a class="theme-btn theme-btn2"
+                                   href="/trangchu?action=details&id=${listMovie.movie_id}">Details<i
+                                        class="fa fa-info-circle" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </c:forEach>
-<%--            <div class="row hero-area-slide">--%>
-<%--                <div class="col-lg-6 col-md-5">--%>
-<%--                    <div class="hero-area-content">--%>
-<%--                        <img src="assets/img/slide1.png" alt="about"/>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="col-lg-6 col-md-7">--%>
-<%--                    <div class="hero-area-content pr-50">--%>
-<%--                        <h2>Last Avatar</h2>--%>
-<%--                        <div class="review">--%>
-<%--                            <div class="author-review">--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                            </div>--%>
-<%--                            <h4>180k voters</h4>--%>
-<%--                        </div>--%>
-<%--                        <p>She is a devil princess from the demon world. She grew up sheltered by her parents and--%>
-<%--                            doesn't really know how to be evil or any of the common actions, She is unable to cry due to--%>
-<%--                            Keita's accidental first wish, despite needed for him to wish...</p>--%>
-<%--                        <h3>Cast:</h3>--%>
-<%--                        <div class="slide-cast">--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast1.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast2.html" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast3.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast4.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast5.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast6.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast7.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast text-center">--%>
-<%--                                5+--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="slide-trailor">--%>
-<%--                            <h3>Watch Trailer</h3>--%>
-<%--                            <a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <div class="row hero-area-slide">--%>
-<%--                <div class="col-lg-6 col-md-5">--%>
-<%--                    <div class="hero-area-content">--%>
-<%--                        <img src="assets/img/slide3.png" alt="about"/>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="col-lg-6 col-md-7">--%>
-<%--                    <div class="hero-area-content pr-50">--%>
-<%--                        <h2>The Deer God</h2>--%>
-<%--                        <div class="review">--%>
-<%--                            <div class="author-review">--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                                <i class="icofont icofont-star"></i>--%>
-<%--                            </div>--%>
-<%--                            <h4>180k voters</h4>--%>
-<%--                        </div>--%>
-<%--                        <p>She is a devil princess from the demon world. She grew up sheltered by her parents and--%>
-<%--                            doesn't really know how to be evil or any of the common actions, She is unable to cry due to--%>
-<%--                            Keita's accidental first wish, despite needed for him to wish...</p>--%>
-<%--                        <h3>Cast:</h3>--%>
-<%--                        <div class="slide-cast">--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast1.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast2.html" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast3.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast4.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast5.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast6.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast">--%>
-<%--                                <img src="assets/img/cast/cast7.png" alt="about"/>--%>
-<%--                            </div>--%>
-<%--                            <div class="single-slide-cast text-center">--%>
-<%--                                5+--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="slide-trailor">--%>
-<%--                            <h3>Watch Trailer</h3>--%>
-<%--                            <a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+            <%--            <div class="row hero-area-slide">--%>
+            <%--                <div class="col-lg-6 col-md-5">--%>
+            <%--                    <div class="hero-area-content">--%>
+            <%--                        <img src="assets/img/slide1.png" alt="about"/>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--                <div class="col-lg-6 col-md-7">--%>
+            <%--                    <div class="hero-area-content pr-50">--%>
+            <%--                        <h2>Last Avatar</h2>--%>
+            <%--                        <div class="review">--%>
+            <%--                            <div class="author-review">--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                            </div>--%>
+            <%--                            <h4>180k voters</h4>--%>
+            <%--                        </div>--%>
+            <%--                        <p>She is a devil princess from the demon world. She grew up sheltered by her parents and--%>
+            <%--                            doesn't really know how to be evil or any of the common actions, She is unable to cry due to--%>
+            <%--                            Keita's accidental first wish, despite needed for him to wish...</p>--%>
+            <%--                        <h3>Cast:</h3>--%>
+            <%--                        <div class="slide-cast">--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast1.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast2.html" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast3.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast4.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast5.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast6.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast7.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast text-center">--%>
+            <%--                                5+--%>
+            <%--                            </div>--%>
+            <%--                        </div>--%>
+            <%--                        <div class="slide-trailor">--%>
+            <%--                            <h3>Watch Trailer</h3>--%>
+            <%--                            <a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>--%>
+            <%--                        </div>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
+            <%--            <div class="row hero-area-slide">--%>
+            <%--                <div class="col-lg-6 col-md-5">--%>
+            <%--                    <div class="hero-area-content">--%>
+            <%--                        <img src="assets/img/slide3.png" alt="about"/>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--                <div class="col-lg-6 col-md-7">--%>
+            <%--                    <div class="hero-area-content pr-50">--%>
+            <%--                        <h2>The Deer God</h2>--%>
+            <%--                        <div class="review">--%>
+            <%--                            <div class="author-review">--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                                <i class="icofont icofont-star"></i>--%>
+            <%--                            </div>--%>
+            <%--                            <h4>180k voters</h4>--%>
+            <%--                        </div>--%>
+            <%--                        <p>She is a devil princess from the demon world. She grew up sheltered by her parents and--%>
+            <%--                            doesn't really know how to be evil or any of the common actions, She is unable to cry due to--%>
+            <%--                            Keita's accidental first wish, despite needed for him to wish...</p>--%>
+            <%--                        <h3>Cast:</h3>--%>
+            <%--                        <div class="slide-cast">--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast1.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast2.html" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast3.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast4.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast5.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast6.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast">--%>
+            <%--                                <img src="assets/img/cast/cast7.png" alt="about"/>--%>
+            <%--                            </div>--%>
+            <%--                            <div class="single-slide-cast text-center">--%>
+            <%--                                5+--%>
+            <%--                            </div>--%>
+            <%--                        </div>--%>
+            <%--                        <div class="slide-trailor">--%>
+            <%--                            <h3>Watch Trailer</h3>--%>
+            <%--                            <a class="theme-btn theme-btn2" href="#"><i class="icofont icofont-play"></i> Tickets</a>--%>
+            <%--                        </div>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
         </div>
         <div class="hero-area-thumb">
             <div class="thumb-prev">

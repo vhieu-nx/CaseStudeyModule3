@@ -187,8 +187,7 @@ public class UserService implements IUserService {
                 }
             }
         } else {
-//            người dùng không truyền dữ liệu ấn submit thì sẽ thông báo nhập dữ liệu.
-//            không thực hiện đúng ý
+
             String jsp = "/index.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             try {

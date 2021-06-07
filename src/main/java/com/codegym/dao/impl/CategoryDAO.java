@@ -4,6 +4,7 @@ import com.codegym.dto.MoviesInfo;
 import com.codegym.dao.ICategoryDao;
 import com.codegym.dao.connection.ConnectionJDBC;
 import com.codegym.model.CategoryModel;
+import com.codegym.model.MovieModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -76,6 +77,39 @@ public class CategoryDAO implements ICategoryDao {
             moviesInfo.setImg_movie(resultSet.getString("image_movie"));
             moviesInfo.setCategory_name(resultSet.getString("category_name"));
             list.add(moviesInfo);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public List<MovieModel> findNameCategory(String name) {
+        List<MovieModel> list= new ArrayList<>();
+        Connection connection = ConnectionJDBC.getConnection();
+        String sql = "select m.*,c.category_name" +
+                " from category c inner join categorymovie cam" +
+                " on c.id_category = cam.id_category " +
+                "inner join movies m on cam.move_id = m.move_id where c.category_name like ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+//                MoviesInfo moviesInfo= new MoviesInfo();
+//                moviesInfo.setTitle(resultSet.getString("title"));
+//                moviesInfo.setImg_movie(resultSet.getString("image_movie"));
+//                moviesInfo.setYoutubeTrainer(resultSet.getString("youtubeTrainer"));
+//                moviesInfo.setYoutubeTrainer(resultSet.getString("videoMovie"));
+//                moviesInfo.setCategory_name(resultSet.getString("category_name"));
+//                list.add(moviesInfo);
+                String nameMovies = resultSet.getString("title");
+                String imageMovies = resultSet.getString("image_movie");
+                String youtubeTrainer = resultSet.getString("youtubeTrainer");
+                String videoMovie = resultSet.getString("videoMovie");
+                MovieModel movieModel = new MovieModel(nameMovies,imageMovies,youtubeTrainer,videoMovie);
+                list.add(movieModel);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

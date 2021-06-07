@@ -27,7 +27,11 @@ public class MovieModel {
         this.videoMovie = videoMovie;
     }
 
-    public MovieModel(String id1, String title, String content, String description, String image_movie, String trainer, String video) {
+    public MovieModel(String title, String image_movie, String youtubeTrainer, String videoMovie) {
+        this.title = title;
+        this.image_movie = image_movie;
+        this.youtubeTrainer = youtubeTrainer;
+        this.videoMovie = videoMovie;
     }
 
     public List<CategoryModel> getCategoryModels() {
