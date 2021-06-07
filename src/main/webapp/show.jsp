@@ -99,10 +99,13 @@
             </div>
             <div class="header-right">
                 <form action="/movies/search" method="get">
-                    <label for="abc" id="spmovie">Movies</label>
-                    <input type="text" id="abc" name="name"/>
-                    <button type="submit"><i class="icofont icofont-search"></i></button>
-                </form>
+                <select name="value">
+                    <option value="movies" class="spmovie">Movies</option>
+                    <option value="category" class="spmovie">Category</option>
+                </select>
+                <input type="text" name="name"/>
+                <button type="submit"><i class="icofont icofont-search"></i></button>
+            </form>
                 <ul>
                     <li><a href="#">Welcome </a></li>
                     <li><a href="#">${sessionScope.userModel.name}</a></li>

@@ -44,14 +44,13 @@
 						<a href="index-2.html"><img src="assets/img/logo.png" alt="logo" /></a>
 					</div>
 					<div class="header-right">
-						<form action="#">
-							<select>
-								<option value="Movies">Movies</option>
-								<option value="Movies">Movies</option>
-								<option value="Movies">Movies</option>
+						<form action="/movies/search" method="get">
+							<select name="value">
+								<option value="movies" class="spmovie">Movies</option>
+								<option value="category" class="spmovie">Category</option>
 							</select>
-							<input type="text"/>
-							<button><i class="icofont icofont-search"></i></button>
+							<input type="text" name="name"/>
+							<button type="submit"><i class="icofont icofont-search"></i></button>
 						</form>
 						<ul>
 							<li><a href="#">Welcome Guest!</a></li>

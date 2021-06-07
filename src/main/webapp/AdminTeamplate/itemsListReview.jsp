@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: Mr.Nguyen
   Date: 6/4/2021
-  Time: 3:52 PM
+  Time: 9:03 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> MovieAdmin - EditFormMovie </title>
+    <title> User_List_Client </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.jsp">
@@ -40,7 +40,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
             </div>
-            <!-- <div class="header-block header-block-search">
+            <div class="header-block header-block-search">
                 <form role="search">
                     <div class="input-container">
                         <i class="fa fa-search"></i>
@@ -48,7 +48,8 @@
                         <div class="underline"></div>
                     </div>
                 </form>
-            </div> -->
+            </div>
+
             <div class="header-block header-block-nav">
                 <ul class="nav-profile">
                     <li class="notifications new">
@@ -117,6 +118,10 @@
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-user icon"></i> Profile </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa fa-bell icon"></i> Notifications </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa fa-gear icon"></i> Settings </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="login.html">
                                 <i class="fa fa-power-off icon"></i> Logout </a>
@@ -167,10 +172,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="AdminTeamplate/forms.jsp">
+                            <a href="forms.jsp">
                                 <i class="fa fa-pencil-square-o"></i> Forms </a>
                         </li>
-
                         <li>
                             <a href="#">
                                 <i class="fa fa-file-text-o"></i> Pages
@@ -178,25 +182,25 @@
                             </a>
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="AdminTeamplate/login.jsp"> Login </a>
+                                    <a href="login.jsp"> Login </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/signup.jsp"> Sign Up </a>
+                                    <a href="signup.jsp"> Sign Up </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/reset.jsp"> Reset </a>
+                                    <a href="reset.jsp"> Reset </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/error-404.jsp"> Error 404 App </a>
+                                    <a href="error-404.jsp"> Error 404 App </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/error-404-alt.jsp"> Error 404 Global </a>
+                                    <a href="error-404-alt.jsp"> Error 404 Global </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/error-500.jsp"> Error 500 App </a>
+                                    <a href="error-500.jsp"> Error 500 App </a>
                                 </li>
                                 <li>
-                                    <a href="AdminTeamplate/error-500-alt.jsp"> Error 500 Global </a>
+                                    <a href="error-500-alt.jsp"> Error 500 Global </a>
                                 </li>
                             </ul>
                         </li>
@@ -306,102 +310,163 @@
         <div class="sidebar-overlay" id="sidebar-overlay"></div>
         <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
         <div class="mobile-menu-handle"></div>
-        <article class="content item-editor-page">
-            <div class="title-block">
-                <h3 class="title"> Edit Movies
-                    <span class="sparkline bar" data-type="bar"></span>
-                </h3>
-            </div>
-            <form action="MovieServlet" method="post">
-                <div class="card card-block">
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right">ID:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="id" id="id" value="${movies.movie_id}"></div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> Title: </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="title" value="${movies.title}"></div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> Content: </label>
-                        <div class="col-sm-10">
-                            <input type="text" name="content" class="form-control boxed" value="${movies.content}">
-                            <%--                            <input type="text" name="content" class="form-control boxed">${movies.content}--%>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> Description: </label>
-                        <div class="col-sm-10">
-                            <textarea name="description" rows="5" cols="50">${movies.description}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> Category: </label>
-                        <div class="col-sm-10">
-                            <select class="c-select form-control boxed" name="categories" id="categories" multiple>
-                                <c:forEach items="${categories}" var="category">
-                                    <option value="${category.category_id}"
-                                            <c:forEach items="${categoriesOfMovie}" var="cOB">
-                                                <c:if test="${category.category_id == categoryOfMovie.movie_id}">selected="true"</c:if>
-                                            </c:forEach>>
-                                            ${category.name}
-                                    </option>
-                                </c:forEach>
-<%--                                <c:forEach items="${categories}" var="category">--%>
-<%--                                    <option value="${category.category_id}">--%>
-<%--                                        <c:forEach items="${categoriesOfMovie}" var="categoryOfMovie">--%>
-<%--                                            <c:if test="${category.category_id == categoryOfMovie.movie_id}">selected="true"</c:if>--%>
-<%--                                        </c:forEach>--%>
-<%--                                            ${category.name}--%>
-<%--                                    </option>--%>
-<%--                                    &lt;%&ndash;                                    <option value="${category.category_id}">${category.name}</option>&ndash;%&gt;--%>
-<%--                                </c:forEach>--%>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> Image </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="image" value="${movies.image_movie}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> YoutubeTrainer: </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="trainer"
-                                   value="${movies.youtubeTrainer}"></div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 form-control-label text-xs-right"> VideoMovie: </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control boxed" name="movie" value="${movies.videoMovie}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10 col-sm-offset-2">
-                            <button type="submit" class="btn btn-primary" value="edit" name="action"> Submit</button>
+        <article class="content items-list-page">
+            <div class="title-search-block">
+                <div class="title-block">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="title"> List Comment Movie
+<%--                                <a href="/MovieServlet?action=create" class="btn btn-primary btn-sm rounded-s"> Add--%>
+<%--                                    New </a>--%>
+                                <!--
+         -->
+                            </h3>
                         </div>
                     </div>
                 </div>
-            </form>
+                <div class="items-search">
+                    <form action="MovieServlet" method="get" class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control boxed rounded-s" name="txtSearchValue"
+                                   placeholder="Search for...">
+                            <span class="input-group-btn">
+                                        <button class="btn btn-secondary rounded-s" type="submit" name="action"
+                                                value="search">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card items">
+                <ul class="item-list striped">
+                    <li class="item item-list-header">
+                        <div class="item-row">
+                            <div class="item-col fixed item-col-check">
+                                <label class="item-check" id="select-all-items1">
+                                    <input type="checkbox" class="checkbox">
+                                    <span></span>
+                                </label>
+                            </div>
+
+                            <div class="item-col item-col-header item-col-title">
+                                <div>
+                                    <span>Name</span>
+                                </div>
+                            </div>
+                            <div class="item-col item-col-header item-col-category">
+                                <div class="no-overflow">
+                                    <span>Comment</span>
+                                </div>
+                            </div>
+                            <div class="item-col item-col-header item-col-date">
+                                <div>
+                                    <span>Published</span>
+                                </div>
+                            </div>
+                            <div class="item-col item-col-header fixed item-col-actions-dropdown"></div>
+                        </div>
+                    </li>
+                    <c:forEach var="rv" items="${review}">
+                        <li class="item">
+
+                            <div class="item-row">
+
+                                <div class="item-col fixed item-col-check">
+                                    <label class="item-check" id="select-all-items2">
+                                        <input type="checkbox" class="checkbox">
+                                        <span></span>
+                                    </label>
+                                </div>
+
+
+                                <div class="item-col fixed pull-left item-col-title">
+                                    <div class="item-heading">Name</div>
+                                    <div>
+                                        <a class="">
+                                            <h4 class="item-title"> ${rv.userId} </h4>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                                <div class="item-col item-col-category no-overflow">
+                                    <div class="item-heading">Content</div>
+                                    <div class="no-overflow">
+                                        <a>${rv.text}</a>
+                                    </div>
+                                </div>
+                                <div class="item-col item-col-date">
+                                    <div class="item-heading">Published</div>
+                                </div>
+                                <div class="item-col fixed item-col-actions-dropdown">
+                                    <div class="item-actions-dropdown">
+                                        <a class="item-actions-toggle-btn">
+                                                <span class="inactive">
+                                                    <i class="fa fa-cog"></i>
+                                                </span>
+                                            <span class="active">
+                                                    <i class="fa fa-chevron-circle-right"></i>
+                                                </span>
+                                        </a>
+                                        <div class="item-actions-block">
+                                            <ul class="item-actions-list">
+                                                <li>
+                                                    <a href='<c:url value="/ReviewServlet?action=delete&id=${rv.id}"/>'
+                                                       title="Delete Comment">
+                                                        <i class="fa fa-trash-o "></i>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="" title="Info details">
+                                                        <i class="fas fa-info"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+
+            <nav class="text-right">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#"> Prev </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#"> 1 </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"> 2 </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"> 3 </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"> 4 </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"> 5 </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"> Next </a>
+                    </li>
+                </ul>
+            </nav>
         </article>
         <footer class="footer">
             <div class="footer-block buttons">
                 <iframe class="footer-github-btn"
                         src="https://ghbtns.com/github-btn.html?user=modularcode&amp;repo=modular-admin-html&amp;type=star&amp;count=true"
                         frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
-            </div>
-            <div class="footer-block author">
-                <ul>
-                    <li> created by
-                        <a href="https://github.com/modularcode">ModularCode</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/modularcode/modular-admin-html#get-in-touch">get in touch</a>
-                    </li>
-                </ul>
             </div>
         </footer>
         <div class="modal fade" id="modal-media">
@@ -426,80 +491,7 @@
                         <div class="tab-content modal-tab-content">
                             <div class="tab-pane fade" id="gallery" role="tabpanel">
                                 <div class="images-container">
-                                    <div class="row">
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                                            <div class="image-container">
-                                                <div class="image"
-                                                     style="background-image:url('../../s3.amazonaws.com/uifaces/faces/twitter/eduardo_olv/128.jpg')"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="row"></div>
                                 </div>
                             </div>
                             <div class="tab-pane fade active in" id="upload" role="tabpanel">
@@ -582,4 +574,3 @@
 </body>
 
 </html>
-

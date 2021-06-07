@@ -32,11 +32,11 @@ public class UserServlet extends HttpServlet {
             case "update":
                 userService.updateFormB1User(request,response);
                 break;
-            case "update1":
-                userService.updateFormB2User(request,response);
-                break;
             case "remove":
                 userService.removeUser(request,response);
+                break;
+            case "updatepassword":
+                userService.formChangePassword(request,response);
                 break;
             case "showclientuser":
                 userService.showAllUserClient(request,response);
@@ -63,10 +63,8 @@ public class UserServlet extends HttpServlet {
             case "update":
                 userService.updateB1User(request,response);
                 break;
-            case "update1":
-                userService.updateB2User(request,response);
-                break;
-            case "remove":
+            case "updatepassword":
+                userService.changePassword(request,response);
                 break;
             default:
                 userService.enterHome(request,response);

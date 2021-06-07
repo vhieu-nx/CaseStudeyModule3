@@ -40,14 +40,14 @@ public class CommonController extends HttpServlet {
         String name = req.getParameter("name");
         List<MovieModel> list = categoryDao.findNameCategory(name);
         req.setAttribute("name",name);
-        req.setAttribute("list",list);
+        req.setAttribute("listMovie",list);
         req.getRequestDispatcher("/show-movies.jsp").forward(req, resp);
     }
 
     private void searchMovies(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         List<MovieModel> list = movieService.selectUserByName(name);
-        req.setAttribute("list", list);
+        req.setAttribute("listMovie", list);
         req.getRequestDispatcher("/show-movies.jsp").forward(req, resp);
     }
 }

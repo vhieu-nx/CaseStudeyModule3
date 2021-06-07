@@ -145,15 +145,30 @@
                 </div>
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                        <li>
+                        <li class="active">
                             <a href="#">
                                 <i class="fa fa-home"></i> Dashboard </a>
                         </li>
-                        <li class="active open">
-                            <a href="items-list.jsp">
-                                <i class="fa fa-th-large"></i> Items List
+                        <li>
+                            <a href="/admin-categories">
+                                <i class="fa fa-th-large"></i> Category List
                             </a>
+                        </li>
 
+                        <li>
+                            <a href="/MovieServlet">
+                                <i class="fa fa-th-large"></i> Movie List
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/ReviewServlet">
+                                <i class="fa fa-th-large"></i> Review List
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Login?action=showclientuser">
+                                <i class="fa fa-th-large"></i> User List
+                            </a>
                         </li>
                         <li>
                             <a href="forms.jsp">
@@ -347,7 +362,7 @@
                             <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                         </div>
                     </li>
-                    <c:forEach var="user" items="${user}">
+                    <c:forEach var="review" items="${user}">
                         <li class="item">
                             <div class="item-row">
                                 <div class="item-col fixed item-col-check">
@@ -361,14 +376,14 @@
                                     <div class="item-heading">Name</div>
                                     <div>
                                         <a class="">
-                                            <h4 class="item-title"> ${user.name} </h4>
+                                            <h4 class="item-title"> ${review.name} </h4>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="item-col item-col-category no-overflow">
                                     <div class="item-heading">Email</div>
                                     <div class="no-overflow">
-                                        <a >${user.email}</a>
+                                        <a >${review.email}</a>
                                     </div>
                                 </div>
 
@@ -388,7 +403,7 @@
                                         <div class="item-actions-block">
                                             <ul class="item-actions-list">
                                                 <li>
-                                                    <a  href="Login?action=remove&id=${user.id}" title="Delete User">
+                                                    <a href="Login?action=remove&id=${review.id}" title="Delete User">
                                                         <i class="fa fa-trash-o "></i>
                                                     </a>
                                                 </li>

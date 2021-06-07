@@ -53,29 +53,12 @@ public class UserService implements IUserService {
         UserModel userModel = new UserModel(name, email, password);
         userDAO.save(userModel);
         enterHome(request,response);
-//        try {
-//            response.sendRedirect(request.getContextPath() + "/trangchu");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
     }
 
     @Override
     public void updateFormB1User(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "wedmovie/updateuser/update1.jsp";
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
-        try {
-            requestDispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void updateFormB2User(HttpServletRequest request, HttpServletResponse response) {
-        String jsp = "wedmovie/updateuser/update2.jsp";
+        String jsp = "AdminTeamplate/updatelogin.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
         try {
             requestDispatcher.forward(request, response);
@@ -88,7 +71,7 @@ public class UserService implements IUserService {
 
     @Override
     public void updateB1User(HttpServletRequest request, HttpServletResponse response) {
-        String email;
+        String email = null;
         UserModel userModel = new UserModel();
         try {
             email = request.getParameter("email");
@@ -99,33 +82,15 @@ public class UserService implements IUserService {
 //                ................................
             }
         } catch (Error e) {
-            request.setAttribute("status", "Email Không có trên hệ thống");
+//            request.setAttribute("status", "Email Không có trên hệ thống");
 //            Hiển thị ra đâu?????
 //            ...........................
         }
-        request.setAttribute("userModel", userModel);
-        try {
-            response.sendRedirect("/UserServlet?action=update1");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void updateB2User(HttpServletRequest request, HttpServletResponse response) {
-        String email = request.getParameter("email");
-        UserModel userModel = userDAO.findByEmail(email);
-        if (userModel != null) {
-            String name = request.getParameter("name");
-            String password = request.getParameter("password");
-            UserModel userModel1 = new UserModel(name, email, password);
-            userDAO.updateUser(email, userModel1);
-        } else {
-//            làm sau
-//            ......
-//            .......
-        }
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        UserModel userModel1 = new UserModel(name, email, password);
+        userDAO.updateUser(email, userModel1);
+        enterHome(request,response);
 
     }
 
@@ -163,11 +128,7 @@ public class UserService implements IUserService {
         UserModel userModel = userDAO.findUserName(email, password);
         if (userModel != null) {
             if (userModel.getRole().equalsIgnoreCase("CLIENT")) {
-//                String name = userModel.getName();
                 try {
-//                    Cookie cookie = new Cookie(email, password);
-//                    cookie.setMaxAge(60 * 1);
-//                    response.addCookie(cookie);
                     HttpSession session = request.getSession();
 
                     session.setAttribute("userModel", userModel);
@@ -187,7 +148,6 @@ public class UserService implements IUserService {
                 }
             }
         } else {
-
             String jsp = "/index.jsp";
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
             try {
@@ -217,6 +177,35 @@ public class UserService implements IUserService {
         SessionUtils.getInstance().removeValue(request, "userModel");
         try {
             response.sendRedirect(request.getContextPath() + "/Login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changePassword(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        UserModel userModel = userDAO.findUserByEmailandName(name,email);
+        if (userModel!=null){
+            String password = request.getParameter("password");
+            String confirmPassword = request.getParameter("password1");
+            if (password.equals(confirmPassword)){
+                UserModel userModel1 = new UserModel(name,email,password);
+                userDAO.updateUser(email,userModel1);
+                enterHome(request,response);
+            }
+        }
+    }
+
+    @Override
+    public void formChangePassword(HttpServletRequest request, HttpServletResponse response) {
+        String jsp = "AdminTeamplate/updatepassword.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
