@@ -181,4 +181,33 @@ public class UserService implements IUserService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void changePassword(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        UserModel userModel = userDAO.findUserByEmailandName(name,email);
+        if (userModel!=null){
+            String password = request.getParameter("password");
+            String confirmPassword = request.getParameter("password1");
+            if (password.equals(confirmPassword)){
+                UserModel userModel1 = new UserModel(name,email,password);
+                userDAO.updateUser(email,userModel1);
+                enterHome(request,response);
+            }
+        }
+    }
+
+    @Override
+    public void formChangePassword(HttpServletRequest request, HttpServletResponse response) {
+        String jsp = "AdminTeamplate/updatepassword.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(jsp);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

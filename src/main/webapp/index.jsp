@@ -98,7 +98,7 @@
                 <a style="color: mediumblue" href="/Login?action=update">Login_Update</a>
             </div>
             <div class="login-signup">
-                <a href="reset.html" class="forgot-btn pull-right">Forgot password?</a>            </div>
+                <a href="/Login?action=updatepassword" class="forgot-btn pull-right">Forgot password?</a></div>
             <button type="submit" style="color:#e91010" class="theme-btn" value="login">Đăng Nhập</button>
             <p>${s}</p>
             <%--					<a href="/UserServlet" class="theme-btn">LOG IN</a>--%>

@@ -142,6 +142,28 @@ public class UserDAO implements IUserDAO {
         return userModel;
     }
 
+    @Override
+    public UserModel findUserByEmailandName(String name, String email) {
+        UserModel userModel = null;
+        String sql = "select * from user where username = ? and email =?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,name);
+            preparedStatement.setString(2,email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("user_id");
+                String password= resultSet.getString("password");
+                String role = resultSet.getString("role");
+                userModel = new UserModel(id,name,email,password,role);
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return userModel;
+    }
+
 
     @Override
     public UserModel findByEmail(String email) {
