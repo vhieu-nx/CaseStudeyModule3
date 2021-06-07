@@ -22,7 +22,7 @@ public class ReviewService implements IReviewService {
             " VALUES (?, ?, ?);";
     private static final String UPDATE_REVIEW = "UPDATE" + REVIEWS_TABLE + "SET text = ? WHERE review_id=?";
     private static final String SELECT_ALL_REVIEW = "select  * from review";
-    private static final String DELETE_REVIEW = "delete from " + REVIEWS_TABLE +"where review_id=?";
+    private static final String DELETE_REVIEW = "delete from review where review_id=?";
     private static final String SELECT_ReviewByID ="select  * from review where move_id=?";
 
 

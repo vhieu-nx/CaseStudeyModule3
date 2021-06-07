@@ -361,7 +361,7 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
-                            <c:forEach var="categories" items="${listMovie}">
+                            <c:forEach var="rv" items="${listMovie}">
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
@@ -372,21 +372,21 @@
                                     </div>
                                     <div class="item-col fixed item-col-img md">
                                         <a >
-                                            <div class="item-img rounded" style="background-image: url(${categories.image_movie})"></div>
+                                            <div class="item-img rounded" style="background-image: url(${rv.image_movie})"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">Name</div>
                                         <div>
                                             <a  class="">
-                                                <h4 class="item-title"> ${categories.title} </h4>
+                                                <h4 class="item-title"> ${rv.title} </h4>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">Content</div>
                                         <div class="no-overflow">
-                                            <a>${categories.content}</a>
+                                            <a>${rv.content}</a>
                                         </div>
                                     </div>
 
@@ -406,7 +406,7 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a href="MovieServlet?action=delete&id=${categories.movie_id}" title="Delete Film">
+                                                        <a href="MovieServlet?action=delete&id=${rv.movie_id}" title="Delete Film">
                                                             <i class="fa fa-trash-o "></i>
                                                         </a>
                                                     </li>
@@ -417,7 +417,7 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="MovieServlet?action=edit&id=${categories.movie_id}" title="Edit Film">
+                                                        <a href="MovieServlet?action=edit&id=${rv.movie_id}" title="Edit Film">
                                                            <i class="fas fa-edit"></i>
                                                         </a>
                                                     </li>

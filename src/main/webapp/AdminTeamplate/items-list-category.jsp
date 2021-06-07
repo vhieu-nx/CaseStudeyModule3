@@ -352,7 +352,7 @@
                             <div class="item-col item-col-header fixed item-col-actions-dropdown"></div>
                         </div>
                     </li>
-                    <c:forEach var="categories" items="${categories}">
+                    <c:forEach var="rv" items="${categories}">
                         <li class="item">
                             <div class="item-row">
                                 <div class="item-col fixed item-col-check">
@@ -365,7 +365,7 @@
                                     <div class="item-heading">Name</div>
                                     <div>
                                         <a  class="">
-                                            <h4 class="item-title"> ${categories.name} </h4>
+                                            <h4 class="item-title"> ${rv.name} </h4>
                                         </a>
                                     </div>
                                 </div>
@@ -398,14 +398,14 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/admin-categories?action=showFormEdit&id=${categories.category_id}"
+                                                    <a href="/admin-categories?action=showFormEdit&id=${rv.category_id}"
                                                        title="Edit Film">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="/admin-categories?action=delete&category_id=${categories.category_id}" title="Delete Category">
+                                                    <a href="/admin-categories?action=delete&category_id=${rv.category_id}" title="Delete Category">
                                                         <i class="fas fa-info"></i>
                                                     </a>
                                                 </li>

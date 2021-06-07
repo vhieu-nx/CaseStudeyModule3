@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html class="no-js" lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -24,12 +24,9 @@
         var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
             {};
         var themeName = themeSettings.themeName || '';
-        if (themeName)
-        {
+        if (themeName) {
             document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
-        }
-        else
-        {
+        } else {
             document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
         }
     </script>
@@ -112,8 +109,10 @@
                         </div>
                     </li>
                     <li class="profile dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&amp;s=40')"> </div>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <div class="img"
+                                 style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&amp;s=40')"></div>
                             <span class="name"> John Doe </span>
                         </a>
                         <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -141,7 +140,9 @@
                             <span class="l l3"></span>
                             <span class="l l4"></span>
                             <span class="l l5"></span>
-                        </div> Modular Admin </div>
+                        </div>
+                        Modular Admin
+                    </div>
                 </div>
                 <nav class="menu">
                     <ul class="sidebar-menu metismenu" id="sidebar-menu">
@@ -198,7 +199,7 @@
                             <li class="customize">
                                 <div class="customize-item">
                                     <div class="row customize-header">
-                                        <div class="col-4"> </div>
+                                        <div class="col-4"></div>
                                         <div class="col-4">
                                             <label class="title">fixed</label>
                                         </div>
@@ -212,7 +213,8 @@
                                         </div>
                                         <div class="col-4">
                                             <label>
-                                                <input class="radio" type="radio" name="sidebarPosition" value="sidebar-fixed">
+                                                <input class="radio" type="radio" name="sidebarPosition"
+                                                       value="sidebar-fixed">
                                                 <span></span>
                                             </label>
                                         </div>
@@ -229,7 +231,8 @@
                                         </div>
                                         <div class="col-4">
                                             <label>
-                                                <input class="radio" type="radio" name="headerPosition" value="header-fixed">
+                                                <input class="radio" type="radio" name="headerPosition"
+                                                       value="header-fixed">
                                                 <span></span>
                                             </label>
                                         </div>
@@ -246,7 +249,8 @@
                                         </div>
                                         <div class="col-4">
                                             <label>
-                                                <input class="radio" type="radio" name="footerPosition" value="footer-fixed">
+                                                <input class="radio" type="radio" name="footerPosition"
+                                                       value="footer-fixed">
                                                 <span></span>
                                             </label>
                                         </div>
@@ -296,8 +300,9 @@
                 <div class="title-block">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3 class="title"> List Movies
-                                <a href="/MovieServlet?action=create" class="btn btn-primary btn-sm rounded-s"> Add New </a>
+                            <h3 class="title"> List Comment Movie
+<%--                                <a href="/MovieServlet?action=create" class="btn btn-primary btn-sm rounded-s"> Add--%>
+<%--                                    New </a>--%>
                                 <!--
          -->
                             </h3>
@@ -307,9 +312,11 @@
                 <div class="items-search">
                     <form action="MovieServlet" method="get" class="form-inline">
                         <div class="input-group">
-                            <input type="text" class="form-control boxed rounded-s" name="txtSearchValue" placeholder="Search for...">
+                            <input type="text" class="form-control boxed rounded-s" name="txtSearchValue"
+                                   placeholder="Search for...">
                             <span class="input-group-btn">
-                                        <button class="btn btn-secondary rounded-s" type="submit" name="action" value="search">
+                                        <button class="btn btn-secondary rounded-s" type="submit" name="action"
+                                                value="search">
                                             <i class="fa fa-search"></i>
                                         </button>
                                     </span>
@@ -344,12 +351,14 @@
                                     <span>Published</span>
                                 </div>
                             </div>
-                            <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
+                            <div class="item-col item-col-header fixed item-col-actions-dropdown"></div>
                         </div>
                     </li>
-                    <c:forEach var="review" items="${reviewmodel}">
+                    <c:forEach var="rv" items="${review}">
                         <li class="item">
+
                             <div class="item-row">
+
                                 <div class="item-col fixed item-col-check">
                                     <label class="item-check" id="select-all-items2">
                                         <input type="checkbox" class="checkbox">
@@ -357,20 +366,24 @@
                                     </label>
                                 </div>
 
+
                                 <div class="item-col fixed pull-left item-col-title">
                                     <div class="item-heading">Name</div>
                                     <div>
                                         <a class="">
-                                            <h4 class="item-title"> ${review.userId} </h4>
+                                            <h4 class="item-title"> ${rv.userId} </h4>
                                         </a>
                                     </div>
                                 </div>
+
+
                                 <div class="item-col item-col-category no-overflow">
-                                    <div class="item-heading">Comment</div>
+                                    <div class="item-heading">Content</div>
                                     <div class="no-overflow">
-                                        <a >${review.text}</a>
+                                        <a>${rv.text}</a>
                                     </div>
                                 </div>
+
 
                                 <div class="item-col item-col-date">
                                     <div class="item-heading">Published</div>
@@ -388,16 +401,24 @@
                                         <div class="item-actions-block">
                                             <ul class="item-actions-list">
                                                 <li>
-                                                    <a href="Login?action=remove&id=${review.id}" title="Delete User">
+                                                    <a href='<c:url value="/ReviewServlet?action=delete&id=${rv.id}"/>'
+                                                       title="Delete Comment">
                                                         <i class="fa fa-trash-o "></i>
                                                     </a>
                                                 </li>
 
+                                                <li>
+                                                    <a href="" title="Info details">
+                                                        <i class="fas fa-info"></i>
+                                                    </a>
+                                                </li>
 
                                             </ul>
+
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </li>
                     </c:forEach>
@@ -432,7 +453,9 @@
         </article>
         <footer class="footer">
             <div class="footer-block buttons">
-                <iframe class="footer-github-btn" src="https://ghbtns.com/github-btn.html?user=modularcode&amp;repo=modular-admin-html&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
+                <iframe class="footer-github-btn"
+                        src="https://ghbtns.com/github-btn.html?user=modularcode&amp;repo=modular-admin-html&amp;type=star&amp;count=true"
+                        frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
             </div>
         </footer>
         <div class="modal fade" id="modal-media">
@@ -457,15 +480,19 @@
                         <div class="tab-content modal-tab-content">
                             <div class="tab-pane fade" id="gallery" role="tabpanel">
                                 <div class="images-container">
-                                    <div class="row"> </div>
+                                    <div class="row"></div>
                                 </div>
                             </div>
                             <div class="tab-pane fade active in" id="upload" role="tabpanel">
                                 <div class="upload-container">
                                     <div id="dropzone">
-                                        <form action="https://modularcode.io/" method="POST" enctype="multipart/form-data" class="dropzone needsclick dz-clickable" id="demo-upload">
+                                        <form action="https://modularcode.io/" method="POST"
+                                              enctype="multipart/form-data" class="dropzone needsclick dz-clickable"
+                                              id="demo-upload">
                                             <div class="dz-message-block">
-                                                <div class="dz-message needsclick"> Drop files here or click to upload. </div>
+                                                <div class="dz-message needsclick"> Drop files here or click to
+                                                    upload.
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -517,11 +544,9 @@
     </div>
 </div>
 <script>
-    (function(i, s, o, g, r, a, m)
-    {
+    (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function()
-        {
+        i[r] = i[r] || function () {
             (i[r].q = i[r].q || []).push(arguments)
         }, i[r].l = 1 * new Date();
         a = s.createElement(o),

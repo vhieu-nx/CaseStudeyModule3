@@ -28,6 +28,9 @@ public class ReviewServlet extends HttpServlet {
             action ="";
         }
         switch (action){
+            case "delete":
+                deleteReview(req,resp);
+                break;
             default:
                 showAllReview(req,resp);
                 break;
@@ -36,6 +39,13 @@ public class ReviewServlet extends HttpServlet {
     }
 
     private void deleteReview(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        review.delete(id);
+        try {
+            resp.sendRedirect(req.getContextPath() + "/ReviewServlet");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

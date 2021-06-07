@@ -38,6 +38,14 @@ public class ReviewModel {
         this.movieId = movieId;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getUserLogin() {
         return userLogin;
     }
